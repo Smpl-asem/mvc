@@ -2,7 +2,6 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using test.Models;
 
-namespace test.Controllers;
 
 public class HomeController : Controller
 {
