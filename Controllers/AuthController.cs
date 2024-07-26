@@ -1,8 +1,13 @@
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using test.Models;
 
-public class AuthController : Controller
+public class AuthController : ParrentController 
 {
     private readonly string salt;
     private readonly Context db;
@@ -41,9 +46,16 @@ public class AuthController : Controller
         {
             CreateUserLog((int)check.Id, 1, true);
             //return Ok(CreateToken(check.Username, check.Id.ToString()));
-            return Ok("login Done");
+            if (!Request.Cookies.Any(x => x.Key == "JWT_TOKEN"))
+                Response.Cookies.Append("JWT_TOKEN", CreateToken(check.Username, check.Id.ToString()), new CookieOptions
+                {
+                    Expires = DateTime.Now.AddMinutes(30),
+                    HttpOnly = true,
+                    Secure = true
+                });
+            return RedirectToAction("index" , "home");
         }
-        return View();
+        
     }
 
     [HttpGet]
@@ -159,14 +171,14 @@ public class AuthController : Controller
         CreateUserLog((int)check.Id, 4, true);
 
         //return Ok(SmsCode(newSms.SmsCode, check.Phone));
-        ViewBag.smsPhone =  check.Phone.Substring(check.Phone.Count()-4) + "*****09";
+        ViewBag.smsPhone = check.Phone.Substring(check.Phone.Count() - 4) + "*****09";
         ViewBag.userId = check.Id;
         return View("Verify");
 
     }
     [HttpPost]
     [Route("api/verify")]
-     public IActionResult Verify(int userid , string otp)
+    public IActionResult Verify(int userid, string otp)
     {
         Users check = db.Users_tbl.Find(userid);
         if (check == null)
@@ -216,6 +228,28 @@ public class AuthController : Controller
             CreateUserLog((int)check.Id, 5, false);
             return Ok("you Must Try 10 min later.");
         }
+    }
+
+    private string CreateToken(string Username, string id)
+    {
+        SymmetricSecurityKey secretKey = new SymmetricSecurityKey(Encoding.Default.GetBytes("SymmetricSecurityKey secretKey Encoding.Default.GetBytes"));
+        SigningCredentials Credentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+
+        Claim[] claims = new Claim[]{
+            new Claim("username",Username),
+            new Claim("id",id)
+        };
+
+        var token = new JwtSecurityToken(
+            issuer: "Issuer",
+            audience: "Audience",
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(30),
+            signingCredentials: Credentials
+        );
+
+        return new JwtSecurityTokenHandler().WriteToken(token);
+
     }
 
     private string SmsCode(string Code, string Phone)

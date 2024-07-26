@@ -1,20 +1,27 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using test.Models;
 
 
-public class HomeController : Controller
+public class HomeController : ParrentController
 {
-   
 
     public IActionResult Index()
     {
+        if (Request.Cookies.TryGetValue("JWT_TOKEN", out string token))
+        {
+            // اضافه کردن توکن به هدر Authorization
+            HttpContext.Request.Headers.Add("Authorization", $"Bearer {token}");
+        }
         return View();
     }
 
-    public IActionResult Privacy()
+    [HttpGet]
+    [Authorize]
+    public string Privacy()
     {
-        return View();
+        return "انجام شد ؟";
     }
 
     public IActionResult test()
