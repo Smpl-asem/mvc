@@ -91,7 +91,7 @@
               <h4 class="mb-3 secondary-font">نام نویسی</h4>
               <p class="mb-4">اطلاعات زیر را تکمیل کنید.</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="register" method="POST">
                 <div class="mb-3">
                   <label for="username" class="form-label">نام کاربری</label>
                   <input type="text" class="form-control text-start" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" autofocus dir="ltr">
@@ -107,13 +107,6 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-                <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="passwordConfirm">رمز عبور</label>
-                  <div class="input-group input-group-merge">
-                    <input type="password" id="passwordConfirm" class="form-control text-start" name="passwordConfirm" placeholder="············" aria-describedby="passwordConfirm" dir="ltr">
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
                 <div class="mb-3">
                   <label for="FirstName" class="form-label">نام</label>
                   <input type="text" class="form-control text-start" id="FirstName" name="FirstName" placeholder="نام خود را وارد کنید "dir="ltr">
@@ -123,12 +116,20 @@
                   <input type="text" class="form-control text-start" id="LastName" name="LastName" placeholder="نام خانوادگی خود را وارد کنید "dir="ltr">
                 </div>
                 <div class="mb-3">
-                  <label for="NCode" class="form-label">کد ملی</label>
-                  <input type="text" class="form-control text-start" id="NCode" name="NCode" placeholder="کد ملی خود را وارد کنید "dir="ltr">
+                  <label for="NatinalCode" class="form-label">کد ملی</label>
+                  <input type="text" class="form-control text-start" id="NatinalCode" name="NatinalCode" placeholder="کد ملی خود را وارد کنید "dir="ltr">
+                </div>
+                <div class="mb-3">
+                  <label for="PerconalCode" class="form-label">کد پرسنلی</label>
+                  <input type="text" class="form-control text-start" id="PerconalCode" name="PerconalCode" placeholder="کد پرسنلی خود را وارد کنید "dir="ltr">
+                </div>
+                <div class="mb-3">
+                  <label for="Addres" class="form-label">آدرس</label>
+                  <input type="text" class="form-control text-start" id="Addres" name="Addres" placeholder="آدرس خود را وارد کنید "dir="ltr">
                 </div>
                 <div class="mb-3">
                   <label for="ProfileImage" class="form-label">تصویر پروفایل</label>
-                  <input type="text" class="form-control text-start" id="ProfileImage" name="ProfileImage" placeholder="تصویر پروفایل خود را انتخاب کنید "dir="ltr">
+                  <input type="text" class="form-control text-start" id="ProfileImage" name="Profile" placeholder="تصویر پروفایل خود را انتخاب کنید "dir="ltr">
                 </div>
 
                 <div class="mb-3">
@@ -145,7 +146,7 @@
 
               <p class="text-center">
                 <span>حساب کاربری دارید؟</span>
-                <a href="auth-login-basic.html">
+                <a href="login">
                   <span>وارد شوید</span>
                 </a>
               </p>

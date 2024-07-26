@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IjlRupnYzRkGhSsijGn/jwx/hhAsp3cG8oHZNA2oOqM=",
+  "Hash": "38A1P49OPUxLmhGwcbRnn++nSoLxJ6PkqTByudrXxzU=",
   "Source": "test",
   "BasePath": "_content/test",
   "Mode": "Default",
@@ -1841,25 +1841,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\brands\\support-label.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\brands\\twitter-label.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/brands/twitter-label.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\brands\\twitter-label.png"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\brands\\twitter.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -1877,6 +1858,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\brands\\twitter.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\brands\\twitter-label.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/brands/twitter-label.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\brands\\twitter-label.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\brands\\ubuntu.png",
@@ -2373,25 +2373,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\american-ex.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\amex-cc.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/amex-cc.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\amex-cc.png"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\amex.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -2411,12 +2392,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\amex.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\diners-cc.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\amex-cc.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/diners-cc.png",
+      "RelativePath": "assets/img/icons/payments/amex-cc.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2427,7 +2408,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\diners-cc.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\amex-cc.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\diners.png",
@@ -2449,12 +2430,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\diners.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\discover-cc.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\diners-cc.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/discover-cc.png",
+      "RelativePath": "assets/img/icons/payments/diners-cc.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2465,7 +2446,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\discover-cc.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\diners-cc.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\discover.png",
@@ -2487,12 +2468,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\discover.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\jcb-cc.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\discover-cc.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/jcb-cc.png",
+      "RelativePath": "assets/img/icons/payments/discover-cc.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2503,7 +2484,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\jcb-cc.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\discover-cc.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\jcb.png",
@@ -2544,6 +2525,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\jcb15-cc.png"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\jcb-cc.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/payments/jcb-cc.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\jcb-cc.png"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\maestro-cc.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -2563,12 +2563,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\maestro-cc.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\master-dark.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\mastercard.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/master-dark.png",
+      "RelativePath": "assets/img/icons/payments/mastercard.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2579,26 +2579,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\master-dark.png"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\master-light.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/master-light.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\master-light.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\mastercard.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\mastercard-cc.png",
@@ -2639,12 +2620,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\mastercard-label.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\mastercard.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\master-dark.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/mastercard.png",
+      "RelativePath": "assets/img/icons/payments/master-dark.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2655,7 +2636,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\mastercard.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\master-dark.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\master-light.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/payments/master-light.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\master-light.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\paypal.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/payments/paypal.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\paypal.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\paypal-dark.png",
@@ -2696,25 +2715,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\paypal-light.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\paypal.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/paypal.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\paypal.png"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\uatp-cc.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -2751,6 +2751,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\unionPay-cc.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\visa.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/payments/visa.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\visa.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\visa-cc.png",
@@ -2808,25 +2827,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\visa-light.png"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\payments\\visa.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/payments/visa.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\payments\\visa.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\briefcase.png",
@@ -2905,25 +2905,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\cc-warning.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\chart-success.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/unicons/chart-success.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\chart-success.png"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\chart.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -2941,6 +2922,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\chart.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\chart-success.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/unicons/chart-success.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\chart-success.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\community.png",
@@ -2981,25 +2981,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\computer.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\cube-secondary.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/unicons/cube-secondary.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\cube-secondary.png"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\cube.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -3017,6 +2998,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\cube.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\cube-secondary.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/unicons/cube-secondary.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\cube-secondary.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\desktop.png",
@@ -3057,25 +3057,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\paypal.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\rocket-square.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/unicons/rocket-square.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\rocket-square.png"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\rocket.png",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -3095,12 +3076,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\rocket.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\wallet-info.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\rocket-square.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/img/icons/unicons/wallet-info.png",
+      "RelativePath": "assets/img/icons/unicons/rocket-square.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3111,7 +3092,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\wallet-info.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\rocket-square.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\wallet.png",
@@ -3131,6 +3112,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\wallet.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\icons\\unicons\\wallet-info.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/img/icons/unicons/wallet-info.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\icons\\unicons\\wallet-info.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\img\\illustrations\\boy-deal-review-dark.png",
@@ -4786,25 +4786,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\app-access-roles.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-calendar-events.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/app-calendar-events.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\app-calendar-events.js"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-calendar.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -4822,6 +4803,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\app-calendar.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-calendar-events.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/app-calendar-events.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\app-calendar-events.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-chat.js",
@@ -4976,6 +4976,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\app-user-list.js"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-user-view.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/app-user-view.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\app-user-view.js"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-user-view-account.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -5031,25 +5050,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\app-user-view-security.js"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\app-user-view.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/app-user-view.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\app-user-view.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\cards-actions.js",
@@ -5489,82 +5489,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\form-layouts.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-validation.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/form-validation.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\form-validation.js"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-wizard-icons.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/form-wizard-icons.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\form-wizard-icons.js"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-wizard-numbered.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/form-wizard-numbered.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\form-wizard-numbered.js"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-wizard-validation.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/form-wizard-validation.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\form-wizard-validation.js"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\forms-editors.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -5715,6 +5639,82 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\forms-typeahead.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-validation.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/form-validation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\form-validation.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-wizard-icons.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/form-wizard-icons.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\form-wizard-icons.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-wizard-numbered.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/form-wizard-numbered.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\form-wizard-numbered.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\form-wizard-validation.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/form-wizard-validation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\form-wizard-validation.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\main.js",
@@ -6059,6 +6059,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\pages-account-settings-security.js"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\pages-auth.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/js/pages-auth.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\pages-auth.js"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\pages-auth-multisteps.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -6095,25 +6114,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\pages-auth-two-steps.js"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\pages-auth.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/js/pages-auth.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\pages-auth.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\js\\pages-pricing.js",
@@ -6686,25 +6686,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\json\\table-ecommerce.json"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\json\\typeahead-data-2.json",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/json/typeahead-data-2.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\json\\typeahead-data-2.json"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\json\\typeahead.json",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -6722,6 +6703,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\json\\typeahead.json"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\json\\typeahead-data-2.json",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/json/typeahead-data-2.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\json\\typeahead-data-2.json"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\json\\user-list.json",
@@ -7085,25 +7085,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\svg\\icons\\wizard-checkout-payment.svg"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\core-dark.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/core-dark.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\core-dark.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\core.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -7121,6 +7102,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\core.css"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\core-dark.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/css/core-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\core-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\pages\\advanced-wizard.css",
@@ -7199,25 +7199,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\pages\\app-email.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\pages\\app-invoice-print.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/pages/app-invoice-print.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\pages\\app-invoice-print.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\pages\\app-invoice.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -7235,6 +7216,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\pages\\app-invoice.css"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\pages\\app-invoice-print.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/css/pages/app-invoice-print.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\pages\\app-invoice-print.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\pages\\app-kanban.css",
@@ -7465,25 +7465,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\pages\\wizard-ex-checkout.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\core-dark.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/rtl/core-dark.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\core-dark.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\core.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -7501,6 +7482,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\core.css"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\core-dark.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/css/rtl/core-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\core-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\rtl.css",
@@ -7522,25 +7522,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\rtl.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-bordered-dark.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/rtl/theme-bordered-dark.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-bordered-dark.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-bordered.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -7560,12 +7541,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-bordered.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-default-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-bordered-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/rtl/theme-default-dark.css",
+      "RelativePath": "assets/vendor/css/rtl/theme-bordered-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7576,7 +7557,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-default-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-bordered-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-default.css",
@@ -7598,12 +7579,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-default.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-raspberry-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-default-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/rtl/theme-raspberry-dark.css",
+      "RelativePath": "assets/vendor/css/rtl/theme-default-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7614,7 +7595,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-raspberry-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-default-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-raspberry.css",
@@ -7636,12 +7617,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-raspberry.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-semi-dark-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-raspberry-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/rtl/theme-semi-dark-dark.css",
+      "RelativePath": "assets/vendor/css/rtl/theme-raspberry-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7652,7 +7633,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-semi-dark-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-raspberry-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-semi-dark.css",
@@ -7674,12 +7655,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-semi-dark.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-bordered-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\rtl\\theme-semi-dark-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/theme-bordered-dark.css",
+      "RelativePath": "assets/vendor/css/rtl/theme-semi-dark-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7690,7 +7671,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-bordered-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\rtl\\theme-semi-dark-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-bordered.css",
@@ -7712,12 +7693,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-bordered.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-default-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-bordered-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/theme-default-dark.css",
+      "RelativePath": "assets/vendor/css/theme-bordered-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7728,7 +7709,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-default-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-bordered-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-default.css",
@@ -7750,12 +7731,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-default.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-raspberry-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-default-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/theme-raspberry-dark.css",
+      "RelativePath": "assets/vendor/css/theme-default-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7766,7 +7747,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-raspberry-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-default-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-raspberry.css",
@@ -7788,12 +7769,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-raspberry.css"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-semi-dark-dark.css",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-raspberry-dark.css",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/css/theme-semi-dark-dark.css",
+      "RelativePath": "assets/vendor/css/theme-raspberry-dark.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7804,7 +7785,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-semi-dark-dark.css"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-raspberry-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-semi-dark.css",
@@ -7824,6 +7805,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-semi-dark.css"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\css\\theme-semi-dark-dark.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/css/theme-semi-dark-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\css\\theme-semi-dark-dark.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\boxicons.css",
@@ -19511,6 +19511,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\er.svg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\es.svg",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/fonts/flags/1x1/es.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\es.svg"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\es-ca.svg",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -19566,25 +19585,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\es-ga.svg"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\es.svg",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/fonts/flags/1x1/es.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\es.svg"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\et.svg",
@@ -19758,6 +19758,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\ga.svg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gb.svg",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/fonts/flags/1x1/gb.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gb.svg"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gb-eng.svg",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -19832,25 +19851,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gb-wls.svg"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gb.svg",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/fonts/flags/1x1/gb.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gb.svg"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\1x1\\gd.svg",
@@ -24584,6 +24584,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\er.svg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\es.svg",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/fonts/flags/4x3/es.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\es.svg"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\es-ca.svg",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -24639,25 +24658,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\es-ga.svg"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\es.svg",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/fonts/flags/4x3/es.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\es.svg"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\et.svg",
@@ -24831,6 +24831,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\ga.svg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gb.svg",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/fonts/flags/4x3/gb.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gb.svg"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gb-eng.svg",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -24905,25 +24924,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gb-wls.svg"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gb.svg",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/fonts/flags/4x3/gb.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gb.svg"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\fonts\\flags\\4x3\\gd.svg",
@@ -29125,25 +29125,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\chartjs\\chartjs.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\cleavejs\\cleave-phone.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/cleavejs/cleave-phone.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\cleavejs\\cleave-phone.js"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\cleavejs\\cleave.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -29161,6 +29142,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\cleavejs\\cleave.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\cleavejs\\cleave-phone.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/cleavejs/cleave-phone.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\cleavejs\\cleave-phone.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\clipboard\\clipboard.js",
@@ -29182,25 +29182,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\clipboard\\clipboard.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\datatables-bs5\\datatables-bootstrap5.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\datatables-bs5\\datatables-bootstrap5.js"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\datatables-bs5\\datatables.bootstrap5.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -29218,6 +29199,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\datatables-bs5\\datatables.bootstrap5.css"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\datatables-bs5\\datatables-bootstrap5.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\datatables-bs5\\datatables-bootstrap5.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\datatables-bs5\\i18n\\fa.js",
@@ -29410,25 +29410,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\dropzone\\dropzone.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\flatpickr\\flatpickr-jdate.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/flatpickr/flatpickr-jdate.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\flatpickr\\flatpickr-jdate.js"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\flatpickr\\flatpickr.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -29467,12 +29448,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\flatpickr\\flatpickr.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\flatpickr\\l10n\\fa-jdate.js",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\flatpickr\\flatpickr-jdate.js",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/flatpickr/l10n/fa-jdate.js",
+      "RelativePath": "assets/vendor/libs/flatpickr/flatpickr-jdate.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -29483,7 +29464,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\flatpickr\\l10n\\fa-jdate.js"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\flatpickr\\flatpickr-jdate.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\flatpickr\\l10n\\fa.js",
@@ -29503,6 +29484,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\flatpickr\\l10n\\fa.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\flatpickr\\l10n\\fa-jdate.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/flatpickr/l10n/fa-jdate.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\flatpickr\\l10n\\fa-jdate.js"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\formvalidation\\dist\\css\\formValidation.css",
@@ -32298,25 +32298,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\hammer\\hammer.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight-github.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/highlight/highlight-github.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\highlight\\highlight-github.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -32353,6 +32334,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\highlight\\highlight.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight-github.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/highlight/highlight-github.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\highlight\\highlight-github.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\i18n\\i18n.js",
@@ -32450,6 +32450,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jkanban\\jkanban.js"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jquery\\jquery.js",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/jquery/jquery.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jquery\\jquery.js"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jquery-repeater\\jquery-repeater.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -32526,25 +32545,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jquery-timepicker\\jquery-timepicker.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jquery\\jquery.js",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/jquery/jquery.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jquery\\jquery.js"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\jstree.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -32581,63 +32581,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\jstree.js"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\32px.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/jstree/themes/default-dark/32px.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\32px.png"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\40px.png",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/jstree/themes/default-dark/40px.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\40px.png"
-    },
-    {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\throbber.gif",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/jstree/themes/default-dark/throbber.gif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\throbber.gif"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default\\32px.png",
@@ -32697,12 +32640,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default\\throbber.gif"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\layers-2x.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\32px.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/leaflet/images/layers-2x.png",
+      "RelativePath": "assets/vendor/libs/jstree/themes/default-dark/32px.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -32713,7 +32656,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\leaflet\\images\\layers-2x.png"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\32px.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\40px.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/jstree/themes/default-dark/40px.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\40px.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\throbber.gif",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/jstree/themes/default-dark/throbber.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\jstree\\themes\\default-dark\\throbber.gif"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\layers.png",
@@ -32735,12 +32716,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\leaflet\\images\\layers.png"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-icon-2x.png",
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\layers-2x.png",
       "SourceId": "test",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
       "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/leaflet/images/marker-icon-2x.png",
+      "RelativePath": "assets/vendor/libs/leaflet/images/layers-2x.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -32751,7 +32732,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-icon-2x.png"
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\leaflet\\images\\layers-2x.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-icon.png",
@@ -32771,6 +32752,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-icon-2x.png",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/leaflet/images/marker-icon-2x.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-icon-2x.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\leaflet\\images\\marker-shadow.png",
@@ -32963,25 +32963,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\pickr\\pickr-themes.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/pickr/pickr-themes.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\pickr\\pickr-themes.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\pickr\\pickr.js",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -32999,6 +32980,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\pickr\\pickr.js"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\pickr\\pickr-themes.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/pickr/pickr-themes.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\pickr\\pickr-themes.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\plyr\\plyr.css",
@@ -33058,25 +33058,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\popper\\popper.js"
     },
     {
-      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\quill\\editor-fa.css",
-      "SourceId": "test",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
-      "BasePath": "_content/test",
-      "RelativePath": "assets/vendor/libs/quill/editor-fa.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\quill\\editor-fa.css"
-    },
-    {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\quill\\editor.css",
       "SourceId": "test",
       "SourceType": "Discovered",
@@ -33094,6 +33075,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\quill\\editor.css"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\quill\\editor-fa.css",
+      "SourceId": "test",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\",
+      "BasePath": "_content/test",
+      "RelativePath": "assets/vendor/libs/quill/editor-fa.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\vendor\\libs\\quill\\editor-fa.css"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\wwwroot\\assets\\vendor\\libs\\quill\\fonts\\KaTeX_AMS-Regular.ttf",
