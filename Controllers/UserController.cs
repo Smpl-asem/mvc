@@ -10,13 +10,17 @@ using test.Models;
 
 public class UserController : ParrentController
 {
-   
 
+    private readonly Context db;
+    public UserController(Context _db)
+    {
+        db = _db;
+    }
 
     [HttpGet]
     public IActionResult ProfileUser()
     {
-        if (!CheckToken())
+        if (!CheckToken().Item1)
         {
             return RedirectToAction("login" , "auth");
         }
@@ -24,13 +28,23 @@ public class UserController : ParrentController
     }
 
     [HttpGet]
-    [Authorize]
     public IActionResult UserSetting()
     {
-        if (!CheckToken())
+        var check = CheckToken();
+        if (!check.Item1)
         {
-            return RedirectToAction("login");
+            return RedirectToAction("login", "auth");
         }
+
+        Users userCheck = db.Users_tbl.Find(Convert.ToInt32(check.Item2.FirstOrDefault(x => x.Type == "id").Value));
+        ViewBag.UserId = userCheck.Id;
+        ViewBag.FirstName = userCheck.FirstName;
+        ViewBag.LastName = userCheck.LastName;
+        ViewBag.Addres = userCheck.Addres;
+        ViewBag.Phone = userCheck.Phone;
+        ViewBag.Profile = userCheck.Profile;
+        ViewBag.NatinalCode = userCheck.NatinalCode;
+        ViewBag.PerconalCode = userCheck.PerconalCode;
         return View();
     }
  

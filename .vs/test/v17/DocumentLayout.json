@@ -11,20 +11,24 @@
       "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:controllers\\parrentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\views\\user\\usersetting.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:views\\user\\usersetting.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\views\\auth\\verify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,8 +46,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserSetting.cshtml",
+              "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\User\\UserSetting.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\UserSetting.cshtml",
+              "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\User\\UserSetting.cshtml",
+              "RelativeToolTip": "Views\\User\\UserSetting.cshtml",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAGMAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-26T18:27:48.31Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -52,7 +69,7 @@
               "RelativeDocumentMoniker": "Controllers\\ParrentController.cs",
               "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\ParrentController.cs",
               "RelativeToolTip": "Controllers\\ParrentController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAQwCQAAABEAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAwDMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-26T17:56:39.212Z",
               "EditorCaption": ""
@@ -65,10 +82,9 @@
               "RelativeDocumentMoniker": "Views\\Shared\\Error.cshtml",
               "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\Shared\\Error.cshtml",
               "RelativeToolTip": "Views\\Shared\\Error.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-26T15:17:56.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-26T15:17:56.382Z"
             },
             {
               "$type": "Document",
@@ -78,7 +94,7 @@
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAzAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-26T15:16:15.24Z",
               "EditorCaption": ""
@@ -93,38 +109,35 @@
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-26T14:49:10.324Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-26T14:49:10.324Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-26T14:38:16.159Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-26T14:38:16.159Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADEAAAAYAAAA",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAAADEAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-26T12:27:00.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-26T12:27:00.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Verify.cshtml",
               "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\Auth\\Verify.cshtml",
               "RelativeDocumentMoniker": "Views\\Auth\\Verify.cshtml",
@@ -132,12 +145,11 @@
               "RelativeToolTip": "Views\\Auth\\Verify.cshtml",
               "ViewState": "AQIAAFAAAAAAAAAAAAAAAF8AAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-26T12:04:48.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-26T12:04:48.315Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Context.cs",
               "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Models\\Context\\Context.cs",
               "RelativeDocumentMoniker": "Models\\Context\\Context.cs",

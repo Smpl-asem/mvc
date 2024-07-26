@@ -2,11 +2,12 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 public class ParrentController : Controller
 {
-    public bool CheckToken()
+    public (bool, Claim[]) CheckToken()
     {
 
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -26,23 +27,24 @@ public class ParrentController : Controller
             try
             {
                 var moz = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken); // چک میکنه ببینه درسته یا نه
+                HttpContext.Request.Headers.Add("Authorization", $"Bearer {token}"); // درست بود نمیدونم چیکارش میکنه !
+                return (true, moz.Claims.ToArray());
+
             }
             catch (Exception ex)
             {
                 Response.Cookies.Delete("JWT_TOKEN");
-                return false;
+                return (false, null);
 
             }
             // اضافه کردن توکن به هدر Authorization
-            HttpContext.Request.Headers.Add("Authorization", $"Bearer {token}"); // درست بود نمیدونم چیکارش میکنه !
-            return true;
 
         }
         else
         {
             // توکن موجود نیست
             // انجام عملیات مورد نظر (مثلاً ارسال پیغام خطا)
-            return false;
+            return (false, null);
         }
     }
 }
