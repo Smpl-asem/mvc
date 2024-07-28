@@ -2,6 +2,8 @@ using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -12,82 +14,117 @@ public class AuthController : ParrentController
     private readonly string salt;
     private readonly Context db;
 
+    private readonly  IWebHostEnvironment  _env;
 
-    public AuthController(Context _db)
+
+    public AuthController(Context _db, IWebHostEnvironment  env)
     {
         salt = "S@lt?";
         db = _db;
+        _env=env;
+
     }
 
 
     [HttpGet]
-    [Route("Login")]
+   
     public IActionResult login()
     {
+
+        if (User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("index","home");
+        }
         return View();
     }
 
 
     [HttpPost]
-    [Route("Login")]
+  
     public IActionResult login(string Username, string Password)
     {
         Users check = db.Users_tbl.FirstOrDefault(x => x.Username == Username.ToLower());
         if (check == null)
         {
-            return NotFound($"{Username} not found");
+            ViewBag.Error=("1اطلاعات وارد شده درست نیست");
         }
         else if (!BCrypt.Net.BCrypt.Verify(Password + salt + Username.ToLower(), check.Password))
         {
             CreateUserLog((int)check.Id, 1, false);
-            return Ok("Invalid Password !");
+            ViewBag.Error=("اطلاعات وارد شده درست نیست");
         }
         else
         {
             CreateUserLog((int)check.Id, 1, true);
-            //return Ok(CreateToken(check.Username, check.Id.ToString()));
-            if (!Request.Cookies.Any(x => x.Key == "JWT_TOKEN"))
-                Response.Cookies.Append("JWT_TOKEN", CreateToken(check.Username, check.Id.ToString()), new CookieOptions
-                {
-                    Expires = DateTime.Now.AddMinutes(30),
-                    HttpOnly = true,
-                    Secure = true
-                });
+            ClaimsIdentity Identity=new ClaimsIdentity(new[]
+            {
+
+                new Claim(ClaimTypes.Name,check.FirstName+" "+check.LastName),
+                new Claim(ClaimTypes.NameIdentifier,check.Id.ToString()),
+                new Claim("Profile",check.Profile)
+              
+            },CookieAuthenticationDefaults.AuthenticationScheme);
+
+
+            var princpal=new ClaimsPrincipal(Identity);
+
+            var properties = new AuthenticationProperties{
+                ExpiresUtc = DateTime.UtcNow.AddMonths(1),
+                IsPersistent = true
+            };
+
+             HttpContext.SignInAsync (princpal, properties);
+                
             return RedirectToAction("index" , "home");
         }
+        return View();
         
     }
 
     [HttpGet]
-    [Route("Register")]
+ 
     public IActionResult Register()
     {
         return View();
     }
+
     [HttpPost]
-    [Route("Register")]
-    public IActionResult Register(DtodUser user)
+    public async Task<IActionResult> RegisterAsync(DtodUser user)
     {
-        if (user.IsNullOrEmpty())
-        {
-            return Ok("Complete Data Pls");
-        }
+
+        string PathSave;
+       
         Users check = db.Users_tbl.FirstOrDefault(x => x.Username == user.Username || x.NatinalCode == user.NatinalCode || x.Phone == user.Phone);
         if (check != null)
         {
             if (check.Username == user.Username.ToLower())
             {
-                return Ok("Invalid Username");
+                ViewBag.Error=("کاربر وارد شده تکراری است");
             }
             else if (check.NatinalCode == user.NatinalCode)
             {
-                return Ok("Invalid Natinal Code");
+                ViewBag.Error=("کد ملی وارد شده تکراری است");
             }
             else if (check.Phone == user.Phone)
             {
-                return Ok("Invalid Phone");
+               ViewBag.Error=("شماره تلفن وارد شده  تکراری است");
             }
         }
+               
+                string FileExtension = Path.GetExtension(user.Profile.FileName);
+                var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
+                var path = $"{_env.WebRootPath}\\uploads\\{NewFileName}";
+                PathSave=$"\\uploads\\{NewFileName}";
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+
+                    await user.Profile.CopyToAsync(stream);
+
+
+
+                }
+
+
         var NewUser = new Users
         {
             Username = user.Username.ToLower(),
@@ -98,33 +135,37 @@ public class AuthController : ParrentController
             Addres = user.Addres,
             NatinalCode = user.NatinalCode,
             PerconalCode = user.PerconalCode,
-            Profile = Uploadimage.Upload(user.Profile),
-            CreateDateTime = DateTime.Now
+            Profile = PathSave,
+            CreateDateTime = DateTime.Now,
+            Token="null"
         };
         db.Users_tbl.Add(NewUser);
         db.SaveChanges();
 
+
+        var  RoleCilentId=db.Role_tbl.Where(x=>x.Name=="client").Select(x=>x.Id).FirstOrDefault();
+
         db.UserRoles_tbl.Add(new UserRole
         {
             UserId = (int)NewUser.Id,
-            RoleId = 2
+            RoleId = RoleCilentId
         });
         db.SaveChanges();
 
         CreateUserLog((int)NewUser.Id, 7, true);
         CreateUserLog((int)NewUser.Id, 3, true);
-        return Ok("Succesful !");
+
+        ViewBag.Result="ثبت نام با موفقیت انجام شد ";
         return View();
     }
 
     [HttpGet]
-    [Route("forget")]
     public IActionResult Forget()
     {
         return View();
     }
+
     [HttpPost]
-    [Route("forget")]
     public IActionResult Forget(string Username, string NatinalCode)
     {
         Users check = db.Users_tbl.FirstOrDefault(x => x.Username == Username.ToLower() && x.NatinalCode == NatinalCode);
@@ -176,8 +217,8 @@ public class AuthController : ParrentController
         return View("Verify");
 
     }
+
     [HttpPost]
-    [Route("api/verify")]
     public IActionResult Verify(int userid, string otp)
     {
         Users check = db.Users_tbl.Find(userid);
@@ -273,6 +314,17 @@ public class AuthController : ParrentController
             CreateDateTime = DateTime.Now
         });
         db.SaveChanges();
+    }
+
+
+    public IActionResult NotAuthorized()
+    {
+        return View();
+    }
+    public IActionResult logout()
+    {
+         HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("login","Auth");
     }
 
 }

@@ -29,13 +29,11 @@ public class ParrentController : Controller
                 var moz = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken); // چک میکنه ببینه درسته یا نه
                 HttpContext.Request.Headers.Add("Authorization", $"Bearer {token}"); // درست بود نمیدونم چیکارش میکنه !
                 return (true, moz.Claims.ToArray());
-
             }
             catch (Exception ex)
             {
                 Response.Cookies.Delete("JWT_TOKEN");
                 return (false, null);
-
             }
             // اضافه کردن توکن به هدر Authorization
 

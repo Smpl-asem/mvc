@@ -47,9 +47,9 @@
   <body>
     <!-- Content -->
 
-    <div class="container-xxl">
+    <div class="container">
       <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner py-4">
+        <div class=" py-4">
           <!-- Register Card -->
           <div class="card">
             <div class="card-body">
@@ -88,48 +88,70 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-3 secondary-font">نام نویسی</h4>
+              <h4 class="mb-3 secondary-font"> ثبت نام</h4>
               <p class="mb-4">اطلاعات زیر را تکمیل کنید.</p>
 
-              <form id="formAuthentication" class="mb-3" action="register" method="POST">
+              @if (ViewBag.error != null)
+              {
+                    <p class="alert alert-danger text-center">@ViewBag.error</p>
+              }
+               @if (ViewBag.Result != null)
+              {
+                    <p class="alert alert-success text-center">@ViewBag.Result</p>
+              }
+
+              <form  class="mb-3" action="/Auth/register" method="POST" enctype="multipart/form-data">
+
+
+              <div class="row ">
+
+                <div class="col-6">
+
+                    <div class="mb-3">
+                  <label for="FirstName" class="form-label">نام</label>
+                  <input type="text" class="form-control text-start" id="FirstName" name="FirstName" placeholder="نام خود را وارد کنید "dir="ltr" required>
+                </div>
                 <div class="mb-3">
+                  <label for="LastName" class="form-label">نام خانوادگی</label>
+                  <input type="text" class="form-control text-start" id="LastName" name="LastName" placeholder="نام خانوادگی خود را وارد کنید "dir="ltr" required>
+                </div>
+
+
+                  <div class="mb-3">
                   <label for="username" class="form-label">نام کاربری</label>
-                  <input type="text" class="form-control text-start" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" autofocus dir="ltr">
+                  <input type="text" class="form-control text-start" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" autofocus dir="ltr" required>
                 </div>
                 <div class="mb-3">
                   <label for="phone" class="form-label">تلفن</label>
-                  <input type="text" class="form-control text-start" id="phone" name="phone" placeholder="تلفن همراه خود را وارد کنید" dir="ltr">
+                  <input type="text" class="form-control text-start" id="phone" name="phone" placeholder="تلفن همراه خود را وارد کنید" dir="ltr" required>
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">رمز عبور</label>
                   <div class="input-group input-group-merge">
-                    <input type="password" id="password" class="form-control text-start" name="password" placeholder="············" aria-describedby="password" dir="ltr">
+                    <input type="password" id="password" class="form-control text-start" name="password" placeholder="············" aria-describedby="password" dir="ltr" required>
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="FirstName" class="form-label">نام</label>
-                  <input type="text" class="form-control text-start" id="FirstName" name="FirstName" placeholder="نام خود را وارد کنید "dir="ltr">
+              
                 </div>
-                <div class="mb-3">
-                  <label for="LastName" class="form-label">نام خانوادگی</label>
-                  <input type="text" class="form-control text-start" id="LastName" name="LastName" placeholder="نام خانوادگی خود را وارد کنید "dir="ltr">
-                </div>
-                <div class="mb-3">
+
+                <div class="col-6">
+                   <div class="mb-3">
                   <label for="NatinalCode" class="form-label">کد ملی</label>
-                  <input type="text" class="form-control text-start" id="NatinalCode" name="NatinalCode" placeholder="کد ملی خود را وارد کنید "dir="ltr">
+                  <input type="text" class="form-control text-start" id="NatinalCode" name="NatinalCode" placeholder="کد ملی خود را وارد کنید "dir="ltr" required>
                 </div>
                 <div class="mb-3">
                   <label for="PerconalCode" class="form-label">کد پرسنلی</label>
-                  <input type="text" class="form-control text-start" id="PerconalCode" name="PerconalCode" placeholder="کد پرسنلی خود را وارد کنید "dir="ltr">
+                  <input type="text" class="form-control text-start" id="PerconalCode" name="PerconalCode" placeholder="کد پرسنلی خود را وارد کنید "dir="ltr" required>
                 </div>
                 <div class="mb-3">
                   <label for="Addres" class="form-label">آدرس</label>
-                  <input type="text" class="form-control text-start" id="Addres" name="Addres" placeholder="آدرس خود را وارد کنید "dir="ltr">
+                  <input type="text" class="form-control text-start" id="Addres" name="Addres" placeholder="آدرس خود را وارد کنید "dir="ltr" required>
                 </div>
+
                 <div class="mb-3">
                   <label for="ProfileImage" class="form-label">تصویر پروفایل</label>
-                  <input type="text" class="form-control text-start" id="ProfileImage" name="Profile" placeholder="تصویر پروفایل خود را انتخاب کنید "dir="ltr">
+                  <input type="file" class="form-control text-start" id="ProfileImage" name="Profile" placeholder="تصویر پروفایل خود را انتخاب کنید "dir="ltr" required>
                 </div>
 
                 <div class="mb-3">
@@ -141,7 +163,19 @@
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100">عضویت</button>
+
+                </div>
+
+              </div>
+
+                
+
+
+
+               
+                <button class="btn btn-primary d-grid w-100" type="submit"   >عضویت</button>
+
+
               </form>
 
               <p class="text-center">

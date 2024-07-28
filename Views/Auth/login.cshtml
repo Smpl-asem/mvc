@@ -94,10 +94,15 @@
               <h4 class="mb-3 secondary-font">به ایلیا استیل خوش آمدید!</h4>
               <p class="mb-4">لطفا وارد حساب خود شده و ماجراجویی را شروع کنید</p>
 
-              <form id="formAuthentication" class="mb-3" action="login" method="POST">
+              @if( ViewBag.Error != null)
+              {
+                 <p class="alert alert-danger text-center">@ViewBag.Error</p>           
+              }
+
+              <form  class="mb-3" action="/Auth/login" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label">نام کاربری</label>
-                  <input type="text" class="form-control text-start" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" autofocus dir="ltr">
+                  <input type="text" class="form-control text-start" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" autofocus dir="ltr" required>
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
@@ -107,7 +112,7 @@
                     </a>
                   </div>
                   <div class="input-group input-group-merge">
-                    <input type="password" id="password" class="form-control text-start" name="password" placeholder="············" aria-describedby="password" dir="ltr">
+                    <input type="password" id="password" class="form-control text-start" name="password" placeholder="············" aria-describedby="password" dir="ltr" required>
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
@@ -124,28 +129,14 @@
 
               <p class="text-center">
                 <span>کاربر جدید هستید؟</span>
-                <a href="register">
+                <a href="/auth/register">
                   <span>یک حساب بسازید</span>
                 </a>
               </p>
 
-              <div class="divider my-4">
-                <div class="divider-text">یا</div>
-              </div>
+            
 
-              <div class="d-flex justify-content-center">
-                <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
-                  <i class="tf-icons bx bxl-facebook"></i>
-                </a>
-
-                <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
-                  <i class="tf-icons bx bxl-google-plus"></i>
-                </a>
-
-                <a href="javascript:;" class="btn btn-icon btn-label-twitter">
-                  <i class="tf-icons bx bxl-twitter"></i>
-                </a>
-              </div>
+            
             </div>
           </div>
           <!-- /Register -->
