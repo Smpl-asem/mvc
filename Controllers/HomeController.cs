@@ -5,7 +5,7 @@ using test.Models;
 
 
 [Authorize]
-public class HomeController : ParrentController
+public class HomeController : Controller
 {
     public IActionResult Index()
     {

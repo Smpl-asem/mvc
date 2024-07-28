@@ -6,9 +6,25 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">
-                <h5 class="card-header heading-color">جزئیات پروفایل</h5>
+                <h5 class="card-header heading-color">جزئیات حساب کاربری</h5>
+                @if (ViewBag.error != null)
+            {
+              <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
+                <i class="bx bx-xs bx-store me-2"></i>
+                @ViewBag.error
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            }
+            @if (ViewBag.Result != null)
+            {
+              <div class="alert alert-solid-success" role="alert">
+                @ViewBag.Result
+              </div>
+            }
                 <!-- Account -->
+                <hr class="my-0">
                 <div class="card-body">
+                    <form onsum="/Auth/register" method="POST" enctype="multipart/form-data">
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
                         <img src="@ViewBag.Profile" alt="user-avatar" class="d-block rounded" height="100"
                              width="100" id="uploadedAvatar">
@@ -17,17 +33,15 @@
                                 <span class="d-none d-sm-block">ارسال تصویر جدید</span>
                                 <i class="bx bx-upload d-block d-sm-none"></i>
                                 <input type="file" id="upload" class="account-file-input" hidden
-                                       accept="image/png, image/jpeg">
+                                       accept="image/png, image/jpeg ,image/GIF" name="Profile">
                             </label>
 
 
-                            <p class="mb-0">فایل‌های JPG، GIF یا PNG مجاز هستند. حداکثر اندازه فایل 800KB.</p>
+                            <span class="mb-0">فایل‌های JPG، GIF یا PNG مجاز هستند. حداکثر اندازه فایل 800KB.</span>
                         </div>
+                        <hr class="my-0">
+
                     </div>
-                </div>
-                <hr class="my-0">
-                <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="firstName" class="form-label">نام</label>
@@ -41,7 +55,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="Phone">شماره تلفن</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="text" id="Phone" name="Phone"
+                                    <input type="text" id="Phone" name="Phone" readonly
                                            class="form-control text-start" placeholder="شماره تماس" value="@ViewBag.Phone" dir="ltr">
                                     <span class="input-group-text">IR</span>
                                 </div>
@@ -56,11 +70,8 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="PerconalCode" class="form-label">کد پرسنلی</label>
-                                <input class="form-control" type="text" name="PerconalCode" id="PerconalCode" readonly value="@ViewBag.PerconalCode">
+                                <input class="form-control" type="text" name="PerconalCode" id="PerconalCode" value="@ViewBag.PerconalCode">
                             </div>
-                            <input type="hidden" name="id" value="@ViewBag.UserId" />
-
-
                         </div>
                         <div class="mt-2">
                             <button type="submit" class="btn btn-primary me-2">ذخیره تغییرات</button>
@@ -69,31 +80,6 @@
                     </form>
                 </div>
                 <!-- /Account -->
-            </div>
-            <div class="card">
-                <h5 class="card-header heading-color">حذف حساب</h5>
-                <div class="card-body">
-                    <div class="mb-3 col-12 mb-0">
-                        <div class="alert alert-warning">
-                            <h6 class="alert-heading mb-1">آیا از حذف حساب خود اطمینان دارید؟</h6>
-                            <p class="mb-0">
-                                در صورتی که حساب خود را حذف کنید، بازگشتی وجود نخواهد داشت. لطفا مطمئن
-                                باشید.
-                            </p>
-                        </div>
-                    </div>
-                    <form id="formAccountDeactivation" onsubmit="return false">
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" name="accountActivation"
-                                   id="accountActivation">
-                            <label class="form-check-label" for="accountActivation">
-                                من غیرفعال کردن حساب خود را تایید
-                                می‌کنم
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-danger deactivate-account">غیرفعال کردن حساب</button>
-                    </form>
-                </div>
             </div>
         </div>
     </div>

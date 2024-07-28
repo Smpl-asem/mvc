@@ -9,80 +9,81 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using test.Models;
 
-public class AuthController : ParrentController 
+public class AuthController : Controller
 {
     private readonly string salt;
     private readonly Context db;
 
-    private readonly  IWebHostEnvironment  _env;
+    private readonly IWebHostEnvironment _env;
 
 
-    public AuthController(Context _db, IWebHostEnvironment  env)
+    public AuthController(Context _db, IWebHostEnvironment env)
     {
         salt = "S@lt?";
         db = _db;
-        _env=env;
+        _env = env;
 
     }
 
 
     [HttpGet]
-   
+
     public IActionResult login()
     {
 
         if (User.Identity.IsAuthenticated)
         {
-            return RedirectToAction("index","home");
+            return RedirectToAction("index", "home");
         }
         return View();
     }
 
 
     [HttpPost]
-  
+
     public IActionResult login(string Username, string Password)
     {
         Users check = db.Users_tbl.FirstOrDefault(x => x.Username == Username.ToLower());
         if (check == null)
         {
-            ViewBag.Error=("1اطلاعات وارد شده درست نیست");
+            ViewBag.Error = ("1اطلاعات وارد شده درست نیست");
         }
         else if (!BCrypt.Net.BCrypt.Verify(Password + salt + Username.ToLower(), check.Password))
         {
             CreateUserLog((int)check.Id, 1, false);
-            ViewBag.Error=("اطلاعات وارد شده درست نیست");
+            ViewBag.Error = ("اطلاعات وارد شده درست نیست");
         }
         else
         {
             CreateUserLog((int)check.Id, 1, true);
-            ClaimsIdentity Identity=new ClaimsIdentity(new[]
+            ClaimsIdentity Identity = new ClaimsIdentity(new[]
             {
 
                 new Claim(ClaimTypes.Name,check.FirstName+" "+check.LastName),
                 new Claim(ClaimTypes.NameIdentifier,check.Id.ToString()),
                 new Claim("Profile",check.Profile)
-              
-            },CookieAuthenticationDefaults.AuthenticationScheme);
+
+            }, CookieAuthenticationDefaults.AuthenticationScheme);
 
 
-            var princpal=new ClaimsPrincipal(Identity);
+            var princpal = new ClaimsPrincipal(Identity);
 
-            var properties = new AuthenticationProperties{
+            var properties = new AuthenticationProperties
+            {
                 ExpiresUtc = DateTime.UtcNow.AddMonths(1),
                 IsPersistent = true
             };
 
-             HttpContext.SignInAsync (princpal, properties);
-                
-            return RedirectToAction("index" , "home");
+            HttpContext.SignInAsync(princpal, properties);
+
+            return RedirectToAction("index", "home");
         }
         return View();
-        
+
     }
 
     [HttpGet]
- 
+
     public IActionResult Register()
     {
         return View();
@@ -93,69 +94,78 @@ public class AuthController : ParrentController
     {
 
         string PathSave;
-       
+
         Users check = db.Users_tbl.FirstOrDefault(x => x.Username == user.Username || x.NatinalCode == user.NatinalCode || x.Phone == user.Phone);
         if (check != null)
         {
             if (check.Username == user.Username.ToLower())
             {
-                ViewBag.Error=("کاربر وارد شده تکراری است");
+                ViewBag.Error = ("کاربر وارد شده تکراری است");
+
             }
             else if (check.NatinalCode == user.NatinalCode)
             {
-                ViewBag.Error=("کد ملی وارد شده تکراری است");
+                ViewBag.Error = ("کد ملی وارد شده تکراری است");
+
             }
             else if (check.Phone == user.Phone)
             {
-               ViewBag.Error=("شماره تلفن وارد شده  تکراری است");
+                ViewBag.Error = ("شماره تلفن وارد شده  تکراری است");
+
+            }
+            else
+            {
+                ViewBag.Error = "مشکلی پیش امده است ، با پشتیبانی تماس بگیرید";
             }
         }
-               
-                string FileExtension = Path.GetExtension(user.Profile.FileName);
-                var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
-                var path = $"{_env.WebRootPath}\\uploads\\{NewFileName}";
-                PathSave=$"\\uploads\\{NewFileName}";
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-
-                    await user.Profile.CopyToAsync(stream);
-
-
-
-                }
-
-
-        var NewUser = new Users
+        else
         {
-            Username = user.Username.ToLower(),
-            Password = BCrypt.Net.BCrypt.HashPassword(user.Password + salt + user.Username.ToLower()),
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Phone = user.Phone,
-            Addres = user.Addres,
-            NatinalCode = user.NatinalCode,
-            PerconalCode = user.PerconalCode,
-            Profile = PathSave,
-            CreateDateTime = DateTime.Now,
-            Token="null"
-        };
-        db.Users_tbl.Add(NewUser);
-        db.SaveChanges();
+            string FileExtension = Path.GetExtension(user.Profile.FileName);
+            var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
+            var path = $"{_env.WebRootPath}\\uploads\\{NewFileName}";
+            PathSave = $"\\uploads\\{NewFileName}";
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+
+                await user.Profile.CopyToAsync(stream);
 
 
-        var  RoleCilentId=db.Role_tbl.Where(x=>x.Name=="client").Select(x=>x.Id).FirstOrDefault();
 
-        db.UserRoles_tbl.Add(new UserRole
-        {
-            UserId = (int)NewUser.Id,
-            RoleId = RoleCilentId
-        });
-        db.SaveChanges();
+            }
 
-        CreateUserLog((int)NewUser.Id, 7, true);
-        CreateUserLog((int)NewUser.Id, 3, true);
 
-        ViewBag.Result="ثبت نام با موفقیت انجام شد ";
+            var NewUser = new Users
+            {
+                Username = user.Username.ToLower(),
+                Password = BCrypt.Net.BCrypt.HashPassword(user.Password + salt + user.Username.ToLower()),
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Phone = user.Phone,
+                Addres = user.Addres,
+                NatinalCode = user.NatinalCode,
+                PerconalCode = user.PerconalCode,
+                Profile = PathSave,
+                CreateDateTime = DateTime.Now,
+                Token = "null"
+            };
+            db.Users_tbl.Add(NewUser);
+            db.SaveChanges();
+
+
+            var RoleCilentId = db.Role_tbl.Where(x => x.Name == "client").Select(x => x.Id).FirstOrDefault();
+
+            db.UserRoles_tbl.Add(new UserRole
+            {
+                UserId = (int)NewUser.Id,
+                RoleId = RoleCilentId
+            });
+            db.SaveChanges();
+
+            CreateUserLog((int)NewUser.Id, 7, true);
+            CreateUserLog((int)NewUser.Id, 3, true);
+
+            ViewBag.Result = "ثبت نام با موفقیت انجام شد ";
+        }
         return View();
     }
 
@@ -323,8 +333,8 @@ public class AuthController : ParrentController
     }
     public IActionResult logout()
     {
-         HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("login","Auth");
+        HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("login", "Auth");
     }
 
 }

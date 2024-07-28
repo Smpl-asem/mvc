@@ -17,7 +17,7 @@ public class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        // optionsBuilder.UseSqlServer("server=.\\SQL2019;database=IliaDabirkhane;trusted_connection=true;MultipleActiveResultSets=True;TrustServerCertificate=True");
-        optionsBuilder.UseSqlServer("server=DEVELOPER1;database=IliaDabirkhaneMVC;user ID=sa;password=12345@Iran;MultipleActiveResultSets=True;TrustServerCertificate=True");
+        optionsBuilder.UseSqlServer("server=.\\SQL2019;database=IliaDabirkhane;trusted_connection=true;MultipleActiveResultSets=True;TrustServerCertificate=True");
+        // optionsBuilder.UseSqlServer("server=DEVELOPER1;database=IliaDabirkhaneMVC;user ID=sa;password=12345@Iran;MultipleActiveResultSets=True;TrustServerCertificate=True");
     }
 }

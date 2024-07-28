@@ -11,6 +11,4 @@ public class DtodUser
     public string NatinalCode { get; set; }
     public string PerconalCode { get; set; }
     public IFormFile Profile { get; set; }
-    public string Path { get; set; }
-
 }
