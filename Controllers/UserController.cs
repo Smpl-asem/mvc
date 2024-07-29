@@ -7,8 +7,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using test.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 public class UserController : Controller
@@ -70,7 +73,7 @@ public class UserController : Controller
         if (user.Profile != null)
         {
             string FileExtension = Path.GetExtension(user.Profile.FileName);
-            var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
+            var NewFileName = System.String.Concat(Guid.NewGuid().ToString(), FileExtension);
             var path = $"{_env.WebRootPath}\\uploads\\{NewFileName}";
             PathSave = $"\\uploads\\{NewFileName}";
             using (var stream = new FileStream(path, FileMode.Create))
@@ -122,5 +125,5 @@ public class UserController : Controller
 
         return View();
     }
-
 }
+//< option data - avatar = \"{item.Profile}\" value = \"{item.FirstName} {item.LastName}\" > {item.FirstName} {item.LastName} </ option >

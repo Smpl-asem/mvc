@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
           toolbar: '.email-editor-toolbar'
         },
         placeholder: 'پیام خود را بنویسید ... ',
+        name : "body",
         theme: 'snow'
       });
     }

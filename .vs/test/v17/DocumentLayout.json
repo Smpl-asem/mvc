@@ -1,12 +1,105 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\models\\dto\\dtomessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:models\\dto\\dtomessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|c:\\users\\asemn\\desktop\\code\\c#\\s3\\mvc\\views\\user\\usersetting.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99E5302B-D1CC-4DF4-9C95-5576B047478B}|test.csproj|solutionrelative:views\\user\\usersetting.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAOgCAAAAAAAAAAAjwPMCAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-29T19:08:42.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAewDIAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T18:57:37.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserSetting.cshtml",
+              "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\User\\UserSetting.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\UserSetting.cshtml",
+              "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Views\\User\\UserSetting.cshtml",
+              "RelativeToolTip": "Views\\User\\UserSetting.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-29T18:55:01.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailController.cs",
+              "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\EmailController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmailController.cs",
+              "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Controllers\\EmailController.cs",
+              "RelativeToolTip": "Controllers\\EmailController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAASwCgAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T18:03:05.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DtoMessage.cs",
+              "DocumentMoniker": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Models\\Dto\\DtoMessage.cs",
+              "RelativeDocumentMoniker": "Models\\Dto\\DtoMessage.cs",
+              "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\mvc\\Models\\Dto\\DtoMessage.cs",
+              "RelativeToolTip": "Models\\Dto\\DtoMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T18:09:43.115Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

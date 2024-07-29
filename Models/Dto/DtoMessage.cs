@@ -4,12 +4,9 @@ public class DtoMessage
     public int SenderUserId { get; set; }
     public string Subject { get; set; }
     public string BodyText { get; set; }
-    public List<DtoRecivers> Resivers { get; set; }
-    public List<DtoAttached>? Atachments { get; set; }
-    public DtoMessage()
-    {
-        this.Atachments = null;
-    }
+    // public List<DtoRecivers> Resivers { get; set; }
+    public List<int> ReciversId { get; set; }
+    public List<IFormFile>? Files { get; set; }
 }
 
 
