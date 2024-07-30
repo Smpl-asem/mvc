@@ -1,10 +1,25 @@
+﻿using Humanizer;
+
 public class messagefilter
 {
     int userId;
+    public void RelatedItSelf(ref IQueryable<Messages> query)
+    {
+        query = query.Where(m => m.SenderUserId == userId || m.Recivers.Any(x => x.ReciverId == userId)); // فقط ایمیل های مرتبط به فرد
+    }
+    public void SearchBodyAndSubject(ref IQueryable<Messages> query, string filter)
+    {
+        query = query.Where(x => !x.Deleted.Contains(userId));
+
+        if (!string.IsNullOrEmpty(filter))
+            query = query.Where(m => m.Subject.Contains(filter) || m.BodyText.Contains(filter));
+    }
+    
     public void ApplyMessageFilters(ref IQueryable<Messages> query, MessageDetailsFilter filter)
     {
         // remove All Delete
         query = query.Where(x=> !x.Deleted.Contains(userId));
+
         
         // Check Trash
         if (filter.Trash.HasValue)

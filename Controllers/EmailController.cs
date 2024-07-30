@@ -94,7 +94,7 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult viewMails(int pageNumber, bool isTrash = false, bool isSend = true , bool isOne = false)
+    public IActionResult viewMails(int pageNumber, bool isTrash = false, bool isSend = true, bool isOne = false)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -115,63 +115,146 @@ public class EmailController : Controller
         else
             message3Filter.ApplyReciverFilters(ref query, new ReciverDetailsFilter { ReciverId = userId });
 
-        var pageSize = isOne ? 1 : 10 ;
+        var pageSize = isOne ? 1 : 10;
         var totalCount = query.Count();
         var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
         var pageData = query
-        .OrderByDescending(x=> x.Id)
+        .OrderByDescending(x => x.Id)
         .Skip((pageNumber - 1) * pageSize)
         .Take(pageSize)
-        .Select(m => new{
+        .Select(m => new
+        {
             m.Id,
-                SenderUser = new
-                {
-                    m.SenderUser.Id,
-                    m.SenderUser.Username,
-                    m.SenderUser.FirstName,
-                    m.SenderUser.LastName,
-                    // m.SenderUser.Phone,   حفظ حریم شخصی افراد با فاش نکردن اطلاعات حساس
-                    // m.SenderUser.Addres,
-                    // m.SenderUser.NatinalCode,
-                    // m.SenderUser.PerconalCode,
-                    // m.SenderUser.CreateDateTime
-                },
+            SenderUser = new
+            {
+                m.SenderUser.Id,
+                m.SenderUser.Username,
+                m.SenderUser.FirstName,
+                m.SenderUser.LastName,
+                // m.SenderUser.Phone,   حفظ حریم شخصی افراد با فاش نکردن اطلاعات حساس
+                // m.SenderUser.Addres,
+                // m.SenderUser.NatinalCode,
+                // m.SenderUser.PerconalCode,
+                // m.SenderUser.CreateDateTime
+            },
             CreateDate = persianDate(m.CreateDateTime).Item1,
             CreateTime = persianDate(m.CreateDateTime).Item2,
             m.SerialNumber,
-                m.Subject,
-                m.BodyText,
-                Recivers = m.Recivers.Select(r => new
+            m.Subject,
+            m.BodyText,
+            Recivers = m.Recivers.Select(r => new
+            {
+                // r.Id,
+                // r.ReciverId,
+                // r.MessageId,
+                // r.Type,
+                // r.CreateDateTime,
+                Reciver = new
                 {
-                    // r.Id,
-                    // r.ReciverId,
-                    // r.MessageId,
-                    // r.Type,
-                    // r.CreateDateTime,
-                    Reciver = new
-                    {
-                        r.Reciver.Id,
-                        r.Reciver.Username,
-                        r.Reciver.FirstName,
-                        r.Reciver.LastName,
-                        r.Type
-                        // r.Reciver.Phone,
-                        // r.Reciver.Addres,
-                        // r.Reciver.NatinalCode,
-                        // r.Reciver.PerconalCode,
-                        // r.Reciver.CreateDateTime
-                    }
-                }),
-                Atteched = m.Atteched.Select(a => new
-                {
-                    a.Id,
-                    a.FileName,
-                    // a.MessageId,
-                    a.FilePath,
-                    a.FileType,
-                    // a.CreateDateTime
-                })
+                    r.Reciver.Id,
+                    r.Reciver.Username,
+                    r.Reciver.FirstName,
+                    r.Reciver.LastName,
+                    r.Type
+                    // r.Reciver.Phone,
+                    // r.Reciver.Addres,
+                    // r.Reciver.NatinalCode,
+                    // r.Reciver.PerconalCode,
+                    // r.Reciver.CreateDateTime
+                }
+            }),
+            Atteched = m.Atteched.Select(a => new
+            {
+                a.Id,
+                a.FileName,
+                // a.MessageId,
+                a.FilePath,
+                a.FileType,
+                // a.CreateDateTime
             })
+        })
+            .ToList();
+        var pagedResponse = new PagedResponse<object>(pageData, pageNumber, pageSize, totalPages, totalCount);
+
+        ViewBag.Emails = pagedResponse;
+        return Ok(pagedResponse);
+        // return View();
+    }
+
+    [HttpGet]
+    public IActionResult searchMail(int pageNumber , string text)
+    {
+        var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var message3Filter = new messagefilter(userId);
+        var query = db.Messages_tbl
+        .Include(x => x.SenderUser)
+        .Include(x => x.Recivers)
+            .ThenInclude(x => x.Reciver)
+        .Include(x => x.Atteched)
+        .AsQueryable();
+
+        message3Filter.SearchBodyAndSubject(ref query, text);
+        message3Filter.RelatedItSelf(ref query);
+
+
+        var totalCount = query.Count();
+        var pageSize = 10;
+        var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+        var pageData = query
+        .OrderByDescending(x => x.Id)
+        .Skip((pageNumber - 1) * pageSize)
+        .Take(pageSize)
+        .Select(m => new
+        {
+            m.Id,
+            SenderUser = new
+            {
+                m.SenderUser.Id,
+                m.SenderUser.Username,
+                m.SenderUser.FirstName,
+                m.SenderUser.LastName,
+                // m.SenderUser.Phone,   حفظ حریم شخصی افراد با فاش نکردن اطلاعات حساس
+                // m.SenderUser.Addres,
+                // m.SenderUser.NatinalCode,
+                // m.SenderUser.PerconalCode,
+                // m.SenderUser.CreateDateTime
+            },
+            CreateDate = persianDate(m.CreateDateTime).Item1,
+            CreateTime = persianDate(m.CreateDateTime).Item2,
+            m.SerialNumber,
+            m.Subject,
+            m.BodyText,
+            Recivers = m.Recivers.Select(r => new
+            {
+                // r.Id,
+                // r.ReciverId,
+                // r.MessageId,
+                // r.Type,
+                // r.CreateDateTime,
+                Reciver = new
+                {
+                    r.Reciver.Id,
+                    r.Reciver.Username,
+                    r.Reciver.FirstName,
+                    r.Reciver.LastName,
+                    r.Type
+                    // r.Reciver.Phone,
+                    // r.Reciver.Addres,
+                    // r.Reciver.NatinalCode,
+                    // r.Reciver.PerconalCode,
+                    // r.Reciver.CreateDateTime
+                }
+            }),
+            Atteched = m.Atteched.Select(a => new
+            {
+                a.Id,
+                a.FileName,
+                // a.MessageId,
+                a.FilePath,
+                a.FileType,
+                // a.CreateDateTime
+            })
+        })
             .ToList();
         var pagedResponse = new PagedResponse<object>(pageData, pageNumber, pageSize, totalPages, totalCount);
 
@@ -192,9 +275,10 @@ public class EmailController : Controller
         });
         db.SaveChanges();
     }
-    static private (string , string) persianDate(DateTime? date){
+    static private (string, string) persianDate(DateTime? date)
+    {
         PersianCalendar pc = new PersianCalendar();
         var LocalData = TimeZoneInfo.ConvertTimeFromUtc(Convert.ToDateTime(date), TimeZoneInfo.Local);
-        return new( $"{pc.GetYear(LocalData)}/{pc.GetMonth(LocalData)}/{pc.GetDayOfMonth(LocalData)}",$"{pc.GetHour(LocalData)}:{pc.GetMinute(LocalData)}:{pc.GetSecond(LocalData)}");
+        return new($"{pc.GetYear(LocalData)}/{pc.GetMonth(LocalData)}/{pc.GetDayOfMonth(LocalData)}", $"{pc.GetHour(LocalData)}:{pc.GetMinute(LocalData)}:{pc.GetSecond(LocalData)}");
     }
 }
