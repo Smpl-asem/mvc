@@ -145,7 +145,7 @@ public class AuthController : Controller
                 NatinalCode = user.NatinalCode,
                 PerconalCode = user.PerconalCode,
                 Profile = PathSave,
-                CreateDateTime = DateTime.Now,
+                CreateDateTime = DateTime.UtcNow,
                 Token = "null"
             };
             db.Users_tbl.Add(NewUser);
@@ -191,7 +191,7 @@ public class AuthController : Controller
 
         if (request != null)
         {
-            if (DateTime.Now.AddMinutes(-10) < request.CreateDateTime)
+            if (DateTime.UtcNow.AddMinutes(-10) < request.CreateDateTime)
             {
 
                 CreateUserLog((int)check.Id, 4, false);
@@ -214,7 +214,7 @@ public class AuthController : Controller
             SmsCode = random.Next(100000, 999999).ToString(),
             UserId = (int)check.Id,
             IsValid = true,
-            CreateDateTime = DateTime.Now
+            CreateDateTime = DateTime.UtcNow
         };
         db.sms_tbl.Add(newSms);
         db.SaveChanges();
@@ -244,7 +244,7 @@ public class AuthController : Controller
             return Ok("Haven't Code Requset. try Reset First");
 
         }
-        else if (DateTime.Now.AddMinutes(-10) > smsCheck.CreateDateTime)
+        else if (DateTime.UtcNow.AddMinutes(-10) > smsCheck.CreateDateTime)
         { //Time Passed
             db.sms_tbl.Remove(smsCheck);
             db.SaveChanges();
@@ -295,7 +295,7 @@ public class AuthController : Controller
             issuer: "Issuer",
             audience: "Audience",
             claims: claims,
-            expires: DateTime.Now.AddMinutes(30),
+            expires: DateTime.UtcNow.AddMinutes(30),
             signingCredentials: Credentials
         );
 
@@ -321,7 +321,7 @@ public class AuthController : Controller
             UserId = UserId,
             LogAction = LogAction,
             isSucces = isSucces,
-            CreateDateTime = DateTime.Now
+            CreateDateTime = DateTime.UtcNow
         });
         db.SaveChanges();
     }
