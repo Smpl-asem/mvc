@@ -104,6 +104,7 @@ public class EmailController : Controller
                             FileType = FileExtension,
                             CreateDateTime = DateTime.UtcNow
                         });
+                        db.SaveChanges();
 
                     }
                 }
@@ -121,14 +122,50 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult index(int Id = 1)
     {
-        var data = DataEater(Id);
+        var data = DataEater(Id , false );
         ViewBag.Messages = data ;
         ViewBag.title = "لیست دریافتی";
         ViewBag.route = "index";
         return View("viewMails");
     }
+    [HttpGet]
+    public IActionResult recive(int Id = 1)
+    {
+        var data = DataEater(Id , false ,false);
+        ViewBag.Messages = data ;
+        ViewBag.title = "لیست دریافتی";
+        ViewBag.route = "index";
+        return View("viewMails");
+    }
+    [HttpGet]
+    public IActionResult Sent(int Id = 1)
+    {
+        var data = DataEater(Id , false, true);
+        ViewBag.Messages = data ;
+        ViewBag.title = "لیست ارسالی";
+        ViewBag.route = "sent";
+        return View("viewMails");
+    }
+    [HttpGet]
+    public IActionResult searchMail(int Id = 1)
+    {
+        var data = DataEater(Id , false, true);
+        ViewBag.Messages = data ;
+        ViewBag.title = "لیست ارسالی";
+        ViewBag.route = "sent";
+        return View();
+    }
+    [HttpGet]
+    public IActionResult trash(int Id = 1)
+    {
+        var data = DataEater(Id , true);
+        ViewBag.Messages = data ;
+        ViewBag.title = "سطل زباله";
+        ViewBag.route = "trash";
+        return View("viewMails");
+    }
 
-    private (List<ResultMessage> , int , int , int , int) DataEater(int pageNumber, bool isTrash = false, bool isSend = true, bool isOne = false)
+    private (List<ResultMessage> , int , int , int , int) DataEater(int pageNumber, bool isTrash = false, bool? isSend = null, bool isOne = false)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -145,9 +182,9 @@ public class EmailController : Controller
         else
             message3Filter.ApplyMessageFilters(ref query, new MessageDetailsFilter { Trash = false });
 
-        if (isSend)
+        if (isSend == true)
             message3Filter.ApplyMessageFilters(ref query, new MessageDetailsFilter { SenderUserId = userId });
-        else
+        else if(isSend ==false)
             message3Filter.ApplyReciverFilters(ref query, new ReciverDetailsFilter { ReciverId = userId });
 
         var pageSize = isOne ? 1 : 10;
@@ -211,7 +248,7 @@ public class EmailController : Controller
         {
             ViewBag.title = $"ایمیل شماره {data.Item1[0].MessageSerialNumber}";
             ViewBag.route = "ReturnEmail";
-            return View("viewMails");
+            return View("returnEmail");
         }
     }
     

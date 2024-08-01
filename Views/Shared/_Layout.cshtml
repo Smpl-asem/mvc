@@ -28,7 +28,7 @@
       <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
         <div class="container-xxl">
           <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
-            <a href="/home/index" class="app-brand-link gap-2">
+            <a href="/email/index" class="app-brand-link gap-2">
               <span class="app-brand-logo demo">
                 <svg width="26px" height="26px" viewbox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -63,7 +63,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bold">دبیرخانه</span>
+              <span class="app-brand-text demo menu-text fw-bold">دبیر<b style="color: midnightblue;" >خانه</b></span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
@@ -80,15 +80,34 @@
           <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
             <ul class="navbar-nav flex-row align-items-center ms-auto">
               <!-- Email -->
-              <li class="menu-item active">
-                <a href="/Home/index" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-envelope"></i>
-                  @* <div data-i18n="Email">ایمیل</div> *@
+              <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                <a href="/Email/recive" class="btn btn-outline-secondary">
+                            دریافتی ها
+                </a>
+              </li>
+              <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                <a href="/Email/sent" class="btn btn-outline-secondary">
+                              ارسال شده
+                </a>
+              </li>
+              <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                <a href="/Email/trash" class="btn btn-outline-secondary">
+                              <span class="tf-icons bx bx-trash me-1"></span>
+                </a>
+              </li>
+              <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                <a href="/Email/searchMail" class="btn btn-outline-secondary">
+                              <span class="tf-icons bx bx-search me-1"></span>
+                </a>
+              </li>
+              <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                <a href="/Email/addMail" class="btn btn-outline-secondary">
+                              <span class="tf-icons bx bx-message-add me-1"></span>
                 </a>
               </li>
 
 
-              <!-- Notification -->
+              @* <!-- Notification -->
               <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
                   data-bs-auto-close="outside" aria-expanded="false">
@@ -297,7 +316,7 @@
                   </li>
                 </ul>
               </li>
-              <!--/ Notification -->
+              <!--/ Notification --> *@
 
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">

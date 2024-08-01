@@ -50,8 +50,7 @@
               "RelativeToolTip": "Views\\Email\\viewMails.cshtml",
               "ViewState": "AQIAAL4AAAAAAAAAAAAAAL8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-01T00:37:48.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T00:37:48.554Z"
             },
             {
               "$type": "Document",
@@ -110,7 +109,7 @@
               "RelativeDocumentMoniker": "Controllers\\EmailController.cs",
               "ToolTip": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\new Page\\Controllers\\EmailController.cs",
               "RelativeToolTip": "Controllers\\EmailController.cs",
-              "ViewState": "AQIAAL8AAAAAAAAAAAAAAMoAAAAIAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAEwA4AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-29T18:03:05.66Z",
               "EditorCaption": ""

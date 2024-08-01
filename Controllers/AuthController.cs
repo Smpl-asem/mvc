@@ -33,7 +33,7 @@ public class AuthController : Controller
 
         if (User.Identity.IsAuthenticated)
         {
-            return RedirectToAction("index", "home");
+            return RedirectToAction("index", "email");
         }
         return View();
     }
@@ -76,7 +76,7 @@ public class AuthController : Controller
 
             HttpContext.SignInAsync(princpal, properties);
 
-            return RedirectToAction("index", "home");
+            return RedirectToAction("index", "email");
         }
         return View();
 

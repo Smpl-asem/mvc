@@ -1,0 +1,58 @@
+@section JsFile {
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+
+    <script src="../../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../../assets/vendor/libs/select2/select2.js"></script>
+
+    <!-- Main JS -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../../assets/js/forms-tagify.js"></script>
+    <script src="../../assets/js/forms-selects.js"></script>
+}
+
+@section CssFile {
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico">
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css">
+
+    <!-- <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" /> -->
+    <!-- <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css" /> -->
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css">
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css">
+    <link rel="stylesheet" href="../../assets/css/demo.css">
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/rtl.css">
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css">
+
+}
+
+<div class="col-xxl">
+    <div class="card-body">
+        <form action="/email/search" method="get">
+            <div class="row md-3">
+                <div class="col-sm">
+                    <input type="text" class="form-control" id="basic-default-company"
+                        placeholder="متن خود را جهت جستجو وارد کنید ..." name="text" autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary">جستجو</button>
+            </div>
+        </form>
+    </div>
+</div>

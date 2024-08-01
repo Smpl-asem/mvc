@@ -32,14 +32,14 @@ public class HomeController : Controller
 
 
 
-    static public List<(string, int, string)> Contact(Context db , ClaimsPrincipal User)
+    static public List<(string, int, string , string)> Contact(Context db , ClaimsPrincipal User)
     {
-        List<(string, int, string)> Result = new List<(string, int, string)>();
+        List<(string, int, string , string)> Result = new List<(string, int, string , string)>();
         foreach (var item in db.Users_tbl.ToList())
         {
             if (item.Id != Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value))
             {
-                Result.Add(new($"../../../{item.Profile}", (int)item.Id, $"{item.FirstName} {item.LastName}"));
+                Result.Add(new($"../../../{item.Profile}", (int)item.Id, $"{item.FirstName} {item.LastName}",item.Username));
             }
         }
 

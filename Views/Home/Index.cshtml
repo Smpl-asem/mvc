@@ -812,7 +812,7 @@
                 <div class="select2-primary border-0 shadow-none flex-grow-1 mx-2">
                   <select class="select2 select-email-contacts form-select" id="emailContacts" name="ReciversId"
                     multiple required>
-                    @foreach ((string, int, string) item in ViewBag.Contacts)
+                    @foreach (var item in ViewBag.Contacts)
                     {
                       <option data-avatar="@item.Item1" value="@item.Item2">@item.Item3</option>
                     }

@@ -65,15 +65,15 @@
                         <label for="ReciverId" class="col-sm-2 col-form-label">لیست گیرنده ها</label>
                         <div class="col-sm-10">
                             <select id="ReciverId" class="select2 form-select" name="ReciversId" multiple>
-                                @foreach ((string, int, string) item in ViewBag.Contacts)
+                                @foreach (var item in ViewBag.Contacts)
                                 {
                                     @if (ViewBag.ReciversId != null && ViewBag.ReciversId.Contains(item.Item2))
                                     {
-                                        <option data-avatar="@item.Item1" value="@item.Item2" selected>@item.Item3</option>
+                                        <option data-avatar="@item.Item1" value="@item.Item2" selected>@item.Item3 (@item.Item4)</option>
                                     }
                                     else
                                     {
-                                        <option data-avatar="@item.Item1" value="@item.Item2">@item.Item3</option>
+                                        <option data-avatar="@item.Item1" value="@item.Item2">@item.Item3 (@item.Item4)</option>
                                     }
                                 }
                             </select>
@@ -84,15 +84,15 @@
                         <label for="CCId" class="col-sm-2 col-form-label">لیست رونوشت ها</label>
                         <div class="col-sm-10">
                             <select id="CCId" class="select2 form-select" name="CCsId" multiple>
-                                @foreach ((string, int, string) item in ViewBag.Contacts)
+                                @foreach (var item in ViewBag.Contacts)
                                 {
                                     @if (ViewBag.ReciversId != null && ViewBag.ReciversId.Contains(item.Item2))
                                     {
-                                        <option data-avatar="@item.Item1" value="@item.Item2" selected>@item.Item3</option>
+                                        <option data-avatar="@item.Item1" value="@item.Item2" selected>@item.Item3 (@item.Item4)</option>
                                     }
                                     else
                                     {
-                                        <option data-avatar="@item.Item1" value="@item.Item2">@item.Item3</option>
+                                        <option data-avatar="@item.Item1" value="@item.Item2">@item.Item3 (@item.Item4)</option>
                                     }
                                 }
                             </select>
