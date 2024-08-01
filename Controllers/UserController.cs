@@ -29,19 +29,18 @@ public class UserController : Controller
 
     [HttpGet]
     public IActionResult ProfileUser()
-    {
-        var UserId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+    { 
+        var UserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
 
-        Users Check = db.Users_tbl.Find(Convert.ToInt32(UserId));
-        ViewBag.UserId = Check.Id;
-        ViewBag.FirstName = Check.FirstName;
-        ViewBag.LastName = Check.LastName;
-        ViewBag.Addres = Check.Addres;
-        ViewBag.Phone = Check.Phone;
-        ViewBag.Profile = Check.Profile;
-        ViewBag.NatinalCode = Check.NatinalCode;
-        ViewBag.PerconalCode = Check.PerconalCode;
+        Users Check = db.Users_tbl.Find(UserId);
+        ViewBag.data = Check;
+
+        var sentCheck = EmailController.DataEater(1,User,db,false,true,5);
+        ViewBag.dataSent = sentCheck;
+
+        var reciveCheck = EmailController.DataEater(1,User,db,false,false,5);
+        ViewBag.dataRecive = reciveCheck;
         return View();
     }
 

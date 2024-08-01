@@ -1,5 +1,6 @@
 ﻿using System.Data.Common;
 using System.Globalization;
+using System.Net.Sockets;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,9 +29,9 @@ public class EmailController : Controller
     [HttpPost]
     public async Task<IActionResult> AddMail(DtoMessage message)
     {
-        if (message.ReciversId.Any(x => message.CCsId.Contains(x)))
+        if (message.ReciversId == null)
         {
-            ViewBag.Error = "خطا ، کاربر نمیتواند همزمان در لیست گیرنده و رونوشت باشد . لطفا مجددا تلاش کنید... (فایل های پیوستی را مجددا انتخاب نمایید)";
+            ViewBag.Error = "خطا ، حداقل یک کاربر باید در لیست دریافت کنندگان باشد ... (فایل های پیوستی را مجددا انتخاب نمایید)";
             ViewBag.ReciversId = message.ReciversId;
             ViewBag.CCsId = message.CCsId;
             ViewBag.SerialNumber = message.SerialNumber;
@@ -38,6 +39,20 @@ public class EmailController : Controller
             ViewBag.BodyText = message.BodyText;
             ViewBag.Contacts = HomeController.Contact(db, User);
             return View("AddMail");
+        }
+        else if (message.CCsId != null)
+        {
+            if (message.ReciversId.Any(x => message.CCsId.Contains(x)))
+            {
+                ViewBag.Error = "خطا ، کاربر نمیتواند همزمان در لیست گیرنده و رونوشت باشد . لطفا مجددا تلاش کنید... (فایل های پیوستی را مجددا انتخاب نمایید)";
+                ViewBag.ReciversId = message.ReciversId;
+                ViewBag.CCsId = message.CCsId;
+                ViewBag.SerialNumber = message.SerialNumber;
+                ViewBag.Subject = message.Subject;
+                ViewBag.BodyText = message.BodyText;
+                ViewBag.Contacts = HomeController.Contact(db, User);
+                return View("AddMail");
+            }
         }
 
 
@@ -69,45 +84,48 @@ public class EmailController : Controller
             db.SaveChanges();
             CreateMsgLog(messageId, item, 4);
         }
-        foreach (var item in message.CCsId)
+        if (message.CCsId != null)
         {
-            db.Recivers_tbl.Add(new Recivers
+            foreach (var item in message.CCsId)
             {
-                ReciverId = item,
-                MessageId = messageId,
-                Type = "5",
-                CreateDateTime = DateTime.UtcNow
-            });
-            db.SaveChanges();
-            CreateMsgLog(messageId, item, 5);
+                db.Recivers_tbl.Add(new Recivers
+                {
+                    ReciverId = item,
+                    MessageId = messageId,
+                    Type = "5",
+                    CreateDateTime = DateTime.UtcNow
+                });
+                db.SaveChanges();
+                CreateMsgLog(messageId, item, 5);
+            }
         }
 
         if (message.Files != null)
+        {
+            foreach (var item in message.Files)
+            {
+
+                string FileExtension = Path.GetExtension(item.FileName);
+                var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
+                var path = $"{_env.WebRootPath}\\uploads\\EmailFiles\\ID{messageId}-{NewFileName}";
+                string PathSave = $"\\uploads\\EmailFiles\\ID{messageId}-{NewFileName}";
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
-                    foreach (var item in message.Files)
-                    {
-
-                        string FileExtension = Path.GetExtension(item.FileName);
-                        var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
-                        var path = $"{_env.WebRootPath}\\uploads\\EmailFiles\\ID{messageId}-{NewFileName}";
-                        string PathSave = $"\\uploads\\EmailFiles\\ID{messageId}-{NewFileName}";
-                        using (var stream = new FileStream(path, FileMode.Create))
-                        {
-                            await item.CopyToAsync(stream);
-                        }
-
-                        db.Attecheds_tbl.Add(new Atteched
-                        {
-                            FileName = item.FileName,
-                            MessageId = messageId,
-                            FilePath = PathSave,
-                            FileType = FileExtension,
-                            CreateDateTime = DateTime.UtcNow
-                        });
-                        db.SaveChanges();
-
-                    }
+                    await item.CopyToAsync(stream);
                 }
+
+                db.Attecheds_tbl.Add(new Atteched
+                {
+                    FileName = item.FileName,
+                    MessageId = messageId,
+                    FilePath = PathSave,
+                    FileType = FileExtension,
+                    CreateDateTime = DateTime.UtcNow
+                });
+                db.SaveChanges();
+
+            }
+        }
 
 
 
@@ -122,8 +140,8 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult index(int Id = 1)
     {
-        var data = DataEater(Id , false );
-        ViewBag.Messages = data ;
+        var data = DataEater(Id, User, db, false);
+        ViewBag.Messages = data;
         ViewBag.title = "لیست دریافتی";
         ViewBag.route = "index";
         return View("viewMails");
@@ -131,8 +149,8 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult recive(int Id = 1)
     {
-        var data = DataEater(Id , false ,false);
-        ViewBag.Messages = data ;
+        var data = DataEater(Id, User, db, false, false);
+        ViewBag.Messages = data;
         ViewBag.title = "لیست دریافتی";
         ViewBag.route = "index";
         return View("viewMails");
@@ -140,8 +158,8 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult Sent(int Id = 1)
     {
-        var data = DataEater(Id , false, true);
-        ViewBag.Messages = data ;
+        var data = DataEater(Id, User, db, false, true);
+        ViewBag.Messages = data;
         ViewBag.title = "لیست ارسالی";
         ViewBag.route = "sent";
         return View("viewMails");
@@ -149,8 +167,8 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult searchMail(int Id = 1)
     {
-        var data = DataEater(Id , false, true);
-        ViewBag.Messages = data ;
+        var data = DataEater(Id, User, db, false, true);
+        ViewBag.Messages = data;
         ViewBag.title = "لیست ارسالی";
         ViewBag.route = "sent";
         return View();
@@ -158,14 +176,51 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult trash(int Id = 1)
     {
-        var data = DataEater(Id , true);
-        ViewBag.Messages = data ;
+        var data = DataEater(Id, User, db, true);
+        ViewBag.Messages = data;
         ViewBag.title = "سطل زباله";
         ViewBag.route = "trash";
         return View("viewMails");
     }
+    [HttpGet]
+    public IActionResult TrashEmail(string lastRoute, string page = "1", int Id = 1)
+    {
+        var check = db.Messages_tbl.Find(Id);
+        check.Trashed.Add(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        db.Messages_tbl.Update(check);
+        db.SaveChanges();
+        Id = Convert.ToInt32(page);
 
-    private (List<ResultMessage> , int , int , int , int) DataEater(int pageNumber, bool isTrash = false, bool? isSend = null, bool isOne = false)
+        return RedirectToAction(lastRoute, "Email", new { Id });
+    }
+    [HttpGet]
+    public IActionResult UnTrashEmail(string lastRoute, string page = "1", int Id = 1)
+    {
+        var check = db.Messages_tbl.Find(Id);
+        check.Trashed.Remove(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        db.Messages_tbl.Update(check);
+        db.SaveChanges();
+        Id = Convert.ToInt32(page);
+
+        return RedirectToAction(lastRoute, "Email", new { Id });
+
+    }
+    [HttpGet]
+    public IActionResult DeleteEmail(string lastRoute, string page = "1", int Id = 1)
+    {
+        var check = db.Messages_tbl.Find(Id);
+        var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        check.Trashed.Remove(userId);
+        check.Deleted.Add(userId);
+        db.Messages_tbl.Update(check);
+        db.SaveChanges();
+        Id = Convert.ToInt32(page);
+
+        return RedirectToAction(lastRoute, "Email", new { Id });
+
+    }
+
+    static public (List<ResultMessage>, int, int, int, int) DataEater(int pageNumber, ClaimsPrincipal User, Context db, bool isTrash = false, bool? isSend = null, int? pSize = null)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -184,10 +239,10 @@ public class EmailController : Controller
 
         if (isSend == true)
             message3Filter.ApplyMessageFilters(ref query, new MessageDetailsFilter { SenderUserId = userId });
-        else if(isSend ==false)
+        else if (isSend == false)
             message3Filter.ApplyReciverFilters(ref query, new ReciverDetailsFilter { ReciverId = userId });
 
-        var pageSize = isOne ? 1 : 10;
+        var pageSize = pSize.HasValue ? (int)pSize : 10;
         var totalCount = query.Count();
         var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
         List<ResultMessage> pageData = query
@@ -210,12 +265,12 @@ public class EmailController : Controller
             MessageBodyText = m.BodyText,
             Recivers = (ICollection<ResultReciver>)m.Recivers.Select(r => new ResultReciver
             {
-                    ReciverId = (int)r.Reciver.Id,
-                    ReciverUserName = r.Reciver.Username,
-                    ReciverFirstName = r.Reciver.FirstName,
-                    ReciverLastName = r.Reciver.LastName,
-                    ReciverType = r.Type,
-                    ReciverProfile = r.Reciver.Profile
+                ReciverId = (int)r.Reciver.Id,
+                ReciverUserName = r.Reciver.Username,
+                ReciverFirstName = r.Reciver.FirstName,
+                ReciverLastName = r.Reciver.LastName,
+                ReciverType = r.Type,
+                ReciverProfile = r.Reciver.Profile
             })
             ,
             Files = (ICollection<ResultFile>)m.Atteched.Select(a => new ResultFile
@@ -236,7 +291,7 @@ public class EmailController : Controller
     [HttpGet]
     public IActionResult ReturnEmail(int Id = 1)
     {
-        var data = search(1, null, Id);
+        var data = search(1, User, db, null, Id);
         ViewBag.Messages = data;
         if (data.Item1.Count == 0)
         {
@@ -251,18 +306,19 @@ public class EmailController : Controller
             return View("returnEmail");
         }
     }
-    
+
     [HttpGet]
-    public IActionResult Search (string text , int Id = 1){
-        var data = search(Id , text);
-        ViewBag.Messages = data ;
+    public IActionResult Search(string text, int Id = 1)
+    {
+        var data = search(Id, User, db, text);
+        ViewBag.Messages = data;
         ViewBag.title = $"نتایج جستجو برای \"{text}\"";
         ViewBag.route = "Search";
         ViewBag.text = text;
         return View("viewMails");
     }
 
-    private (List<ResultMessage> , int , int , int , int) search(int pageNumber, string? text = null , int? messageId = null)
+    static public (List<ResultMessage>, int, int, int, int) search(int pageNumber, ClaimsPrincipal User, Context db, string? text = null, int? messageId = null)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -273,9 +329,9 @@ public class EmailController : Controller
         .Include(x => x.Atteched)
         .AsQueryable();
 
-        if(!String.IsNullOrEmpty(text))
+        if (!String.IsNullOrEmpty(text))
             message3Filter.SearchBodyAndSubject(ref query, (string)text);
-        if(messageId.HasValue)
+        if (messageId.HasValue)
             message3Filter.SearchByMessageId(ref query, (int)messageId);
 
         message3Filter.RelatedItSelf(ref query);
@@ -304,12 +360,12 @@ public class EmailController : Controller
             MessageBodyText = m.BodyText,
             Recivers = (ICollection<ResultReciver>)m.Recivers.Select(r => new ResultReciver
             {
-                    ReciverId = (int)r.Reciver.Id,
-                    ReciverUserName = r.Reciver.Username,
-                    ReciverFirstName = r.Reciver.FirstName,
-                    ReciverLastName = r.Reciver.LastName,
-                    ReciverType = r.Type,
-                    ReciverProfile = r.Reciver.Profile
+                ReciverId = (int)r.Reciver.Id,
+                ReciverUserName = r.Reciver.Username,
+                ReciverFirstName = r.Reciver.FirstName,
+                ReciverLastName = r.Reciver.LastName,
+                ReciverType = r.Type,
+                ReciverProfile = r.Reciver.Profile
             })
             ,
             Files = (ICollection<ResultFile>)m.Atteched.Select(a => new ResultFile
