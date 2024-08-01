@@ -18,50 +18,79 @@ public class EmailController : Controller
         _env = env;
     }
 
+    [HttpGet]
+    public IActionResult AddMail()
+    {
+        ViewBag.Contacts = HomeController.Contact(db, User);
+        return View();
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddMail(DtoMessage message)
     {
-        using (var transaction = db.Database.BeginTransaction())
+        if (message.ReciversId.Any(x => message.CCsId.Contains(x)))
         {
-            try
+            ViewBag.Error = "خطا ، کاربر نمیتواند همزمان در لیست گیرنده و رونوشت باشد . لطفا مجددا تلاش کنید... (فایل های پیوستی را مجددا انتخاب نمایید)";
+            ViewBag.ReciversId = message.ReciversId;
+            ViewBag.CCsId = message.CCsId;
+            ViewBag.SerialNumber = message.SerialNumber;
+            ViewBag.Subject = message.Subject;
+            ViewBag.BodyText = message.BodyText;
+            ViewBag.Contacts = HomeController.Contact(db, User);
+            return View("AddMail");
+        }
+
+
+        Messages newMessage = new Messages
+        {
+            SerialNumber = message.SerialNumber,
+            SenderUserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value),
+            Subject = message.Subject,
+            BodyText = message.BodyText,
+            CreateDateTime = DateTime.UtcNow
+        };
+
+        db.Messages_tbl.Add(newMessage);
+        db.SaveChanges();
+
+
+        int messageId = Convert.ToInt32(newMessage.Id);
+        CreateMsgLog(messageId, (int)newMessage.SenderUserId, 3);
+
+        foreach (var item in message.ReciversId)
+        {
+            db.Recivers_tbl.Add(new Recivers
             {
-                Messages newMessage = new Messages
-                {
-                    SerialNumber = message.SerialNumber,
-                    SenderUserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value),
-                    Subject = message.Subject,
-                    BodyText = message.BodyText,
-                    CreateDateTime = DateTime.UtcNow
-                };
+                ReciverId = item,
+                MessageId = messageId,
+                Type = "4",
+                CreateDateTime = DateTime.UtcNow
+            });
+            db.SaveChanges();
+            CreateMsgLog(messageId, item, 4);
+        }
+        foreach (var item in message.CCsId)
+        {
+            db.Recivers_tbl.Add(new Recivers
+            {
+                ReciverId = item,
+                MessageId = messageId,
+                Type = "5",
+                CreateDateTime = DateTime.UtcNow
+            });
+            db.SaveChanges();
+            CreateMsgLog(messageId, item, 5);
+        }
 
-                db.Messages_tbl.Add(newMessage);
-                db.SaveChanges();
-
-
-                int messageId = Convert.ToInt32(newMessage.Id);
-                CreateMsgLog(messageId, (int)newMessage.SenderUserId, 3);
-
-                foreach (var item in message.ReciversId)
-                {
-                    db.Recivers_tbl.Add(new Recivers
-                    {
-                        ReciverId = item,
-                        MessageId = messageId,
-                        Type = "4",
-                        CreateDateTime = DateTime.UtcNow
-                    });
-
-                    // CreateMsgLog(messageId, item.ReciverId, item.Type == "to" ? 4 : 5);
-                }
-                if (message.Files != null)
+        if (message.Files != null)
                 {
                     foreach (var item in message.Files)
                     {
 
                         string FileExtension = Path.GetExtension(item.FileName);
                         var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
-                        var path = $"{_env.WebRootPath}\\uploads\\EmailFiles\\{messageId}\\{NewFileName}";
-                        string PathSave = $"\\uploads\\EmailFiles\\{messageId}\\{NewFileName}";
+                        var path = $"{_env.WebRootPath}\\uploads\\EmailFiles\\ID{messageId}-{NewFileName}";
+                        string PathSave = $"\\uploads\\EmailFiles\\ID{messageId}-{NewFileName}";
                         using (var stream = new FileStream(path, FileMode.Create))
                         {
                             await item.CopyToAsync(stream);
@@ -79,22 +108,27 @@ public class EmailController : Controller
                     }
                 }
 
-                db.SaveChanges();
-                transaction.Commit();
 
-                ViewBag.Result = "پیام شما با موفقیت ارسال شد";
-                return RedirectToAction("Index", "home");
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return BadRequest($"Error: {ex.Message}");
-            }
-        }
+
+
+        ViewBag.Result = "پیام شما با موفقیت ارسال شد";
+        return RedirectToAction("Index", "home");
+
+
+
     }
 
     [HttpGet]
-    public IActionResult viewMails(int pageNumber, bool isTrash = false, bool isSend = true, bool isOne = false)
+    public IActionResult index(int Id)
+    {
+        var data = DataEater(Id);
+        ViewBag.Messages = data ;
+        ViewBag.title = "لیست دریافتی";
+        ViewBag.route = "index";
+        return View("viewMails");
+    }
+
+    private (List<ResultMessage> , int , int , int , int) DataEater(int pageNumber, bool isTrash = false, bool isSend = true, bool isOne = false)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -105,6 +139,7 @@ public class EmailController : Controller
         .Include(x => x.Atteched)
         .AsQueryable();
 
+        message3Filter.RelatedItSelf(ref query);
         if (isTrash)
             message3Filter.ApplyMessageFilters(ref query, new MessageDetailsFilter { Trash = true });
         else
@@ -118,71 +153,65 @@ public class EmailController : Controller
         var pageSize = isOne ? 1 : 10;
         var totalCount = query.Count();
         var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
-        var pageData = query
+        List<ResultMessage> pageData = query
         .OrderByDescending(x => x.Id)
         .Skip((pageNumber - 1) * pageSize)
         .Take(pageSize)
-        .Select(m => new
+        .Select(m => new ResultMessage
         {
-            m.Id,
-            SenderUser = new
-            {
-                m.SenderUser.Id,
-                m.SenderUser.Username,
-                m.SenderUser.FirstName,
-                m.SenderUser.LastName,
-                // m.SenderUser.Phone,   حفظ حریم شخصی افراد با فاش نکردن اطلاعات حساس
-                // m.SenderUser.Addres,
-                // m.SenderUser.NatinalCode,
-                // m.SenderUser.PerconalCode,
-                // m.SenderUser.CreateDateTime
-            },
+            MessageId = (int)m.Id,
+            SenderUserId = (int)m.SenderUser.Id,
+            SenderUser = m.SenderUser.Username,
+            SenderFirstName = m.SenderUser.FirstName,
+            SenderLastName = m.SenderUser.LastName,
+            SenderProfile = m.SenderUser.Profile,
+
             CreateDate = persianDate(m.CreateDateTime).Item1,
             CreateTime = persianDate(m.CreateDateTime).Item2,
-            m.SerialNumber,
-            m.Subject,
-            m.BodyText,
-            Recivers = m.Recivers.Select(r => new
+            MessageSerialNumber = m.SerialNumber,
+            MessageSubject = m.Subject,
+            MessageBodyText = m.BodyText,
+            Recivers = (ICollection<ResultReciver>)m.Recivers.Select(r => new ResultReciver
             {
-                // r.Id,
-                // r.ReciverId,
-                // r.MessageId,
-                // r.Type,
-                // r.CreateDateTime,
-                Reciver = new
-                {
-                    r.Reciver.Id,
-                    r.Reciver.Username,
-                    r.Reciver.FirstName,
-                    r.Reciver.LastName,
-                    r.Type
-                    // r.Reciver.Phone,
-                    // r.Reciver.Addres,
-                    // r.Reciver.NatinalCode,
-                    // r.Reciver.PerconalCode,
-                    // r.Reciver.CreateDateTime
-                }
-            }),
-            Atteched = m.Atteched.Select(a => new
+                    ReciverId = (int)r.Reciver.Id,
+                    ReciverUserName = r.Reciver.Username,
+                    ReciverFirstName = r.Reciver.FirstName,
+                    ReciverLastName = r.Reciver.LastName,
+                    ReciverType = r.Type,
+                    ReciverProfile = r.Reciver.Profile
+            })
+            ,
+            Files = (ICollection<ResultFile>)m.Atteched.Select(a => new ResultFile
             {
-                a.Id,
-                a.FileName,
-                // a.MessageId,
-                a.FilePath,
-                a.FileType,
-                // a.CreateDateTime
+                FileId = (int)a.Id,
+                FileName = a.FileName,
+                FilePath = a.FilePath,
+                FileType = a.FileType,
             })
         })
             .ToList();
-        var pagedResponse = new PagedResponse<object>(pageData, pageNumber, pageSize, totalPages, totalCount);
+        ;
 
-        ViewBag.Emails = pagedResponse;
-        return Ok(pagedResponse);
+        return (pageData, pageNumber, pageSize, totalPages, totalCount);
         // return View();
     }
 
     [HttpGet]
-    public IActionResult searchMail(int pageNumber , string text)
+    public IActionResult ReturnEmail(int Id = 1){
+        return Ok();
+    }
+    
+    [HttpGet]
+    public IActionResult Search (string text , int Id = 1){
+        var data = search(Id , text);
+        ViewBag.Messages = data ;
+        ViewBag.title = $"نتایج جستجو برای \"{text}\"";
+        ViewBag.route = "Search";
+        ViewBag.text = text;
+        return View("viewMails");
+    }
+
+    private (List<ResultMessage> , int , int , int , int) search(int pageNumber, string text)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -204,62 +233,42 @@ public class EmailController : Controller
         .OrderByDescending(x => x.Id)
         .Skip((pageNumber - 1) * pageSize)
         .Take(pageSize)
-        .Select(m => new
+        .Select(m => new ResultMessage
         {
-            m.Id,
-            SenderUser = new
-            {
-                m.SenderUser.Id,
-                m.SenderUser.Username,
-                m.SenderUser.FirstName,
-                m.SenderUser.LastName,
-                // m.SenderUser.Phone,   حفظ حریم شخصی افراد با فاش نکردن اطلاعات حساس
-                // m.SenderUser.Addres,
-                // m.SenderUser.NatinalCode,
-                // m.SenderUser.PerconalCode,
-                // m.SenderUser.CreateDateTime
-            },
+            MessageId = (int)m.Id,
+            SenderUserId = (int)m.SenderUser.Id,
+            SenderUser = m.SenderUser.Username,
+            SenderFirstName = m.SenderUser.FirstName,
+            SenderLastName = m.SenderUser.LastName,
+            SenderProfile = m.SenderUser.Profile,
+
             CreateDate = persianDate(m.CreateDateTime).Item1,
             CreateTime = persianDate(m.CreateDateTime).Item2,
-            m.SerialNumber,
-            m.Subject,
-            m.BodyText,
-            Recivers = m.Recivers.Select(r => new
+            MessageSerialNumber = m.SerialNumber,
+            MessageSubject = m.Subject,
+            MessageBodyText = m.BodyText,
+            Recivers = (ICollection<ResultReciver>)m.Recivers.Select(r => new ResultReciver
             {
-                // r.Id,
-                // r.ReciverId,
-                // r.MessageId,
-                // r.Type,
-                // r.CreateDateTime,
-                Reciver = new
-                {
-                    r.Reciver.Id,
-                    r.Reciver.Username,
-                    r.Reciver.FirstName,
-                    r.Reciver.LastName,
-                    r.Type
-                    // r.Reciver.Phone,
-                    // r.Reciver.Addres,
-                    // r.Reciver.NatinalCode,
-                    // r.Reciver.PerconalCode,
-                    // r.Reciver.CreateDateTime
-                }
-            }),
-            Atteched = m.Atteched.Select(a => new
+                    ReciverId = (int)r.Reciver.Id,
+                    ReciverUserName = r.Reciver.Username,
+                    ReciverFirstName = r.Reciver.FirstName,
+                    ReciverLastName = r.Reciver.LastName,
+                    ReciverType = r.Type,
+                    ReciverProfile = r.Reciver.Profile
+            })
+            ,
+            Files = (ICollection<ResultFile>)m.Atteched.Select(a => new ResultFile
             {
-                a.Id,
-                a.FileName,
-                // a.MessageId,
-                a.FilePath,
-                a.FileType,
-                // a.CreateDateTime
+                FileId = (int)a.Id,
+                FileName = a.FileName,
+                FilePath = a.FilePath,
+                FileType = a.FileType,
             })
         })
             .ToList();
-        var pagedResponse = new PagedResponse<object>(pageData, pageNumber, pageSize, totalPages, totalCount);
+        ;
 
-        ViewBag.Emails = pagedResponse;
-        return Ok(pagedResponse);
+        return (pageData, pageNumber, pageSize, totalPages, totalCount);
         // return View();
     }
 

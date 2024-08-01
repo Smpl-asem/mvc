@@ -6,7 +6,8 @@
 
 $(function () {
   const selectPicker = $('.selectpicker'),
-    select2 = $('.select2'),
+    ReciverId = $('#ReciverId'),
+    CCId = $('#CCId'),
     select2Icons = $('.select2-icons');
 
   // Bootstrap Select
@@ -19,11 +20,20 @@ $(function () {
   // --------------------------------------------------------------------
 
   // Default
-  if (select2.length) {
-    select2.each(function () {
+  if (ReciverId.length) {
+    ReciverId.each(function () {
       var $this = $(this);
       $this.wrap('<div class="position-relative"></div>').select2({
-        placeholder: 'انتخاب',
+        placeholder: 'دریافت کنندگان (To) را انتخاب کنید',
+        dropdownParent: $this.parent()
+      });
+    });
+  }
+  if (CCId.length) {
+    CCId.each(function () {
+      var $this = $(this);
+      $this.wrap('<div class="position-relative"></div>').select2({
+        placeholder: 'رونوشت (CC) را انتخاب کنید',
         dropdownParent: $this.parent()
       });
     });

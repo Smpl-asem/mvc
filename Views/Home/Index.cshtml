@@ -1,14 +1,67 @@
-﻿<div class="container-xxl flex-grow-1 container-p-y">
+﻿@section CssFile {
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css">
+  <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css">
+  <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css">
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css">
+  <link rel="stylesheet" href="../../assets/css/demo.css">
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/rtl.css">
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css">
+  <link rel="stylesheet" href="../../assets/vendor/libs/quill/katex.css">
+  <link rel="stylesheet" href="../../assets/vendor/libs/quill/editor-fa.css">
+  <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css">
+
+  <!-- Page CSS -->
+
+  <link rel="stylesheet" href="../../assets/vendor/css/pages/app-email.css">
+}
+@section JsFile {
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../../assets/vendor/js/bootstrap.js"></script>
+  <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+
+  <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+
+  <script src="../../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  <script src="../../assets/vendor/libs/quill/katex.js"></script>
+  <script src="../../assets/vendor/libs/quill/quill.js"></script>
+  <script src="../../assets/vendor/libs/select2/select2.js"></script>
+  <script src="../../assets/vendor/libs/select2/i18n/fa.js"></script>
+  <script src="../../assets/vendor/libs/block-ui/block-ui.js"></script>
+
+  <!-- Main JS -->
+  <script src="../../assets/js/main.js"></script>
+
+  <!-- Page JS -->
+  <script src="../../assets/js/app-email.js"></script>
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
   <div class="app-email card">
     <div class="border-0">
       <div class="row g-0">
         <!-- Email Sidebar -->
         <div class="col app-email-sidebar border-end flex-grow-0" id="app-email-sidebar">
           <div class="btn-compost-wrapper d-grid">
-            <button class="btn btn-primary btn-compose" data-bs-toggle="modal" data-bs-target="#emailComposeSidebar"
-              id="emailComposeSidebarLabel">
-              ایجاد
-            </button>
+            <a class="btn btn-primary btn-compose" href="/Email/AddMail">
+              <span>ایجاد</span>
+            </a>
           </div>
           <!-- Email Filters -->
           <div class="email-filters py-2">
@@ -806,11 +859,12 @@
                 </div>
                 @* <div class="email-editor"></div> *@
                 @* <div class="ql-container ql-snow">
-                  <div class="ql-editor ql-blank" data-gramm="false" contenteditable="true"
-                    data-placeholder="پیام خود را بنویسید ... ">
-                  </div>
+                <div class="ql-editor ql-blank" data-gramm="false" contenteditable="true"
+                data-placeholder="پیام خود را بنویسید ... ">
+                </div>
                 </div> *@
-                  <textarea class="form-control ql-editor ql-blank" id="BodyText" rows="5" name="BodyText" placeholder="پیام خود را بنویسید ... "> </textarea>
+                <textarea class="form-control ql-editor ql-blank" id="BodyText" rows="5" name="BodyText"
+                  placeholder="پیام خود را بنویسید ... "> </textarea>
               </div>
               <hr class="mx-n4 mt-0 mb-2">
               <div class="email-compose-actions d-flex justify-content-between align-items-center mt-3 mb-3">

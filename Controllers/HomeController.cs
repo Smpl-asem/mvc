@@ -15,7 +15,7 @@ public class HomeController : Controller
     }
     public IActionResult Index()
     {
-        ViewBag.Contacts = Contact();
+        ViewBag.Contacts = Contact(db , User);
         return View();
     }
 
@@ -32,7 +32,7 @@ public class HomeController : Controller
 
 
 
-    private List<(string, int, string)> Contact()
+    static public List<(string, int, string)> Contact(Context db , ClaimsPrincipal User)
     {
         List<(string, int, string)> Result = new List<(string, int, string)>();
         foreach (var item in db.Users_tbl.ToList())
