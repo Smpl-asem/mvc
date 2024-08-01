@@ -1,0 +1,132 @@
+@section CssFile {
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css">
+  <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css">
+  <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css">
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css">
+  <link rel="stylesheet" href="../../assets/css/demo.css">
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/rtl.css">
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css">
+
+  <!-- Page CSS -->
+}
+
+@section JsFile {
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../../assets/vendor/js/bootstrap.js"></script>
+  <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+
+  <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+
+  <script src="../../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+
+  <!-- Main JS -->
+  <script src="../../assets/js/main.js"></script>
+}
+
+@if(ViewBag.Error != null){
+  <h1>@ViewBag.Error</h1>
+}
+else
+{
+  <!-- Bootstrap Table with Header - Dark -->
+  <div class="card">
+    <h5 class="card-header heading-color">@ViewBag.title</h5>
+    <div class="table-responsive text-nowrap">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th>موضوع</th>
+            <th>متن ایمیل</th>
+            <th>نام فرستنده</th>
+            <th>دریافت کنندگان</th>
+            <th>رونوشت ها</th>
+            <th>تاریخ ایجاد</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+          @foreach (var item in ViewBag.Messages.Item1)
+          {
+            <tr>
+              <td>
+                <strong>
+                  @item.MessageSubject.Substring(0, Math.Min(30, item.MessageSubject.Length))
+                </strong>
+              </td>
+              <td>@item.MessageBodyText.Substring(0, Math.Min(67, item.MessageBodyText.Length))</td>
+              <td>
+                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                    class="avatar avatar-xs pull-up" title="@item.SenderFirstName @item.SenderLastName">
+                    <img src="@item.SenderProfile" alt="آواتار" class="rounded-circle">
+                  </li>
+                </ul>
+              </td>
+              <td>
+                @foreach (var recive in item.Recivers)
+                {
+                  @if (recive.ReciverType == "4")
+                  {
+                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                      <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar avatar-xs pull-up" title="@recive.ReciverFirstName @recive.ReciverLastName">
+                        <img src="@recive.ReciverProfile" alt="آواتار" class="rounded-circle">
+                      </li>
+                    </ul>
+                  }
+                }
+              </td>
+              <td>
+                @foreach (var recive in item.Recivers)
+                {
+                  @if (recive.ReciverType == "5")
+                  {
+                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                      <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                        class="avatar avatar-xs pull-up" title="@recive.ReciverFirstName @recive.ReciverLastName">
+                        <img src="@recive.ReciverProfile" alt="آواتار" class="rounded-circle">
+                      </li>
+                    </ul>
+                  }
+                }
+              <td>@item.CreateDate @item.CreateTime</td>
+              <td>
+                <div class="dropdown">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                    <i class="bx bx-dots-vertical-rounded"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Email/ReturnEmail/@item.MessageId;"><i class="bx bx-edit-alt me-1"></i>
+                      بازکردن</a>
+                    <a class="dropdown-item" href="/Email/TrashEmail/@item.MessageId;"><i class="bx bx-trash me-1"></i>
+                      حذف</a>
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--/ Bootstrap Table with Header Dark -->
+}

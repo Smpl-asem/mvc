@@ -7,6 +7,11 @@ public class messagefilter
     {
         query = query.Where(m => m.SenderUserId == userId || m.Recivers.Any(x => x.ReciverId == userId)); // فقط ایمیل های مرتبط به فرد
     }
+
+    public void SearchByMessageId(ref IQueryable<Messages> query, int messageId){
+        query = query.Where(x=> x.Id == messageId);
+    }
+    
     public void SearchBodyAndSubject(ref IQueryable<Messages> query, string filter)
     {
         query = query.Where(x => !x.Deleted.Contains(userId));
@@ -99,6 +104,12 @@ public class messagefilter
 
 
     }
+
+    internal void SearchByMessageId(ref IQueryable<Messages> query, int? messageId)
+    {
+        throw new NotImplementedException();
+    }
+
     public messagefilter(int _userId)
     {
         userId = _userId;

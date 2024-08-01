@@ -119,7 +119,7 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult index(int Id)
+    public IActionResult index(int Id = 1)
     {
         var data = DataEater(Id);
         ViewBag.Messages = data ;
@@ -197,8 +197,22 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult ReturnEmail(int Id = 1){
-        return Ok();
+    public IActionResult ReturnEmail(int Id = 1)
+    {
+        var data = search(1, null, Id);
+        ViewBag.Messages = data;
+        if (data.Item1.Count == 0)
+        {
+            ViewBag.Error = "مشکلی پیش امده ، ایمیل مورد نظر یافت نشد .";
+            return View("viewMails");
+
+        }
+        else
+        {
+            ViewBag.title = $"ایمیل شماره {data.Item1[0].MessageSerialNumber}";
+            ViewBag.route = "ReturnEmail";
+            return View("viewMails");
+        }
     }
     
     [HttpGet]
@@ -211,7 +225,7 @@ public class EmailController : Controller
         return View("viewMails");
     }
 
-    private (List<ResultMessage> , int , int , int , int) search(int pageNumber, string text)
+    private (List<ResultMessage> , int , int , int , int) search(int pageNumber, string? text = null , int? messageId = null)
     {
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var message3Filter = new messagefilter(userId);
@@ -222,7 +236,11 @@ public class EmailController : Controller
         .Include(x => x.Atteched)
         .AsQueryable();
 
-        message3Filter.SearchBodyAndSubject(ref query, text);
+        if(!String.IsNullOrEmpty(text))
+            message3Filter.SearchBodyAndSubject(ref query, (string)text);
+        if(messageId.HasValue)
+            message3Filter.SearchByMessageId(ref query, (int)messageId);
+
         message3Filter.RelatedItSelf(ref query);
 
 

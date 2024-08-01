@@ -40,7 +40,10 @@
   <script src="../../assets/js/main.js"></script>
 }
 
-@if (ViewBag.Messages.Item2 <= ViewBag.Messages.Item4)
+@if(ViewBag.Error != null){
+  <h1>@ViewBag.Error</h1>
+}
+else if (ViewBag.Messages.Item2 <= ViewBag.Messages.Item4)
 {
   <!-- Bootstrap Table with Header - Dark -->
   <div class="card">
@@ -110,9 +113,9 @@
                     <i class="bx bx-dots-vertical-rounded"></i>
                   </button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/Email/ReturnEmail/@item.MessageId;"><i class="bx bx-edit-alt me-1"></i>
+                    <a class="dropdown-item" href="/Email/ReturnEmail/@item.MessageId"><i class="bx bx-edit-alt me-1"></i>
                       بازکردن</a>
-                    <a class="dropdown-item" href="/Email/TrashEmail/@item.MessageId;"><i class="bx bx-trash me-1"></i>
+                    <a class="dropdown-item" href="/Email/TrashEmail/@item.MessageId"><i class="bx bx-trash me-1"></i>
                       حذف</a>
                   </div>
                 </div>
