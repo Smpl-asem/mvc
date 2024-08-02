@@ -33,7 +33,7 @@ $(function () {
     CCId.each(function () {
       var $this = $(this);
       $this.wrap('<div class="position-relative"></div>').select2({
-        placeholder: 'رونوشت (CC) را انتخاب کنید',
+        placeholder: 'رونوشت (cc) خالی است',
         dropdownParent: $this.parent()
       });
     });

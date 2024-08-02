@@ -19,6 +19,7 @@
     <!-- Page JS -->
     <script src="../../assets/js/forms-tagify.js"></script>
     <script src="../../assets/js/forms-selects.js"></script>
+    <script src="../..assets/js/forms-selects-Mine.js"></script>
 }
 
 @section CssFile {
@@ -44,94 +45,157 @@
 }
 
 <!-- Content -->
-<div class="container-xxl flex-grow-1 container-p-y">
-    <div class="col-xxl">
-        @if (ViewBag.Error != null)
-        {
-            <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
-                @ViewBag.Error
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="nav-align-top mb-4">
+    <ul class="nav nav-tabs nav-fill" role="tablist">
+        <li class="nav-item">
+            <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#MsgData"
+                aria-controls="MsgData" aria-selected="true">
+                <i class="tf-icons bx bx-message me-1"></i>ایمیل
+            </button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="false">
+                <i class="tf-icons bx bx-alarm me-1"></i> رویداد
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="MsgData" role="tabpanel">
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <div class="col-xxl">
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
+                            @ViewBag.Error
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="card mb-4">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                            <h5 class="mb-0">@ViewBag.title</h5>
+                            <small class="text-muted float-end primary-font">@ViewBag.Messages.Item1[0].CreateTime
+                                @ViewBag.Messages.Item1[0].CreateDate</small>
+                        </div>
+                        <div class="card-body">
+                            <form action="/Email/AddMail" enctype="multipart/form-data" method="post">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-name">فرستنده</label>
+                                    <div class="col-sm-10">
+                                        <input readonly type="text" class="form-control" id="basic-default-name"
+                                            name="SerialNumber"
+                                            value="@ViewBag.Messages.Item1[0].SenderFirstName @ViewBag.Messages.Item1[0].SenderLastName (@ViewBag.Messages.Item1[0].SenderUser)">
+                                    </div>
+                                </div>
+                                <div class="row md-3">
+                                    <label for="ReciverId" class="col-sm-2 col-form-label">لیست گیرنده ها</label>
+                                    <div class="col-sm-10">
+                                        <select disabled id="ReciverId" class="select2 form-select" name="ReciversId"
+                                            multiple>
+                                            @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
+                                            {
+                                                @if (item.ReciverType == "4")
+                                                {
+                                                    <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>
+                                                        @item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)
+                                                    </option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row md-3">
+                                    <label for="CCId" class="col-sm-2 col-form-label">لیست رونوشت ها</label>
+                                    <div class="col-sm-10">
+                                        <select disabled id="CCId" class="select2 form-select" name="CCsId" multiple>
+                                            @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
+                                            {
+                                                @if (item.ReciverType == "5")
+                                                {
+                                                    <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>
+                                                        @item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)
+                                                    </option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>ّ
+                                <br>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-name">شماره سریال</label>
+                                    <div class="col-sm-10">
+                                        <input readonly type="text" class="form-control" id="basic-default-name"
+                                            name="SerialNumber" placeholder="شماره سریال را وارد کنید"
+                                            value="@ViewBag.Messages.Item1[0].MessageSerialNumber">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-company">موضوع</label>
+                                    <div class="col-sm-10">
+                                        <input readonly type="text" class="form-control" id="basic-default-company"
+                                            placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject"
+                                            value="@ViewBag.Messages.Item1[0].MessageSubject">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-message">پیام</label>
+                                    <div class="col-sm-10">
+                                        <textarea readonly id="basic-default-message" class="form-control"
+                                            placeholder="متن پیام را اینجا بنویسید"
+                                            aria-label="Hi, Do you have a moment to talk Joe?"
+                                            aria-describedby="basic-icon-default-message2"
+                                            name="BodyText">@ViewBag.Messages.Item1[0].MessageBodyText</textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="upload">فایل های پیوست شده</label>
+                                    <div class="col-sm-10">
+                                        @foreach (var item in ViewBag.Messages.Item1[0].Files)
+                                        {
+                                            <a type="button" class="btn btn-primary" href="@item.FilePath"
+                                                target="_blank">@item.FileName</a>
+                                        }
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        }
-        <div class="card mb-4">
-            <div class="card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">@ViewBag.title</h5>
-                <small class="text-muted float-end primary-font">@ViewBag.Messages.Item1[0].CreateTime @ViewBag.Messages.Item1[0].CreateDate</small>
-            </div>
-            <div class="card-body">
-                <form action="/Email/AddMail" enctype="multipart/form-data" method="post">
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-name">فرستنده</label>
-                        <div class="col-sm-10">
-                            <input readonly type="text" class="form-control" id="basic-default-name" name="SerialNumber"
-                                value="@ViewBag.Messages.Item1[0].SenderFirstName @ViewBag.Messages.Item1[0].SenderLastName (@ViewBag.Messages.Item1[0].SenderUser)">
-                        </div>
-                    </div>
-                    <div class="row md-3">
-                        <label for="ReciverId" class="col-sm-2 col-form-label">لیست گیرنده ها</label>
-                        <div class="col-sm-10">
-                            <select disabled id="ReciverId" class="select2 form-select" name="ReciversId" multiple>
-                                @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
-                                {
-                                    @if (item.ReciverType == "4")
-                                    {
-                                        <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>@item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)</option>
-                                    }
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row md-3">
-                        <label for="CCId" class="col-sm-2 col-form-label">لیست رونوشت ها</label>
-                        <div class="col-sm-10">
-                            <select disabled id="CCId" class="select2 form-select" name="CCsId" multiple>
-                                @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
-                                {
-                                    @if (item.ReciverType == "5")
-                                    {
-                                        <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>@item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)</option>
-                                    }
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-name">شماره سریال</label>
-                        <div class="col-sm-10">
-                            <input readonly type="text" class="form-control" id="basic-default-name" name="SerialNumber"
-                                placeholder="شماره سریال را وارد کنید" value="@ViewBag.Messages.Item1[0].MessageSerialNumber">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">موضوع</label>
-                        <div class="col-sm-10">
-                            <input readonly type="text" class="form-control" id="basic-default-company"
-                                placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject" value="@ViewBag.Messages.Item1[0].MessageSubject">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-message">پیام</label>
-                        <div class="col-sm-10">
-                            <textarea readonly id="basic-default-message" class="form-control"
-                                placeholder="متن پیام را اینجا بنویسید"
-                                aria-label="Hi, Do you have a moment to talk Joe?"
-                                aria-describedby="basic-icon-default-message2" name="BodyText">value="@ViewBag.Messages.Item1[0].MessageBodyText</textarea>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="upload">فایل های پیوست شده</label>
-                        <div class="col-sm-10">
-                            @foreach(var item in ViewBag.Messages.Item1[0].Files){
-                                  <a type="button" class="btn btn-primary" href="@item.FilePath" target="_blank">@item.FileName</a>
-                            }
-                        </div>
-                    </div>
-                </form>
+        </div>
+        <div class="tab-pane fade" id="navs-justified-profile" role="tabpanel">
+            <div class="card card-action mb-4">
+                <div class="card-header align-items-center">
+                    <h5 class="card-action-title mb-3"><i class="bx bx-list-ul bx-sm me-2"></i>خط زمانی رویداد ها</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="timeline ms-2">
+                        @foreach (var item in ViewBag.MsgLog.Item1)
+                        {
+                            <li class="timeline-item timeline-item-transparent">
+                                <span class="timeline-point timeline-point-warning"></span>
+                                <div class="timeline-event">
+                                    <div class="timeline-header mb-1">
+                                        <h6 class="mb-0 mt-n1">@Log.GetMsgLog(item)</h6>
+                                        <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">@item.CreateTime @item.CreateDate</small>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <div class="avatar me-3 mt-1">
+                                            <img src="@item.WhoDone.Profile" alt="آواتار" class="rounded-circle">
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">@item.WhoDone.Name (@item.WhoDone.Username)</h6>
+                                            <span>@item.LogAction</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <!--/ Content -->
-<script src="../..assets/js/forms-selects-Mine.js"></script>

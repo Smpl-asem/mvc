@@ -127,7 +127,7 @@ public class Log
 
     static public string GetMsgLog(ResultMsgLog data)
     {
-        return $"{data.WhoDone.Name} ({data.WhoDone.Username}) نامه شماره {data.WhatDone.SerialNumber} را {data.LogAction} در تاریخ {data.CreateDate} و ساعت {data.CreateTime}";
+        return $"{data.WhoDone.Name} ({data.WhoDone.Username}) نامه شماره {data.WhatDone.SerialNumber} را {data.LogAction}";
     }
 
     static private string msgCodeToAction(int code)

@@ -289,10 +289,9 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult ReturnEmail(int Id = 1)
+    public IActionResult ReturnEmail(int? Id = null , int? logPage = 1)
     {
         var data = search(1, User, db, null, Id);
-        ViewBag.Messages = data;
         if (data.Item1.Count == 0)
         {
             ViewBag.Error = "مشکلی پیش امده ، ایمیل مورد نظر یافت نشد .";
@@ -301,8 +300,10 @@ public class EmailController : Controller
         }
         else
         {
+            ViewBag.Messages = data;
             ViewBag.title = $"ایمیل شماره {data.Item1[0].MessageSerialNumber}";
             ViewBag.route = "ReturnEmail";
+            ViewBag.MsgLog = Log.AllMsgLog(db,User,(int)Id,null,10,logPage);
             return View("returnEmail");
         }
     }
