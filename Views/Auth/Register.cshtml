@@ -100,18 +100,18 @@
             <h4 class="mb-3 secondary-font"> ثبت نام</h4>
             <p class="mb-4">اطلاعات زیر را تکمیل کنید.</p>
 
-            @if (ViewBag.error != null)
+            @if (ViewBag.Error != null)
             {
               <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
-                <i class="bx bx-xs bx-store me-2"></i>
-                @ViewBag.error
+                <i class="bx bx-xs bx-error me-2"></i>
+                @ViewBag.Error
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             }
-            @if (ViewBag.Result != null)
-            {
-              <div class="alert alert-solid-success" role="alert">
+            @if (ViewBag.Result != null){
+              <div class="alert alert-solid-success alert-dismissible d-flex align-items-center" role="alert">
                 @ViewBag.Result
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             }
 

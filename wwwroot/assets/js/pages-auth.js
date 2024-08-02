@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 message: 'لطفا نام کاربری را وارد کنید'
               },
               stringLength: {
-                min: 6,
-                message: 'نام کاربری باید بیش از 6 کاراکتر باشد'
+                min: 3,
+                message: 'نام کاربری باید بیش از 3 کاراکتر باشد'
               }
             }
           },
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 message: 'لطفا ایمیل / نام کاربری را وارد کنید'
               },
               stringLength: {
-                min: 6,
-                message: 'نام کاربری باید بیش از 6 کاراکتر باشد'
+                min: 3,
+                message: 'نام کاربری باید بیش از 3 کاراکتر باشد'
               }
             }
           },
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 message: 'لطفا رمز عبور خود را وارد کنید'
               },
               stringLength: {
-                min: 6,
-                message: 'رمز عبور باید بیش از 6 کاراکتر باشد'
+                min: 3,
+                message: 'رمز عبور باید بیش از 3 کاراکتر باشد'
               }
             }
           },
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 message: 'رمز عبور و تایید آن یکسان نیستند'
               },
               stringLength: {
-                min: 6,
-                message: 'رمز عبور باید بیش از 6 کاراکتر باشد'
+                min: 3,
+                message: 'رمز عبور باید بیش از 3 کاراکتر باشد'
               }
             }
           },

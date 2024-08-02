@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using test.Models;
 
 public class AuthController : Controller
@@ -181,7 +182,8 @@ public class AuthController : Controller
         Users check = db.Users_tbl.FirstOrDefault(x => x.Username == Username.ToLower() && x.NatinalCode == NatinalCode);
         if (check == null)
         {
-            return Ok("Invalid Data");
+            ViewBag.Error = "اطلاعات وارد شده نادرست میباشد";
+            return View("Forget");
         }
 
         // sms check
@@ -191,16 +193,22 @@ public class AuthController : Controller
 
         if (request != null)
         {
-            if (DateTime.UtcNow.AddMinutes(-10) < request.CreateDateTime)
+            if (request.IsValid = false)
+            {
+                CreateUserLog((int)check.Id, 4, false);
+
+                //return Ok("you Must Wait about 10 min");
+                ViewBag.Error = "تعداد تلاش شما برای ورود بیشتر از 5 میباشد . شما مجاز به ورود تا 10 دقیقه دیگر نیستید ، مجددا تلاش کنید";
+                return View("Forget");
+            }
+            else if (DateTime.UtcNow.AddMinutes(-10) < request.CreateDateTime)
             {
 
                 CreateUserLog((int)check.Id, 4, false);
 
                 //return Ok("you Must Wait about 10 min");
-
-                ViewBag.smsPhone = check.Phone.Substring(check.Phone.Count() - 4) + "*****09";
-                ViewBag.userId = check.Id;
-                return View("Verify");
+                ViewBag.Error = "شما باید 10 دقیقه برای دریافت کد جدید صبر کنید";
+                return View("forget");
             }
             else
             {
@@ -221,7 +229,7 @@ public class AuthController : Controller
 
         CreateUserLog((int)check.Id, 4, true);
 
-        //return Ok(SmsCode(newSms.SmsCode, check.Phone));
+        SmsCode(newSms.SmsCode, check.Phone);
         ViewBag.smsPhone = check.Phone.Substring(check.Phone.Count() - 4) + "*****09";
         ViewBag.userId = check.Id;
         return View("Verify");
@@ -234,22 +242,24 @@ public class AuthController : Controller
         Users check = db.Users_tbl.Find(userid);
         if (check == null)
         {
-            return Ok("Invalid User");
+            ViewBag.Error = "کاربر یافت نشد (محاله به این ارور بخوری)";
+            return View("Forget");
         }
         //sms Check
         smsUser smsCheck = db.sms_tbl.FirstOrDefault(x => x.UserId == check.Id);
         if (smsCheck == null)
         {
             CreateUserLog((int)check.Id, 5, false);
-            return Ok("Haven't Code Requset. try Reset First");
-
+            ViewBag.Error = "خطایی رخ داده است ، دوباره تلاش کنید";
+            return View("Forget");
         }
         else if (DateTime.UtcNow.AddMinutes(-10) > smsCheck.CreateDateTime)
         { //Time Passed
             db.sms_tbl.Remove(smsCheck);
             db.SaveChanges();
             CreateUserLog((int)check.Id, 5, false);
-            return Ok("Code Time Expire ... Try again");
+            ViewBag.Error = "کد شما منقضی شده ، مجددا تلاش کنید";
+            return View("Forget");
         }
         else if (smsCheck.IsValid == true)
         {
@@ -259,8 +269,28 @@ public class AuthController : Controller
                 //db.Users_tbl.Update(check);
                 db.sms_tbl.Remove(smsCheck);
                 db.SaveChanges();
-                //CreateUserLog((int)check.Id, 5, true);
-                return Ok("Sucssesful");
+
+                ClaimsIdentity Identity = new ClaimsIdentity(new[]
+            {
+
+                new Claim(ClaimTypes.Name,check.FirstName+" "+check.LastName),
+                new Claim(ClaimTypes.NameIdentifier,check.Id.ToString()),
+                new Claim("Profile",check.Profile)
+
+            }, CookieAuthenticationDefaults.AuthenticationScheme);
+
+
+                var princpal = new ClaimsPrincipal(Identity);
+
+                var properties = new AuthenticationProperties
+                {
+                    ExpiresUtc = DateTime.UtcNow.AddMonths(1),
+                    IsPersistent = true
+                };
+
+                HttpContext.SignInAsync(princpal, properties);
+                
+                return RedirectToAction("resetPassword");
             }
             else
             {
@@ -271,39 +301,37 @@ public class AuthController : Controller
                 db.sms_tbl.Update(smsCheck);
                 db.SaveChanges();
                 CreateUserLog((int)check.Id, 5, false);
-                return Ok("Code is Invalid");
+                ViewBag.Error = "کد نامعتبر است ، دوباره تلاش کنید";
+                ViewBag.smsPhone = check.Phone.Substring(check.Phone.Count() - 4) + "*****09";
+                ViewBag.userId = check.Id;
+                return View("Verify");
             }
         }
         else
         {
             CreateUserLog((int)check.Id, 5, false);
-            return Ok("you Must Try 10 min later.");
+            ViewBag.Error = "تعداد تلاش شما برای ورود بیشتر از 5 میباشد . شما مجاز به ورود تا 10 دقیقه دیگر نیستید ، مجددا تلاش کنید";
+            return View("Forget");
         }
     }
-
-    private string CreateToken(string Username, string id)
+    [HttpGet]
+    [Authorize]
+    public IActionResult resetPassword()
     {
-        SymmetricSecurityKey secretKey = new SymmetricSecurityKey(Encoding.Default.GetBytes("SymmetricSecurityKey secretKey Encoding.Default.GetBytes"));
-        SigningCredentials Credentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
-        Claim[] claims = new Claim[]{
-            new Claim("username",Username),
-            new Claim("id",id)
-        };
-
-        var token = new JwtSecurityToken(
-            issuer: "Issuer",
-            audience: "Audience",
-            claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(30),
-            signingCredentials: Credentials
-        );
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
-
+        return View();
+    }
+    [HttpPost]
+    public IActionResult resetPassword(string password)
+    {
+        var check = db.Users_tbl.Find(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        check.Password = BCrypt.Net.BCrypt.HashPassword(password + salt + check.Username.ToLower());
+        db.SaveChanges();
+        CreateUserLog((int)check.Id, 5, true);
+        return RedirectToAction("index" , "email");
     }
 
-    private string SmsCode(string Code, string Phone)
+    private void SmsCode(string Code, string Phone)
     {
         // real sms
         // KavenegarApi SmsApi = new KavenegarApi(db.smsTokens.Find(1).Token);
@@ -311,7 +339,7 @@ public class AuthController : Controller
         // return "Sms Sended";
 
         // price less
-        return $"{Code} Sent to {Phone} .";
+        //watch from sql server
     }
 
     private void CreateUserLog(int UserId, int LogAction, bool isSucces)

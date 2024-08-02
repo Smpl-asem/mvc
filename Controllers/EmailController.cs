@@ -131,7 +131,7 @@ public class EmailController : Controller
 
 
         ViewBag.Result = "پیام شما با موفقیت ارسال شد";
-        return RedirectToAction("Index", "home");
+        return RedirectToAction("Index", "Email");
 
 
 
@@ -394,7 +394,7 @@ public class EmailController : Controller
         // return View();
     }
 
-    private void CreateMsgLog(int MessageId, int UserId, int LogAction)
+    public void CreateMsgLog(int MessageId, int UserId, int LogAction)
     {
         // Add Log ---->
         db.msgLog_tbl.Add(new MessageLog
