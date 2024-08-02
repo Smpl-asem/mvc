@@ -32,7 +32,7 @@ public class HomeController : Controller
 
 
 
-    static public List<(string, int, string , string)> Contact(Context db , ClaimsPrincipal User)
+    static public List<(string, int, string , string)> Contact(Context db , ClaimsPrincipal User) // گرفتن لیست کاربران
     {
         List<(string, int, string , string)> Result = new List<(string, int, string , string)>();
         foreach (var item in db.Users_tbl.ToList())

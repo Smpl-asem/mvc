@@ -116,6 +116,10 @@
                                 <span>@ViewBag.data.Username</span>
                             </li>
                             <li class="mb-3">
+                                <span class="fw-bold me-2">تاریخ عضویت:</span>
+                                <span>@EmailController.persianDate(ViewBag.data.CreateDateTime).Item1</span>
+                            </li>
+                            <li class="mb-3">
                                 <span class="fw-bold me-2">وضعیت:</span>
                                 <span class="badge bg-label-success">فعال</span>
                             </li>
@@ -149,87 +153,18 @@
                 </div>
                 <div class="card-body">
                     <ul class="timeline">
-                        <li class="timeline-item timeline-item-transparent">
+                        @foreach(var item in ViewBag.dataUserLog.Item1){
+                            <li class="timeline-item timeline-item-transparent">
                             <span class="timeline-point timeline-point-primary"></span>
                             <div class="timeline-event">
                                 <div class="timeline-header mb-1">
-                                    <h6 class="mb-0 mt-n1">12 صورتحساب پرداخت شد</h6>
-                                    <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">12 دقیقه قبل</small>
+                                    <h6 class="mb-0 mt-n1">@item.LogAction</h6>
+                                    <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">@item.CreateTime @item.CreateDate</small>
                                 </div>
-                                <p class="mb-2">صورتحساب ها به شرکت پرداخت شد</p>
-                                <div class="d-flex">
-                                    <a href="javascript:void(0)" class="me-3">
-                                        <img src="../../assets/img/icons/misc/pdf.png" alt="PDF image" width="20"
-                                            class="me-2">
-                                        <span class="fw-bold text-body">invoices.pdf</span>
-                                    </a>
-                                </div>
+                                <p class="mb-2">@Log.GetUserLog(item)</p>
                             </div>
                         </li>
-                        <li class="timeline-item timeline-item-transparent">
-                            <span class="timeline-point timeline-point-warning"></span>
-                            <div class="timeline-event">
-                                <div class="timeline-header mb-1">
-                                    <h6 class="mb-0 mt-n1">ملاقات با مشتری</h6>
-                                    <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">45 دقیقه قبل</small>
-                                </div>
-                                <p class="mb-2">ملاقات برای پروژه با استیو در 10:15 ق.ظ</p>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="avatar me-3 mt-1">
-                                        <img src="../../assets/img/avatars/3.png" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1">بیل گیتس (مشتری)</h6>
-                                        <span>بنیان‌گذار مایکروسافت</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                            <span class="timeline-point timeline-point-info"></span>
-                            <div class="timeline-event">
-                                <div class="timeline-header mb-1">
-                                    <h6 class="mb-0 mt-n1">ایجاد یک پروژه جدید برای مشتری</h6>
-                                    <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">2 روز قبل</small>
-                                </div>
-                                <p class="mb-2">5 عضو تیم در یک پروژه</p>
-                                <div class="d-flex align-items-center avatar-group">
-                                    <div class="avatar pull-up" data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                        data-bs-placement="top" title="تونی استارک">
-                                        <img src="../../assets/img/avatars/5.png" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                    <div class="avatar pull-up" data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                        data-bs-placement="top" title="بیل گیتس">
-                                        <img src="../../assets/img/avatars/12.png" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                    <div class="avatar pull-up" data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                        data-bs-placement="top" title="پیتر پارکر">
-                                        <img src="../../assets/img/avatars/9.png" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                    <div class="avatar pull-up" data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                        data-bs-placement="top" title="بروس وین">
-                                        <img src="../../assets/img/avatars/6.png" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                    <div class="avatar pull-up" data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                        data-bs-placement="top" title="اولیور کویین">
-                                        <img src="../../assets/img/avatars/14.png" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item timeline-item-transparent">
-                            <span class="timeline-point timeline-point-success"></span>
-                            <div class="timeline-event">
-                                <div class="timeline-header mb-1">
-                                    <h6 class="mb-0 mt-n1">بررسی طراحی</h6>
-                                    <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">5 روز قبل</small>
-                                </div>
-                                <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                            </div>
-                        </li>
-                        <li class="timeline-end-indicator">
-                            <i class="bx bx-check-circle"></i>
-                        </li>
+                        }
                     </ul>
                 </div>
             </div>

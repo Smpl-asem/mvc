@@ -161,8 +161,8 @@ public class AuthController : Controller
             });
             db.SaveChanges();
 
-            CreateUserLog((int)NewUser.Id, 7, true);
             CreateUserLog((int)NewUser.Id, 3, true);
+            CreateUserLog((int)NewUser.Id, 7, true);
 
             ViewBag.Result = "ثبت نام با موفقیت انجام شد ";
         }
@@ -334,6 +334,7 @@ public class AuthController : Controller
     public IActionResult logout()
     {
         HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        CreateUserLog(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 2, true);
         return RedirectToAction("login", "Auth");
     }
 

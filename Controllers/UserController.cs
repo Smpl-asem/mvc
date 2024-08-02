@@ -29,18 +29,21 @@ public class UserController : Controller
 
     [HttpGet]
     public IActionResult ProfileUser()
-    { 
+    {
         var UserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
 
         Users Check = db.Users_tbl.Find(UserId);
         ViewBag.data = Check;
 
-        var sentCheck = EmailController.DataEater(1,User,db,false,true,5);
+        var sentCheck = EmailController.DataEater(1, User, db, false, true, 5);
         ViewBag.dataSent = sentCheck;
 
-        var reciveCheck = EmailController.DataEater(1,User,db,false,false,5);
+        var reciveCheck = EmailController.DataEater(1, User, db, false, false, 5);
         ViewBag.dataRecive = reciveCheck;
+
+        var UserLogCheck = Log.AllUserLog(db, User);
+        ViewBag.dataUserLog = UserLogCheck;
         return View();
     }
 
@@ -111,7 +114,7 @@ public class UserController : Controller
         };
 
         HttpContext.SignInAsync(princpal, properties);
-        
+
         ViewBag.Result = "به روزرسانی اطلاعات با موفقیت انجام شد";
 
         ViewBag.FirstName = check.FirstName;
