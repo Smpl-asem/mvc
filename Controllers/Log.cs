@@ -47,7 +47,7 @@ public class Log
 
     static public string GetUserLog(ResultUserLog data)
     {
-            return $"{data.WhoDone.Name} ({data.WhoDone.Username})  {data.LogAction} در تاریخ {data.CreateDate} و ساعت {data.CreateTime}";
+        return $"{data.WhoDone.Name} ({data.WhoDone.Username})  {data.LogAction} در تاریخ {data.CreateDate} و ساعت {data.CreateTime}";
     }
 
     static private string userCodeToAction(int code, bool done)
@@ -74,6 +74,85 @@ public class Log
                 return done ? "به عنوان مالک تعریف شد" : "عنوان مالک را از دست داد";
             default:
                 return "WTF ? how You Get THERE ???";
+        }
+    }
+    static public (List<ResultMsgLog>, int, int, int, int) AllMsgLog(Context db, ClaimsPrincipal User, int MessageId, int? LogAction = null, int? PageSize = 10, int? PageNumber = 1)
+    {
+        var query = db.msgLog_tbl
+        .Where(x => x.MessageId == MessageId)
+        .Include(x => x.User)
+        .Include(x => x.Message)
+        .AsQueryable();
+
+
+        if (LogAction.HasValue)
+        {//چک کردن بر اساس عملیات و اکشن
+            query = query.Where(x => x.LogAction == (int)LogAction);
+        }
+
+        var totalCount = query.Count();
+        var totalPages = (int)Math.Ceiling((double)totalCount / (int)PageSize);
+
+        var pagedData = query
+            .OrderByDescending(x => x.Id)
+            .Skip(((int)PageNumber - 1) * (int)PageSize)
+            .Take((int)PageSize)
+            .Select(m => new ResultMsgLog
+            {
+                Id = (int)m.Id,
+                WhoDone = new DtoGetUser
+                {
+                    Id = (int)m.User.Id,
+                    Name = $"{m.User.FirstName} {m.User.LastName}",
+                    Profile = m.User.Profile,
+                    Username = m.User.Username
+                },
+                WhatDone = new DtoGetMessage
+                {
+                    MessageId = (int)m.Message.Id,
+                    SerialNumber = m.Message.SerialNumber,
+                    BodyText = m.Message.BodyText,
+                    SenderUserId = (int)m.Message.SenderUserId,
+                    Subject = m.Message.Subject
+                },
+                CreateDate = EmailController.persianDate(m.CreateDateTime).Item1,
+                CreateTime = EmailController.persianDate(m.CreateDateTime).Item2,
+                LogAction = msgCodeToAction(m.LogAction)
+            }
+
+            )
+            .ToList();
+        return (pagedData, (int)PageNumber, (int)PageSize, totalPages, totalCount);
+    }
+
+    static public string GetMsgLog(ResultMsgLog data)
+    {
+        return $"{data.WhoDone.Name} ({data.WhoDone.Username}) نامه شماره {data.WhatDone.SerialNumber} را {data.LogAction} در تاریخ {data.CreateDate} و ساعت {data.CreateTime}";
+    }
+
+    static private string msgCodeToAction(int code)
+    {
+        switch (code)
+        { //1) read / 2) delete / 3) send / 4) Recive as to / 5) Recive As CC / 6)upload / 7) trash / 8) Untrash
+            case 1:
+                return "خواند";
+            case 2:
+                return "پاک کرد";
+            case 3:
+                return "ارسال کرد";
+            case 4:
+                return "دریافت کرد (to)";
+            case 5:
+                return "رونوشت را دریافت کرد (CC)";
+            case 6:
+                return "حذف دائمی کرد";
+            case 7:
+                return "حذف موقت کرد";
+            case 8:
+                return "از لیست حذف شده ها خارج کرد";
+            default:
+                return "WTF ? how You Get THERE ???";
+
         }
     }
 }
