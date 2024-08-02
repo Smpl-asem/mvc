@@ -19,13 +19,14 @@ public class messagefilter
         if (!string.IsNullOrEmpty(filter))
             query = query.Where(m => m.Subject.Contains(filter) || m.BodyText.Contains(filter));
     }
+
+    public void DeleteCheck(ref IQueryable<Messages> query){
+        // remove All Delete
+        query = query.Where(x=> !x.Deleted.Contains(userId));
+    }
     
     public void ApplyMessageFilters(ref IQueryable<Messages> query, MessageDetailsFilter filter)
     {
-        // remove All Delete
-        query = query.Where(x=> !x.Deleted.Contains(userId));
-
-        
         // Check Trash
         if (filter.Trash.HasValue)
         {

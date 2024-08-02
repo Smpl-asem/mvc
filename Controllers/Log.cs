@@ -76,13 +76,15 @@ public class Log
                 return "WTF ? how You Get THERE ???";
         }
     }
-    static public (List<ResultMsgLog>, int, int, int, int) AllMsgLog(Context db, ClaimsPrincipal User, int MessageId, int? LogAction = null, int? PageSize = 10, int? PageNumber = 1)
+    static public (List<ResultMsgLog>, int, int, int, int) AllMsgLog(Context db, ClaimsPrincipal User, int MessageId, int? LogAction = null, int? PageSize = 10, int? PageNumber = null)
     {
         var query = db.msgLog_tbl
         .Where(x => x.MessageId == MessageId)
         .Include(x => x.User)
         .Include(x => x.Message)
         .AsQueryable();
+
+        PageNumber = PageNumber.HasValue ? PageNumber : 1 ;
 
 
         if (LogAction.HasValue)
@@ -133,11 +135,11 @@ public class Log
     static private string msgCodeToAction(int code)
     {
         switch (code)
-        { //1) read / 2) delete / 3) send / 4) Recive as to / 5) Recive As CC / 6)upload / 7) trash / 8) Untrash
+        { //1) read / 2) empty / 3) send / 4) Recive as to / 5) Recive As CC / 6)upload / 7) trash / 8) Untrash
             case 1:
                 return "خواند";
             case 2:
-                return "پاک کرد";
+                return "SOON";
             case 3:
                 return "ارسال کرد";
             case 4:

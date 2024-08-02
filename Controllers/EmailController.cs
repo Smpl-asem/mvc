@@ -189,6 +189,7 @@ public class EmailController : Controller
         check.Trashed.Add(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         db.Messages_tbl.Update(check);
         db.SaveChanges();
+        CreateMsgLog(Id, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 7);
         Id = Convert.ToInt32(page);
 
         return RedirectToAction(lastRoute, "Email", new { Id });
@@ -200,6 +201,7 @@ public class EmailController : Controller
         check.Trashed.Remove(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         db.Messages_tbl.Update(check);
         db.SaveChanges();
+        CreateMsgLog(Id, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 8);
         Id = Convert.ToInt32(page);
 
         return RedirectToAction(lastRoute, "Email", new { Id });
@@ -214,6 +216,7 @@ public class EmailController : Controller
         check.Deleted.Add(userId);
         db.Messages_tbl.Update(check);
         db.SaveChanges();
+        CreateMsgLog(Id, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 6);
         Id = Convert.ToInt32(page);
 
         return RedirectToAction(lastRoute, "Email", new { Id });
@@ -231,6 +234,7 @@ public class EmailController : Controller
         .Include(x => x.Atteched)
         .AsQueryable();
 
+        message3Filter.DeleteCheck(ref query);
         message3Filter.RelatedItSelf(ref query);
         if (isTrash)
             message3Filter.ApplyMessageFilters(ref query, new MessageDetailsFilter { Trash = true });
@@ -289,10 +293,10 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult ReturnEmail(int? Id = null , int? logPage = 1)
+    public IActionResult ReturnEmail(int? Id = null, int? logPage = 1 , bool isLog = false)
     {
         var data = search(1, User, db, null, Id);
-        if (data.Item1.Count == 0)
+        if (data.Item1.Count == 0 )
         {
             ViewBag.Error = "مشکلی پیش امده ، ایمیل مورد نظر یافت نشد .";
             return View("viewMails");
@@ -303,7 +307,12 @@ public class EmailController : Controller
             ViewBag.Messages = data;
             ViewBag.title = $"ایمیل شماره {data.Item1[0].MessageSerialNumber}";
             ViewBag.route = "ReturnEmail";
-            ViewBag.MsgLog = Log.AllMsgLog(db,User,(int)Id,null,10,logPage);
+            var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            if(!db.msgLog_tbl.ToList().Any(x=> x.UserId == userId && x.MessageId == Id && x.LogAction == 1)){
+                CreateMsgLog((int)Id, userId, 1);
+            }
+            ViewBag.MsgLog = Log.AllMsgLog(db, User, (int)Id, null, 10, logPage);
+            ViewBag.isLog= isLog;
             return View("returnEmail");
         }
     }
@@ -336,6 +345,7 @@ public class EmailController : Controller
             message3Filter.SearchByMessageId(ref query, (int)messageId);
 
         message3Filter.RelatedItSelf(ref query);
+        message3Filter.DeleteCheck(ref query);
 
 
         var totalCount = query.Count();
