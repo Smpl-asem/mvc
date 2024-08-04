@@ -157,4 +157,13 @@ public class Log
 
         }
     }
+    static int startNum = 1;
+    static public int countForMe(){
+        int Result = startNum ;
+        startNum ++ ;
+        return Result;
+    }
+    static public void countForMe(int num){
+        startNum = num;
+    }
 }

@@ -138,10 +138,24 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult index(int Id = 1)
+    public IActionResult index(int Id = 1 , int page = 1)
     {
-        var data = DataEater(Id, User, db, false);
-        ViewBag.Messages = data;
+        var dataIndex = DataEater(Id, User, db, false);
+        ViewBag.MessagesIndex = dataIndex;
+
+        var dataRecive = DataEater(Id, User, db, false, false);
+        ViewBag.MessagesRecive = dataRecive;
+
+        var dataSent = DataEater(Id, User, db, false, true);
+        ViewBag.MessagesSent = dataSent;
+
+        var dataTrash = DataEater(Id, User, db, true);
+        ViewBag.MessagesTrash = dataTrash;
+
+        ViewBag.page = page;
+        ViewBag.var = 1;
+
+        ViewBag.Contacts = HomeController.Contact(db, User);
         ViewBag.title = "لیست دریافتی";
         ViewBag.route = "index";
         return View("viewMails");
