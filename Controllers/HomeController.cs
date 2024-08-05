@@ -15,8 +15,7 @@ public class HomeController : Controller
     }
     public IActionResult Index()
     {
-        ViewBag.Contacts = Contact(db , User);
-        return View();
+        return RedirectToAction("Email","Index");
     }
 
     [HttpGet]

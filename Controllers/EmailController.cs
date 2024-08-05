@@ -31,27 +31,29 @@ public class EmailController : Controller
     {
         if (message.ReciversId == null)
         {
-            ViewBag.Error = "خطا ، حداقل یک کاربر باید در لیست دریافت کنندگان باشد ... (فایل های پیوستی را مجددا انتخاب نمایید)";
+            ViewBag.NewError = "خطا ، حداقل یک کاربر باید در لیست دریافت کنندگان باشد ... (فایل های پیوستی را مجددا انتخاب نمایید)";
             ViewBag.ReciversId = message.ReciversId;
             ViewBag.CCsId = message.CCsId;
             ViewBag.SerialNumber = message.SerialNumber;
             ViewBag.Subject = message.Subject;
             ViewBag.BodyText = message.BodyText;
             ViewBag.Contacts = HomeController.Contact(db, User);
-            return View("AddMail");
+            int id = 5;
+            return index(1,1,1,1,5);
         }
         else if (message.CCsId != null)
         {
             if (message.ReciversId.Any(x => message.CCsId.Contains(x)))
             {
-                ViewBag.Error = "خطا ، کاربر نمیتواند همزمان در لیست گیرنده و رونوشت باشد . لطفا مجددا تلاش کنید... (فایل های پیوستی را مجددا انتخاب نمایید)";
+                ViewBag.NewError = "خطا ، کاربر نمیتواند همزمان در لیست گیرنده و رونوشت باشد . لطفا مجددا تلاش کنید... (فایل های پیوستی را مجددا انتخاب نمایید)";
                 ViewBag.ReciversId = message.ReciversId;
                 ViewBag.CCsId = message.CCsId;
                 ViewBag.SerialNumber = message.SerialNumber;
                 ViewBag.Subject = message.Subject;
                 ViewBag.BodyText = message.BodyText;
                 ViewBag.Contacts = HomeController.Contact(db, User);
-                return View("AddMail");
+                int id = 5;
+                return index(1,1,1,1,5);
             }
         }
 
@@ -138,44 +140,26 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult index(int Id = 1 , int page = 1)
+    public IActionResult index(int inPage = 1, int rePage = 1, int sePage = 1, int dePage = 1, int Id = 1)
     {
-        var dataIndex = DataEater(Id, User, db, false);
+        var dataIndex = DataEater(inPage, User, db, false);
         ViewBag.MessagesIndex = dataIndex;
 
-        var dataRecive = DataEater(Id, User, db, false, false);
+        var dataRecive = DataEater(rePage, User, db, false, false);
         ViewBag.MessagesRecive = dataRecive;
 
-        var dataSent = DataEater(Id, User, db, false, true);
+        var dataSent = DataEater(sePage, User, db, false, true);
         ViewBag.MessagesSent = dataSent;
 
-        var dataTrash = DataEater(Id, User, db, true);
+        var dataTrash = DataEater(dePage, User, db, true);
         ViewBag.MessagesTrash = dataTrash;
 
-        ViewBag.page = page;
+        ViewBag.page = Id;
         ViewBag.var = 1;
 
         ViewBag.Contacts = HomeController.Contact(db, User);
         ViewBag.title = "لیست دریافتی";
         ViewBag.route = "index";
-        return View("viewMails");
-    }
-    [HttpGet]
-    public IActionResult recive(int Id = 1)
-    {
-        var data = DataEater(Id, User, db, false, false);
-        ViewBag.Messages = data;
-        ViewBag.title = "لیست دریافتی";
-        ViewBag.route = "index";
-        return View("viewMails");
-    }
-    [HttpGet]
-    public IActionResult Sent(int Id = 1)
-    {
-        var data = DataEater(Id, User, db, false, true);
-        ViewBag.Messages = data;
-        ViewBag.title = "لیست ارسالی";
-        ViewBag.route = "sent";
         return View("viewMails");
     }
     [HttpGet]
@@ -187,53 +171,70 @@ public class EmailController : Controller
         ViewBag.route = "sent";
         return View();
     }
+
     [HttpGet]
-    public IActionResult trash(int Id = 1)
+    public IActionResult TrashEmail(int Id = 1, int? msgId = null)
     {
-        var data = DataEater(Id, User, db, true);
-        ViewBag.Messages = data;
-        ViewBag.title = "سطل زباله";
-        ViewBag.route = "trash";
-        return View("viewMails");
+        if (msgId.HasValue)
+        {
+            var check = db.Messages_tbl.Find((int)msgId);
+            check.Trashed.Add(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+            db.Messages_tbl.Update(check);
+            db.SaveChanges();
+            CreateMsgLog((int)msgId, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 7);
+
+            return RedirectToAction("Index", "Email", new { Id });
+        }
+        else
+        {
+            ViewBag.Error = "مشکلی پیش امده است دوباره تلاش کنید <a hraf=/email/index>خانه</a>";
+            return RedirectToAction("Index", "Email");
+        }
     }
     [HttpGet]
-    public IActionResult TrashEmail(string lastRoute, string page = "1", int Id = 1)
+    public IActionResult UnTrashEmail(int Id = 1, int? msgId = null)
     {
-        var check = db.Messages_tbl.Find(Id);
-        check.Trashed.Add(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
-        db.Messages_tbl.Update(check);
-        db.SaveChanges();
-        CreateMsgLog(Id, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 7);
-        Id = Convert.ToInt32(page);
+        var check = db.Messages_tbl.Find((int)msgId);
+        try
+        {
+            check.Trashed.Remove(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
 
-        return RedirectToAction(lastRoute, "Email", new { Id });
+        }
+        catch
+        {
+            //empty !!!
+        }
+        finally
+        {
+            db.Messages_tbl.Update(check);
+            db.SaveChanges();
+            CreateMsgLog((int)msgId, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 8);
+        }
+        return RedirectToAction("Index", "Email", new { Id });
+
+
+
+
     }
     [HttpGet]
-    public IActionResult UnTrashEmail(string lastRoute, string page = "1", int Id = 1)
+    public IActionResult DeleteEmail(int Id = 1, int? msgId = null)
     {
-        var check = db.Messages_tbl.Find(Id);
-        check.Trashed.Remove(Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
-        db.Messages_tbl.Update(check);
-        db.SaveChanges();
-        CreateMsgLog(Id, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 8);
-        Id = Convert.ToInt32(page);
-
-        return RedirectToAction(lastRoute, "Email", new { Id });
-
-    }
-    [HttpGet]
-    public IActionResult DeleteEmail(string lastRoute, string page = "1", int Id = 1)
-    {
-        var check = db.Messages_tbl.Find(Id);
+        var check = db.Messages_tbl.Find((int)msgId);
         var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        check.Trashed.Remove(userId);
-        check.Deleted.Add(userId);
-        db.Messages_tbl.Update(check);
-        db.SaveChanges();
-        CreateMsgLog(Id, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 6);
-        Id = Convert.ToInt32(page);
+        try
+        {
+            check.Trashed.Remove(userId);
+            check.Deleted.Add(userId);
+            db.Messages_tbl.Update(check);
+            db.SaveChanges();
+            CreateMsgLog((int)msgId, Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)), 6);
+        }
+        catch
+        {
+            //empty !!
+        }
 
-        return RedirectToAction(lastRoute, "Email", new { Id });
+        return RedirectToAction("index", "Email", new { Id });
 
     }
 
@@ -307,10 +308,10 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult ReturnEmail(int? Id = null, int? logPage = 1 , bool isLog = false)
+    public IActionResult ReturnEmail(int? Id = null, int? logPage = 1, bool isLog = false)
     {
         var data = search(1, User, db, null, Id);
-        if (data.Item1.Count == 0 )
+        if (data.Item1.Count == 0)
         {
             ViewBag.Error = "مشکلی پیش امده ، ایمیل مورد نظر یافت نشد .";
             return View("viewMails");
@@ -322,11 +323,12 @@ public class EmailController : Controller
             ViewBag.title = $"ایمیل شماره {data.Item1[0].MessageSerialNumber}";
             ViewBag.route = "ReturnEmail";
             var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            if(!db.msgLog_tbl.ToList().Any(x=> x.UserId == userId && x.MessageId == Id && x.LogAction == 1)){
+            if (!db.msgLog_tbl.ToList().Any(x => x.UserId == userId && x.MessageId == Id && x.LogAction == 1))
+            {
                 CreateMsgLog((int)Id, userId, 1);
             }
             ViewBag.MsgLog = Log.AllMsgLog(db, User, (int)Id, null, 10, logPage);
-            ViewBag.isLog= isLog;
+            ViewBag.isLog = isLog;
             return View("returnEmail");
         }
     }

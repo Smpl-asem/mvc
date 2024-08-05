@@ -166,4 +166,13 @@ public class Log
     static public void countForMe(int num){
         startNum = num;
     }
+
+    static public string isActive(int page , int code){
+        if(page == code){
+            return "tab-pane fade show active";
+        }
+        else{
+            return "tab-pane fade";
+        }
+    }
 }

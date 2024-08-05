@@ -168,7 +168,7 @@ else
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane fade show active" id="navs-tabs-line-justified-home" role="tabpanel">
+      <div class="@Log.isActive(ViewBag.page , 1)" id="navs-tabs-line-justified-home" role="tabpanel">
         <!-- Bootstrap Table with Header - Dark -->
         <div class="card container-fluid">
           <h5 class="card-header heading-color">همه پیام ها</h5>
@@ -188,7 +188,7 @@ else
               </thead>
               <tbody class="table-border-bottom-0">
                 @{
-                  Log.countForMe(1);
+                  Log.countForMe(1 + ((ViewBag.MessagesIndex.Item2-1)*ViewBag.MessagesIndex.Item3));
                 }
                 @foreach (var item in ViewBag.MessagesIndex.Item1)
                 {
@@ -277,8 +277,7 @@ else
                       <a class="btn btn-xs" href="/Email/ReturnEmail/@item.MessageId"><i
                           class="bx bx-message-alt-edit me-1"></i>
                       </a>
-                      <a class="btn btn-xs"
-                        href="/Email/TrashEmail/@item.MessageId?lastRoute=index&page=@(ViewBag.MessagesIndex.Item2)"><i
+                      <a class="btn btn-xs" href="/Email/TrashEmail/1?msgId=@item.MessageId"><i
                           class="bx bx-trash me-1"></i>
                       </a>
                     </td>
@@ -295,13 +294,13 @@ else
                 @if (ViewBag.MessagesIndex.Item2 - 1 < 0)
                 {
                   <li class="page-item first">
-                    <a class="page-link" href="@ViewBag.MessagesIndex.Item4"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                    <a class="page-link" href="/email/Index/1?inPage=1"><i class="tf-icon bx bx-chevrons-left"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesIndex.Item2 - 1 != 0)
                 {
                   <li class="page-item prev">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesIndex.Item2-2)"><i
+                    <a class="page-link" href="/email/Index/1?inPage=@(ViewBag.MessagesIndex.Item2-1)"><i
                         class="tf-icon bx bx-chevron-left"></i></a>
                   </li>
                 }
@@ -310,7 +309,7 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesIndex.Item2-2)">@(ViewBag.MessagesIndex.Item2 -
+                      href="/email/Index/1?inPage=@(ViewBag.MessagesIndex.Item2-2)">@(ViewBag.MessagesIndex.Item2 -
                   2)</a>
                   </li>
                 }
@@ -318,19 +317,19 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesIndex.Item2-1)">@(ViewBag.MessagesIndex.Item2 -
+                      href="/email/Index/1?inPage=@(ViewBag.MessagesIndex.Item2-1)">@(ViewBag.MessagesIndex.Item2 -
                   1)</a>
                   </li>
                 }
                 <li class="page-item active">
                   <a class="page-link"
-                    href="/email/@ViewBag.route/@ViewBag.MessagesIndex.Item2">@ViewBag.MessagesIndex.Item2</a>
+                    href="/email/Index/1?inPage=@ViewBag.MessagesIndex.Item2">@ViewBag.MessagesIndex.Item2</a>
                 </li>
                 @if (ViewBag.MessagesIndex.Item2 + 1 <= ViewBag.MessagesIndex.Item4)
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesIndex.Item2+1)">@(ViewBag.MessagesIndex.Item2 +
+                      href="/email/Index/1?inPage=@(ViewBag.MessagesIndex.Item2+1)">@(ViewBag.MessagesIndex.Item2 +
                   1)</a>
                   </li>
                 }
@@ -338,21 +337,21 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesIndex.Item2+2)">@(ViewBag.MessagesIndex.Item2 +
+                      href="/email/Index/1?inPage=@(ViewBag.MessagesIndex.Item2+2)">@(ViewBag.MessagesIndex.Item2 +
                   2)</a>
                   </li>
                 }
                 @if (ViewBag.MessagesIndex.Item2 + 1 <= ViewBag.MessagesIndex.Item4)
                 {
                   <li class="page-item next">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesIndex.Item2+1)"><i
+                    <a class="page-link" href="/email/Index/1?inPage=@(ViewBag.MessagesIndex.Item2+1)"><i
                         class="tf-icon bx bx-chevron-right"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesIndex.Item2 + 1 < ViewBag.MessagesIndex.Item4)
                 {
                   <li class="page-item last">
-                    <a class="page-link" href="@ViewBag.MessagesIndex.Item4"><i
+                    <a class="page-link" href="/email/Index/1?inPage=@ViewBag.MessagesIndex.Item4"><i
                         class="tf-icon bx bx-chevrons-right"></i></a>
                   </li>
                 }
@@ -364,7 +363,7 @@ else
 
         <!--/ Bootstrap Table with Header Dark -->
       </div>
-      <div class="tab-pane fade" id="navs-tabs-line-justified-recive" role="tabpanel">
+      <div class="@Log.isActive(ViewBag.page , 2)" id="navs-tabs-line-justified-recive" role="tabpanel">
         <!-- Bootstrap Table with Header - Dark -->
         <div class="card container-fluid">
           <h5 class="card-header heading-color">ایمیل های دریافتی</h5>
@@ -384,7 +383,7 @@ else
               </thead>
               <tbody class="table-border-bottom-0">
                 @{
-                  Log.countForMe(1);
+                  Log.countForMe(1 + ((ViewBag.MessagesRecive.Item2-1)*ViewBag.MessagesRecive.Item3));
                 }
                 @foreach (var item in ViewBag.MessagesRecive.Item1)
                 {
@@ -491,14 +490,13 @@ else
                 @if (ViewBag.MessagesRecive.Item2 - 1 < 0)
                 {
                   <li class="page-item first">
-                    <a class="page-link" href="@ViewBag.MessagesRecive.Item4"><i
-                        class="tf-icon bx bx-chevrons-left"></i></a>
+                    <a class="page-link" href="/email/Index/2?rePage=1"><i class="tf-icon bx bx-chevrons-left"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesRecive.Item2 - 1 != 0)
                 {
                   <li class="page-item prev">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesRecive.Item2-2)"><i
+                    <a class="page-link" href="/email/Index/2?rePage=@(ViewBag.MessagesRecive.Item2-1)"><i
                         class="tf-icon bx bx-chevron-left"></i></a>
                   </li>
                 }
@@ -507,7 +505,7 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesRecive.Item2-2)">@(ViewBag.MessagesRecive.Item2 -
+                      href="/email/Index/2?rePage=@(ViewBag.MessagesRecive.Item2-2)">@(ViewBag.MessagesRecive.Item2 -
                   2)</a>
                   </li>
                 }
@@ -515,19 +513,19 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesRecive.Item2-1)">@(ViewBag.MessagesRecive.Item2 -
+                      href="/email/Index/2?rePage=@(ViewBag.MessagesRecive.Item2-1)">@(ViewBag.MessagesRecive.Item2 -
                   1)</a>
                   </li>
                 }
                 <li class="page-item active">
                   <a class="page-link"
-                    href="/email/@ViewBag.route/@ViewBag.MessagesRecive.Item2">@ViewBag.MessagesRecive.Item2</a>
+                    href="/email/Index/2?rePage=@ViewBag.MessagesRecive.Item2">@ViewBag.MessagesRecive.Item2</a>
                 </li>
                 @if (ViewBag.MessagesRecive.Item2 + 1 <= ViewBag.MessagesRecive.Item4)
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesRecive.Item2+1)">@(ViewBag.MessagesRecive.Item2 +
+                      href="/email/Index/2?rePage=@(ViewBag.MessagesRecive.Item2+1)">@(ViewBag.MessagesRecive.Item2 +
                   1)</a>
                   </li>
                 }
@@ -535,21 +533,21 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesRecive.Item2+2)">@(ViewBag.MessagesRecive.Item2 +
+                      href="/email/Index/2?rePage=@(ViewBag.MessagesRecive.Item2+2)">@(ViewBag.MessagesRecive.Item2 +
                   2)</a>
                   </li>
                 }
                 @if (ViewBag.MessagesRecive.Item2 + 1 <= ViewBag.MessagesRecive.Item4)
                 {
                   <li class="page-item next">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesRecive.Item2+1)"><i
+                    <a class="page-link" href="/email/Index/2?rePage=@(ViewBag.MessagesRecive.Item2+1)"><i
                         class="tf-icon bx bx-chevron-right"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesRecive.Item2 + 1 < ViewBag.MessagesRecive.Item4)
                 {
                   <li class="page-item last">
-                    <a class="page-link" href="@ViewBag.MessagesRecive.Item4"><i
+                    <a class="page-link" href="/email/Index/2?rePage=@ViewBag.MessagesRecive.Item4"><i
                         class="tf-icon bx bx-chevrons-right"></i></a>
                   </li>
                 }
@@ -561,7 +559,7 @@ else
 
         <!--/ Bootstrap Table with Header Dark -->
       </div>
-      <div class="tab-pane fade" id="navs-tabs-line-justified-sent" role="tabpanel">
+      <div class="@Log.isActive(ViewBag.page , 3)" id="navs-tabs-line-justified-sent" role="tabpanel">
         <!-- Bootstrap Table with Header - Dark -->
         <div class="card container-fluid">
           <h5 class="card-header heading-color">ایمیل های ارسالی</h5>
@@ -581,7 +579,7 @@ else
               </thead>
               <tbody class="table-border-bottom-0">
                 @{
-                  Log.countForMe(1);
+                  Log.countForMe(1 + ((ViewBag.MessagesSent.Item2-1)*ViewBag.MessagesSent.Item3));
                 }
                 @foreach (var item in ViewBag.MessagesSent.Item1)
                 {
@@ -688,13 +686,13 @@ else
                 @if (ViewBag.MessagesSent.Item2 - 1 < 0)
                 {
                   <li class="page-item first">
-                    <a class="page-link" href="@ViewBag.MessagesSent.Item4"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                    <a class="page-link" href="/email/Index/3?sePage=1"><i class="tf-icon bx bx-chevrons-left"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesSent.Item2 - 1 != 0)
                 {
                   <li class="page-item prev">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesSent.Item2-2)"><i
+                    <a class="page-link" href="/email/Index/3?sePage=@(ViewBag.MessagesSent.Item2-1)"><i
                         class="tf-icon bx bx-chevron-left"></i></a>
                   </li>
                 }
@@ -703,7 +701,7 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesSent.Item2-2)">@(ViewBag.MessagesSent.Item2 -
+                      href="/email/Index/3?sePage=@(ViewBag.MessagesSent.Item2-2)">@(ViewBag.MessagesSent.Item2 -
                   2)</a>
                   </li>
                 }
@@ -711,19 +709,19 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesSent.Item2-1)">@(ViewBag.MessagesSent.Item2 -
+                      href="/email/Index/3?sePage=@(ViewBag.MessagesSent.Item2-1)">@(ViewBag.MessagesSent.Item2 -
                   1)</a>
                   </li>
                 }
                 <li class="page-item active">
                   <a class="page-link"
-                    href="/email/@ViewBag.route/@ViewBag.MessagesSent.Item2">@ViewBag.MessagesSent.Item2</a>
+                    href="/email/Index/3?sePage=@ViewBag.MessagesSent.Item2">@ViewBag.MessagesSent.Item2</a>
                 </li>
                 @if (ViewBag.MessagesSent.Item2 + 1 <= ViewBag.MessagesSent.Item4)
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesSent.Item2+1)">@(ViewBag.MessagesSent.Item2 +
+                      href="/email/Index/3?sePage=@(ViewBag.MessagesSent.Item2+1)">@(ViewBag.MessagesSent.Item2 +
                   1)</a>
                   </li>
                 }
@@ -731,21 +729,22 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesSent.Item2+2)">@(ViewBag.MessagesSent.Item2 +
+                      href="/email/Index/3?sePage=@(ViewBag.MessagesSent.Item2+2)">@(ViewBag.MessagesSent.Item2 +
                   2)</a>
                   </li>
                 }
                 @if (ViewBag.MessagesSent.Item2 + 1 <= ViewBag.MessagesSent.Item4)
                 {
                   <li class="page-item next">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesSent.Item2+1)"><i
+                    <a class="page-link" href="/email/Index/3?sePage=@(ViewBag.MessagesSent.Item2+1)"><i
                         class="tf-icon bx bx-chevron-right"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesSent.Item2 + 1 < ViewBag.MessagesSent.Item4)
                 {
                   <li class="page-item last">
-                    <a class="page-link" href="@ViewBag.MessagesSent.Item4"><i class="tf-icon bx bx-chevrons-right"></i></a>
+                    <a class="page-link" href="/email/Index/3?sePage=@ViewBag.MessagesSent.Item4"><i
+                        class="tf-icon bx bx-chevrons-right"></i></a>
                   </li>
                 }
               </ul>
@@ -756,7 +755,7 @@ else
 
         <!--/ Bootstrap Table with Header Dark -->
       </div>
-      <div class="tab-pane fade" id="navs-tabs-line-justified-trash" role="tabpanel">
+      <div class="@Log.isActive(ViewBag.page , 4)" id="navs-tabs-line-justified-trash" role="tabpanel">
         <!-- Bootstrap Table with Header - Dark -->
         <div class="card container-fluid">
           <h5 class="card-header heading-color">ایمیل های حذف شده</h5>
@@ -776,7 +775,7 @@ else
               </thead>
               <tbody class="table-border-bottom-0">
                 @{
-                  Log.countForMe(1);
+                  Log.countForMe(1 + ((ViewBag.MessagesTrash.Item2-1)*ViewBag.MessagesTrash.Item3));
                 }
                 @foreach (var item in ViewBag.MessagesTrash.Item1)
                 {
@@ -866,8 +865,12 @@ else
                           class="bx bx-message-alt-edit me-1"></i>
                       </a>
                       <a class="btn btn-xs"
-                        href="/Email/TrashEmail/@item.MessageId?lastRoute=index&page=@(ViewBag.MessagesTrash.Item2)"><i
+                        href="/Email/DeleteEmail/4?msgId=@item.MessageId"><i
                           class="bx bx-trash me-1"></i>
+                      </a>
+                      <a class="btn btn-xs"
+                        href="/Email/UnTrashEmail/4?msgId=@item.MessageId"><i
+                          class="bx bx-reset me-1"></i>
                       </a>
                     </td>
 
@@ -883,13 +886,13 @@ else
                 @if (ViewBag.MessagesTrash.Item2 - 1 < 0)
                 {
                   <li class="page-item first">
-                    <a class="page-link" href="@ViewBag.MessagesTrash.Item4"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                    <a class="page-link" href="/email/Index/4?dePage=1"><i class="tf-icon bx bx-chevrons-left"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesTrash.Item2 - 1 != 0)
                 {
                   <li class="page-item prev">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesTrash.Item2-2)"><i
+                    <a class="page-link" href="/email/Index/4?dePage=@(ViewBag.MessagesTrash.Item2-1)"><i
                         class="tf-icon bx bx-chevron-left"></i></a>
                   </li>
                 }
@@ -898,7 +901,7 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesTrash.Item2-2)">@(ViewBag.MessagesTrash.Item2 -
+                      href="/email/Index/4?dePage=@(ViewBag.MessagesTrash.Item2-2)">@(ViewBag.MessagesTrash.Item2 -
                   2)</a>
                   </li>
                 }
@@ -906,19 +909,19 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesTrash.Item2-1)">@(ViewBag.MessagesTrash.Item2 -
+                      href="/email/Index/4?dePage=@(ViewBag.MessagesTrash.Item2-1)">@(ViewBag.MessagesTrash.Item2 -
                   1)</a>
                   </li>
                 }
                 <li class="page-item active">
                   <a class="page-link"
-                    href="/email/@ViewBag.route/@ViewBag.MessagesTrash.Item2">@ViewBag.MessagesTrash.Item2</a>
+                    href="/email/Index/4?dePage=@ViewBag.MessagesTrash.Item2">@ViewBag.MessagesTrash.Item2</a>
                 </li>
                 @if (ViewBag.MessagesTrash.Item2 + 1 <= ViewBag.MessagesTrash.Item4)
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesTrash.Item2+1)">@(ViewBag.MessagesTrash.Item2 +
+                      href="/email/Index/4?dePage=@(ViewBag.MessagesTrash.Item2+1)">@(ViewBag.MessagesTrash.Item2 +
                   1)</a>
                   </li>
                 }
@@ -926,21 +929,21 @@ else
                 {
                   <li class="page-item">
                     <a class="page-link"
-                      href="/email/@ViewBag.route/@(ViewBag.MessagesTrash.Item2+2)">@(ViewBag.MessagesTrash.Item2 +
+                      href="/email/Index/4?dePage=@(ViewBag.MessagesTrash.Item2+2)">@(ViewBag.MessagesTrash.Item2 +
                   2)</a>
                   </li>
                 }
                 @if (ViewBag.MessagesTrash.Item2 + 1 <= ViewBag.MessagesTrash.Item4)
                 {
                   <li class="page-item next">
-                    <a class="page-link" href="/email/@ViewBag.route/@(ViewBag.MessagesTrash.Item2+1)"><i
+                    <a class="page-link" href="/email/Index/4?dePage=@(ViewBag.MessagesTrash.Item2+1)"><i
                         class="tf-icon bx bx-chevron-right"></i></a>
                   </li>
                 }
                 @if (ViewBag.MessagesTrash.Item2 + 1 < ViewBag.MessagesTrash.Item4)
                 {
                   <li class="page-item last">
-                    <a class="page-link" href="@ViewBag.MessagesTrash.Item4"><i
+                    <a class="page-link" href="/email/Index/4?dePage=@ViewBag.MessagesTrash.Item4"><i
                         class="tf-icon bx bx-chevrons-right"></i></a>
                   </li>
                 }
@@ -952,13 +955,13 @@ else
 
         <!--/ Bootstrap Table with Header Dark -->
       </div>
-      <div class="tab-pane fade" id="navs-tabs-line-justified-new" role="tabpanel">
+      <div class="@Log.isActive(ViewBag.page , 5)" id="navs-tabs-line-justified-new" role="tabpanel">
         <div class="container-xxl flex-grow-1 container-p-y">
           <div class="col-xxl">
-            @if (ViewBag.Error != null)
+            @if (ViewBag.NewError != null)
             {
               <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
-                @ViewBag.Error
+                @ViewBag.NewError
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             }
