@@ -1,9 +1,8 @@
-public class ResultMessage
+public class ResultReply
 {
-    public int MessageId { get; set; }
-    public string MessageSerialNumber { get; set; }
-    public string MessageSubject { get; set; }
-    public string MessageBodyText { get; set; }
+    public int ReplyId { get; set; }
+    public string ReplySubject { get; set; }
+    public string ReplyBodyText { get; set; }
     public string CreateDate { get; set; }
     public string CreateTime { get; set; }
     public int SenderUserId { get; set; }
@@ -11,7 +10,5 @@ public class ResultMessage
     public string SenderFirstName { get; set; }
     public string SenderLastName { get; set; }
     public string SenderProfile { get; set; }
-    public ICollection<ResultReciver> Recivers { get; set; }
     public ICollection<ResultFile> Files { get; set; }
-    public ICollection<ResultReply> Child { get; set; }
 }

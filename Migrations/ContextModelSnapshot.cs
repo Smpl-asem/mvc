@@ -51,6 +51,36 @@ namespace test.Migrations
                     b.ToTable("Attecheds_tbl");
                 });
 
+            modelBuilder.Entity("AttechedReply", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<DateTime?>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ReplyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReplyId");
+
+                    b.ToTable("AttechedReplies_tbl");
+                });
+
             modelBuilder.Entity("MessageLog", b =>
                 {
                     b.Property<int?>("Id")
@@ -160,6 +190,38 @@ namespace test.Migrations
                     b.HasIndex("ReciverId");
 
                     b.ToTable("Recivers_tbl");
+                });
+
+            modelBuilder.Entity("Reply", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("BodyText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SenderUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("SenderUserId");
+
+                    b.ToTable("Reply_tbl");
                 });
 
             modelBuilder.Entity("Role", b =>
@@ -353,6 +415,15 @@ namespace test.Migrations
                     b.Navigation("Message");
                 });
 
+            modelBuilder.Entity("AttechedReply", b =>
+                {
+                    b.HasOne("Reply", "Reply")
+                        .WithMany("Atteched")
+                        .HasForeignKey("ReplyId");
+
+                    b.Navigation("Reply");
+                });
+
             modelBuilder.Entity("MessageLog", b =>
                 {
                     b.HasOne("Messages", "Message")
@@ -394,6 +465,21 @@ namespace test.Migrations
                     b.Navigation("Message");
 
                     b.Navigation("Reciver");
+                });
+
+            modelBuilder.Entity("Reply", b =>
+                {
+                    b.HasOne("Messages", "Parent")
+                        .WithMany("Child")
+                        .HasForeignKey("ParentId");
+
+                    b.HasOne("Users", "SenderUser")
+                        .WithMany()
+                        .HasForeignKey("SenderUserId");
+
+                    b.Navigation("Parent");
+
+                    b.Navigation("SenderUser");
                 });
 
             modelBuilder.Entity("RolePermission", b =>
@@ -449,12 +535,19 @@ namespace test.Migrations
                 {
                     b.Navigation("Atteched");
 
+                    b.Navigation("Child");
+
                     b.Navigation("Recivers");
                 });
 
             modelBuilder.Entity("Permission", b =>
                 {
                     b.Navigation("RolePermissions");
+                });
+
+            modelBuilder.Entity("Reply", b =>
+                {
+                    b.Navigation("Atteched");
                 });
 
             modelBuilder.Entity("Role", b =>

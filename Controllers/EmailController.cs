@@ -19,13 +19,6 @@ public class EmailController : Controller
         _env = env;
     }
 
-    [HttpGet]
-    public IActionResult AddMail()
-    {
-        ViewBag.Contacts = HomeController.Contact(db, User);
-        return View();
-    }
-
     [HttpPost]
     public async Task<IActionResult> AddMail(DtoMessage message)
     {
@@ -137,6 +130,53 @@ public class EmailController : Controller
 
 
 
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddReply(DtoReply reply){
+        if(reply.MessageId == null){
+            return Ok("ریدیییییییییییییییییییییییی");
+        }
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        Reply newReply = new Reply{
+            ParentId = reply.MessageId,
+            SenderUserId = UserId,
+            Subject = reply.Subject,
+            BodyText = reply.BodyText,
+            CreateDateTime = DateTime.UtcNow
+        };
+        db.Reply_tbl.Add(newReply);
+        db.SaveChanges();
+
+        int replyId = Convert.ToInt32(newReply.Id);
+        CreateMsgLog(reply.MessageId, UserId, 9);
+
+        if (reply.Files != null)
+        {
+            foreach (var item in reply.Files)
+            {
+                string FileExtension = Path.GetExtension(item.FileName);
+                var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
+                var path = $"{_env.WebRootPath}\\uploads\\EmailFiles\\ID{reply.MessageId}({replyId})-{NewFileName}";
+                string PathSave = $"\\uploads\\EmailFiles\\ID{replyId}-{NewFileName}";
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await item.CopyToAsync(stream);
+                }
+
+                db.AttechedReplies_tbl.Add(new AttechedReply
+                {
+                    FileName = item.FileName,
+                    ReplyId = replyId,
+                    FilePath = PathSave,
+                    FileType = FileExtension,
+                    CreateDateTime = DateTime.UtcNow
+                });
+                db.SaveChanges();
+            }
+        }
+        ViewBag.Result = "پیام شما با موفقیت ارسال شد";
+        return RedirectToAction("Index", "Email");
     }
 
     [HttpGet]
@@ -298,7 +338,7 @@ public class EmailController : Controller
     }
 
     [HttpGet]
-    public IActionResult ReturnEmail(int? Id = null, int? logPage = 1, bool isLog = false)
+    public IActionResult ReturnEmail(int? Id = null, int? logPage = 1, int pg = 1)
     {
         var data = search(1, User, db, null, Id);
         if (data.Item1.Count == 0)
@@ -318,7 +358,7 @@ public class EmailController : Controller
                 CreateMsgLog((int)Id, userId, 1);
             }
             ViewBag.MsgLog = Log.AllMsgLog(db, User, (int)Id, null, 10, logPage);
-            ViewBag.isLog = isLog;
+            ViewBag.pg = pg;
             return View("returnEmail");
         }
     }
@@ -347,6 +387,10 @@ public class EmailController : Controller
         .Include(x => x.Recivers)
             .ThenInclude(x => x.Reciver)
         .Include(x => x.Atteched)
+        .Include(x => x.Child)
+            .ThenInclude(x=>x.SenderUser)
+        .Include(x=> x.Child)
+            .ThenInclude(x=> x.Atteched)
         .AsQueryable();
 
         if (!String.IsNullOrEmpty(text))
@@ -395,6 +439,24 @@ public class EmailController : Controller
                 FileName = a.FileName,
                 FilePath = a.FilePath,
                 FileType = a.FileType,
+            }),
+            Child = (ICollection<ResultReply>)m.Child.Select(a=> new ResultReply{
+                ReplyId = (int)a.Id,
+                ReplySubject = a.Subject,
+                ReplyBodyText = a.BodyText,
+                CreateDate = persianDate(a.CreateDateTime).Item1,
+                CreateTime = persianDate(a.CreateDateTime).Item2,
+                SenderUserId = (int)a.SenderUser.Id,
+                SenderUser = a.SenderUser.Username,
+                SenderFirstName = a.SenderUser.FirstName,
+                SenderLastName = a.SenderUser.LastName,
+                SenderProfile = a.SenderUser.Profile,
+                Files = (ICollection<ResultFile>)a.Atteched.Select(x=>new ResultFile{
+                    FileId = (int)x.Id,
+                    FileName = x.FileName,
+                    FilePath = x.FilePath,
+                    FileType = x.FileType
+                })
             })
         })
             .ToList();

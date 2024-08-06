@@ -153,6 +153,8 @@ public class Log
                 return "حذف موقت کرد";
             case 8:
                 return "از لیست حذف شده ها خارج کرد";
+            case 9:
+                return "پاسخ داد";
             default:
                 return "WTF ? how You Get THERE ???";
 
@@ -176,9 +178,21 @@ public class Log
             return "tab-pane fade";
         }
     }
+    static public string isActive2(int page , int code){
+        if(page == code){
+            return "nav-link active";
+        }
+        else{
+            return "nav-link";
+        }
+    }
     static public string texter(string htText){
         var htmlDoc = new HtmlDocument();  
         htmlDoc.LoadHtml(htText);
         return htmlDoc.DocumentNode.InnerText;  
+    }
+
+    static public string isLogForReturnMessage(int isLog , int code){
+        return isLog==code ? "tab-pane fade show active" : "tab-pane fade";
     }
 }

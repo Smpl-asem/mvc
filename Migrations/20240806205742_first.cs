@@ -264,6 +264,71 @@ namespace test.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Reply_tbl",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ParentId = table.Column<int>(type: "int", nullable: true),
+                    SenderUserId = table.Column<int>(type: "int", nullable: true),
+                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BodyText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reply_tbl", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reply_tbl_Messages_tbl_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "Messages_tbl",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Reply_tbl_Users_tbl_SenderUserId",
+                        column: x => x.SenderUserId,
+                        principalTable: "Users_tbl",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AttechedReplies_tbl",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReplyId = table.Column<int>(type: "int", nullable: true),
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReplyId1 = table.Column<int>(type: "int", nullable: true),
+                    CreateDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AttechedReplies_tbl", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AttechedReplies_tbl_Messages_tbl_ReplyId",
+                        column: x => x.ReplyId,
+                        principalTable: "Messages_tbl",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_AttechedReplies_tbl_Reply_tbl_ReplyId1",
+                        column: x => x.ReplyId1,
+                        principalTable: "Reply_tbl",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AttechedReplies_tbl_ReplyId",
+                table: "AttechedReplies_tbl",
+                column: "ReplyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AttechedReplies_tbl_ReplyId1",
+                table: "AttechedReplies_tbl",
+                column: "ReplyId1");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Attecheds_tbl_MessageId",
                 table: "Attecheds_tbl",
@@ -295,6 +360,16 @@ namespace test.Migrations
                 column: "ReciverId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Reply_tbl_ParentId",
+                table: "Reply_tbl",
+                column: "ParentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reply_tbl_SenderUserId",
+                table: "Reply_tbl",
+                column: "SenderUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RolePermissions_tbl_PermissionId",
                 table: "RolePermissions_tbl",
                 column: "PermissionId");
@@ -324,6 +399,9 @@ namespace test.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AttechedReplies_tbl");
+
+            migrationBuilder.DropTable(
                 name: "Attecheds_tbl");
 
             migrationBuilder.DropTable(
@@ -348,13 +426,16 @@ namespace test.Migrations
                 name: "UserRoles_tbl");
 
             migrationBuilder.DropTable(
-                name: "Messages_tbl");
+                name: "Reply_tbl");
 
             migrationBuilder.DropTable(
                 name: "Permission_tbl");
 
             migrationBuilder.DropTable(
                 name: "Role_tbl");
+
+            migrationBuilder.DropTable(
+                name: "Messages_tbl");
 
             migrationBuilder.DropTable(
                 name: "Users_tbl");

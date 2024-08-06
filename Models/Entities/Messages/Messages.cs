@@ -15,6 +15,7 @@ public class Messages : Parent
 
     public List<Recivers>? Recivers { get; set; }
     public List<Atteched>? Atteched { get; set; }
+    public List<Reply>? Child { get; set; }
 
     public Messages()
     {

@@ -5,7 +5,7 @@ public class messagefilter
     int userId;
     public void RelatedItSelf(ref IQueryable<Messages> query)
     {
-        query = query.Where(m => m.SenderUserId == userId || m.Recivers.Any(x => x.ReciverId == userId)); // فقط ایمیل های مرتبط به فرد
+        query = query.Where(m => m.SenderUserId == userId || m.Recivers.Any(x => x.ReciverId == userId) || m.Child.Any(x=> x.SenderUserId == userId)); // فقط ایمیل های مرتبط به فرد
     }
 
     public void SearchByMessageId(ref IQueryable<Messages> query, int messageId){
