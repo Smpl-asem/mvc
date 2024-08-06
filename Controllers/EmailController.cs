@@ -163,16 +163,6 @@ public class EmailController : Controller
         return View("viewMails");
     }
     [HttpGet]
-    public IActionResult searchMail(int Id = 1)
-    {
-        var data = DataEater(Id, User, db, false, true);
-        ViewBag.Messages = data;
-        ViewBag.title = "لیست ارسالی";
-        ViewBag.route = "sent";
-        return View();
-    }
-
-    [HttpGet]
     public IActionResult TrashEmail(int Id = 1, int? msgId = null)
     {
         if (msgId.HasValue)
@@ -339,9 +329,13 @@ public class EmailController : Controller
         var data = search(Id, User, db, text);
         ViewBag.Messages = data;
         ViewBag.title = $"نتایج جستجو برای \"{text}\"";
-        ViewBag.route = "Search";
         ViewBag.text = text;
-        return View("viewMails");
+        return View("returnSearch");
+    }
+    [HttpGet]
+    public IActionResult searchMail()
+    {
+        return View("searchMail");
     }
 
     static public (List<ResultMessage>, int, int, int, int) search(int pageNumber, ClaimsPrincipal User, Context db, string? text = null, int? messageId = null)

@@ -49,13 +49,13 @@
         {
             <li class="nav-item">
                 <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#MsgData"
-                        aria-controls="MsgData" aria-selected="true">
+                    aria-controls="MsgData" aria-selected="true">
                     <i class="tf-icons bx bx-message me-1"></i>ایمیل
                 </button>
             </li>
             <li class="nav-item">
                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                        data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="false">
+                    data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="false">
                     <i class="tf-icons bx bx-alarm me-1"></i> رویداد
                 </button>
             </li>
@@ -64,13 +64,13 @@
         {
             <li class="nav-item">
                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#MsgData"
-                        aria-controls="MsgData" aria-selected="true">
+                    aria-controls="MsgData" aria-selected="true">
                     <i class="tf-icons bx bx-message me-1"></i>ایمیل
                 </button>
             </li>
             <li class="nav-item">
                 <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                        data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="false">
+                    data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="false">
                     <i class="tf-icons bx bx-alarm me-1"></i> رویداد
                 </button>
             </li>
@@ -99,85 +99,83 @@
                                 </small>
                             </div>
                             <div class="card-body">
-                                <form action="/Email/AddMail" enctype="multipart/form-data" method="post">
-                                    <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label" for="basic-default-name">فرستنده</label>
-                                        <div class="col-sm-10">
-                                            <input readonly type="text" class="form-control" id="basic-default-name"
-                                                   name="SerialNumber"
-                                                   value="@ViewBag.Messages.Item1[0].SenderFirstName @ViewBag.Messages.Item1[0].SenderLastName (@ViewBag.Messages.Item1[0].SenderUser)">
-                                        </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-name">فرستنده</label>
+                                    <div class="col-sm-10">
+                                        <input readonly type="text" class="form-control" id="basic-default-name"
+                                            name="SerialNumber"
+                                            value="@ViewBag.Messages.Item1[0].SenderFirstName @ViewBag.Messages.Item1[0].SenderLastName (@ViewBag.Messages.Item1[0].SenderUser)">
                                     </div>
-                                    <div class="row md-3">
-                                        <label for="ReciverId" class="col-sm-2 col-form-label">لیست گیرنده ها</label>
-                                        <div class="col-sm-10">
-                                            <select disabled id="ReciverId" class="select2 form-select" name="ReciversId"
-                                                    multiple>
-                                                @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
-                                                {@if (item.ReciverType == "4")
-                                                    {
-                                                        <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>
-                                                            @item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)
-                                                        </option>
-                                                    }}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row md-3">
-                                        <label for="CCId" class="col-sm-2 col-form-label">لیست رونوشت ها</label>
-                                        <div class="col-sm-10">
-                                            <select disabled id="CCId" class="select2 form-select" name="CCsId" multiple>
-                                                @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
+                                </div>
+                                <div class="row md-3">
+                                    <label for="ReciverId" class="col-sm-2 col-form-label">لیست گیرنده ها</label>
+                                    <div class="col-sm-10">
+                                        <select disabled id="ReciverId" class="select2 form-select" name="ReciversId"
+                                            multiple>
+                                            @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
+                                            {@if (item.ReciverType == "4")
                                                 {
-                                                    @if (item.ReciverType == "5")
-                                                    {
-                                                        <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>
-                                                            @item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)
-                                                        </option>
-                                                    }
-                                                }
-                                            </select>
-                                        </div>
+                                                    <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>
+                                                        @item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)
+                                                    </option>
+                                                }}
+                                        </select>
                                     </div>
-                                    <br>
-                                    <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label" for="basic-default-name">شماره سریال</label>
-                                        <div class="col-sm-10">
-                                            <input readonly type="text" class="form-control" id="basic-default-name"
-                                                   name="SerialNumber" placeholder="شماره سریال را وارد کنید"
-                                                   value="@ViewBag.Messages.Item1[0].MessageSerialNumber">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label" for="basic-default-company">موضوع</label>
-                                        <div class="col-sm-10">
-                                            <input readonly type="text" class="form-control" id="basic-default-company"
-                                                   placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject"
-                                                   value="@ViewBag.Messages.Item1[0].MessageSubject">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label" for="basic-default-message">پیام</label>
-                                        <div class="col-sm-10">
-                                            <textarea readonly id="basic-default-message" class="form-control"
-                                                      placeholder="متن پیام را اینجا بنویسید"
-                                                      aria-label="Hi, Do you have a moment to talk Joe?"
-                                                      aria-describedby="basic-icon-default-message2"
-                                                      name="BodyText">@ViewBag.Messages.Item1[0].MessageBodyText</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label" for="upload">فایل های پیوست شده</label>
-                                        <div class="col-sm-10">
-                                            @foreach (var item in ViewBag.Messages.Item1[0].Files)
+                                </div>
+                                <br>
+                                <div class="row md-3">
+                                    <label for="CCId" class="col-sm-2 col-form-label">لیست رونوشت ها</label>
+                                    <div class="col-sm-10">
+                                        <select disabled id="CCId" class="select2 form-select" name="CCsId" multiple>
+                                            @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
                                             {
-                                                <a type="button" class="btn btn-primary" href="@item.FilePath"
-                                                   target="_blank">@item.FileName</a>
+                                                @if (item.ReciverType == "5")
+                                                {
+                                                    <option data-avatar="@item.ReciverProfile" value="@item.ReciverId" selected>
+                                                        @item.ReciverFirstName @item.ReciverLastName (@item.ReciverUserName)
+                                                    </option>
+                                                }
                                             }
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-name">شماره سریال</label>
+                                    <div class="col-sm-10">
+                                        <input readonly type="text" class="form-control" id="basic-default-name"
+                                            name="SerialNumber" placeholder="شماره سریال را وارد کنید"
+                                            value="@ViewBag.Messages.Item1[0].MessageSerialNumber">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-company">موضوع</label>
+                                    <div class="col-sm-10">
+                                        <input readonly type="text" class="form-control" id="basic-default-company"
+                                            placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject"
+                                            value="@ViewBag.Messages.Item1[0].MessageSubject">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-message">پیام</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-control table-responsive">
+                                             @Html.Raw(@ViewBag.Messages.Item1[0].MessageBodyText)
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                @if(ViewBag.Messages.Item1[0].Files.Count != 0){
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="upload">فایل های پیوست شده</label>
+                                    <div class="col-sm-10">
+                                        @foreach (var item in ViewBag.Messages.Item1[0].Files)
+                                        {
+                                            <a type="button" class="btn btn-primary" href="@item.FilePath"
+                                                target="_blank">@item.FileName</a>
+                                        }
+                                    </div>
+                                </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -222,7 +220,7 @@
                             {
                                 <li class="page-item first">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=1">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=1">
                                         <i class="tf-icon bx bx-chevrons-left"></i>
                                     </a>
                                 </li>
@@ -231,7 +229,7 @@
                             {
                                 <li class="page-item prev">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
                                         <i class="tf-icon bx bx-chevron-left"></i>
                                     </a>
                                 </li>
@@ -241,7 +239,7 @@
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-2)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-2)">
                                         @(ViewBag.MsgLog.Item2
                                             - 2)
                                     </a>
@@ -251,7 +249,7 @@
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
                                         @(ViewBag.MsgLog.Item2
                                             - 1)
                                     </a>
@@ -259,13 +257,13 @@
                             }
                             <li class="page-item active">
                                 <a class="page-link"
-                                   href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item2">@ViewBag.MsgLog.Item2</a>
+                                    href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item2">@ViewBag.MsgLog.Item2</a>
                             </li>
                             @if (ViewBag.MsgLog.Item2 + 1 <= ViewBag.MsgLog.Item4)
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
                                         @(ViewBag.MsgLog.Item2
                                             + 1)
                                     </a>
@@ -275,7 +273,7 @@
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+2)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+2)">
                                         @(ViewBag.MsgLog.Item2
                                             + 2)
                                     </a>
@@ -285,7 +283,7 @@
                             {
                                 <li class="page-item next">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
                                         <i class="tf-icon bx bx-chevron-right"></i>
                                     </a>
                                 </li>
@@ -294,7 +292,7 @@
                             {
                                 <li class="page-item last">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item4">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item4">
                                         <i class="tf-icon bx bx-chevrons-right"></i>
                                     </a>
                                 </li>
@@ -330,15 +328,15 @@
                                         <label class="col-sm-2 col-form-label" for="basic-default-name">فرستنده</label>
                                         <div class="col-sm-10">
                                             <input readonly type="text" class="form-control" id="basic-default-name"
-                                                   name="SerialNumber"
-                                                   value="@ViewBag.Messages.Item1[0].SenderFirstName @ViewBag.Messages.Item1[0].SenderLastName (@ViewBag.Messages.Item1[0].SenderUser)">
+                                                name="SerialNumber"
+                                                value="@ViewBag.Messages.Item1[0].SenderFirstName @ViewBag.Messages.Item1[0].SenderLastName (@ViewBag.Messages.Item1[0].SenderUser)">
                                         </div>
                                     </div>
                                     <div class="row md-3">
                                         <label for="ReciverId" class="col-sm-2 col-form-label">لیست گیرنده ها</label>
                                         <div class="col-sm-10">
                                             <select disabled id="ReciverId" class="select2 form-select" name="ReciversId"
-                                                    multiple>
+                                                multiple>
                                                 @foreach (var item in ViewBag.Messages.Item1[0].Recivers)
                                                 {
                                                     @if (item.ReciverType == "4")
@@ -373,26 +371,26 @@
                                         <label class="col-sm-2 col-form-label" for="basic-default-name">شماره سریال</label>
                                         <div class="col-sm-10">
                                             <input readonly type="text" class="form-control" id="basic-default-name"
-                                                   name="SerialNumber" placeholder="شماره سریال را وارد کنید"
-                                                   value="@ViewBag.Messages.Item1[0].MessageSerialNumber">
+                                                name="SerialNumber" placeholder="شماره سریال را وارد کنید"
+                                                value="@ViewBag.Messages.Item1[0].MessageSerialNumber">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">موضوع</label>
                                         <div class="col-sm-10">
                                             <input readonly type="text" class="form-control" id="basic-default-company"
-                                                   placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject"
-                                                   value="@ViewBag.Messages.Item1[0].MessageSubject">
+                                                placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject"
+                                                value="@ViewBag.Messages.Item1[0].MessageSubject">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label" for="basic-default-message">پیام</label>
                                         <div class="col-sm-10">
                                             <textarea readonly id="basic-default-message" class="form-control"
-                                                      placeholder="متن پیام را اینجا بنویسید"
-                                                      aria-label="Hi, Do you have a moment to talk Joe?"
-                                                      aria-describedby="basic-icon-default-message2"
-                                                      name="BodyText">@ViewBag.Messages.Item1[0].MessageBodyText</textarea>
+                                                placeholder="متن پیام را اینجا بنویسید"
+                                                aria-label="Hi, Do you have a moment to talk Joe?"
+                                                aria-describedby="basic-icon-default-message2"
+                                                name="BodyText">@ViewBag.Messages.Item1[0].MessageBodyText</textarea>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -401,7 +399,7 @@
                                             @foreach (var item in ViewBag.Messages.Item1[0].Files)
                                             {
                                                 <a type="button" class="btn btn-primary" href="@item.FilePath"
-                                                   target="_blank">@item.FileName</a>
+                                                    target="_blank">@item.FileName</a>
                                             }
                                         </div>
                                     </div>
@@ -450,7 +448,7 @@
                             {
                                 <li class="page-item first">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=1">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=1">
                                         <i class="tf-icon bx bx-chevrons-left"></i>
                                     </a>
                                 </li>
@@ -459,7 +457,7 @@
                             {
                                 <li class="page-item prev">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
                                         <i class="tf-icon bx bx-chevron-left"></i>
                                     </a>
                                 </li>
@@ -469,7 +467,7 @@
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-2)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-2)">
                                         @(ViewBag.MsgLog.Item2
                                             - 2)
                                     </a>
@@ -479,7 +477,7 @@
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2-1)">
                                         @(ViewBag.MsgLog.Item2
                                             - 1)
                                     </a>
@@ -487,13 +485,13 @@
                             }
                             <li class="page-item active">
                                 <a class="page-link"
-                                   href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item2">@ViewBag.MsgLog.Item2</a>
+                                    href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item2">@ViewBag.MsgLog.Item2</a>
                             </li>
                             @if (ViewBag.MsgLog.Item2 + 1 <= ViewBag.MsgLog.Item4)
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
                                         @(ViewBag.MsgLog.Item2
                                             + 1)
                                     </a>
@@ -503,7 +501,7 @@
                             {
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+2)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+2)">
                                         @(ViewBag.MsgLog.Item2
                                             + 2)
                                     </a>
@@ -513,7 +511,7 @@
                             {
                                 <li class="page-item next">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@(ViewBag.MsgLog.Item2+1)">
                                         <i class="tf-icon bx bx-chevron-right"></i>
                                     </a>
                                 </li>
@@ -522,7 +520,7 @@
                             {
                                 <li class="page-item last">
                                     <a class="page-link"
-                                       href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item4">
+                                        href="/email/@ViewBag.route/@ViewBag.Messages.Item1[0].MessageId?isLog=True&LogPage=@ViewBag.MsgLog.Item4">
                                         <i class="tf-icon bx bx-chevrons-right"></i>
                                     </a>
                                 </li>

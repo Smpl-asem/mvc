@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a.semnani\\Desktop\\New folder (4)\\test.csproj": {}
+    "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\release\\mvc\\test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a.semnani\\Desktop\\New folder (4)\\test.csproj": {
+    "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\release\\mvc\\test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a.semnani\\Desktop\\New folder (4)\\test.csproj",
+        "projectUniqueName": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\release\\mvc\\test.csproj",
         "projectName": "test",
-        "projectPath": "C:\\Users\\a.semnani\\Desktop\\New folder (4)\\test.csproj",
-        "packagesPath": "C:\\Users\\a.semnani\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a.semnani\\Desktop\\New folder (4)\\obj\\",
+        "projectPath": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\release\\mvc\\test.csproj",
+        "packagesPath": "C:\\Users\\asemn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\asemn\\Desktop\\Code\\C#\\S3\\release\\mvc\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\a.semnani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\asemn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,6 +53,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.62, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -113,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

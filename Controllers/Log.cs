@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using HtmlAgilityPack;
 using Microsoft.EntityFrameworkCore;
 
 public class Log
@@ -174,5 +175,10 @@ public class Log
         else{
             return "tab-pane fade";
         }
+    }
+    static public string texter(string htText){
+        var htmlDoc = new HtmlDocument();  
+        htmlDoc.LoadHtml(htText);
+        return htmlDoc.DocumentNode.InnerText;  
     }
 }

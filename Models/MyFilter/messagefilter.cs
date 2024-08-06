@@ -14,10 +14,10 @@ public class messagefilter
     
     public void SearchBodyAndSubject(ref IQueryable<Messages> query, string filter)
     {
-        query = query.Where(x => !x.Deleted.Contains(userId));
+        DeleteCheck(ref query);
 
         if (!string.IsNullOrEmpty(filter))
-            query = query.Where(m => m.Subject.Contains(filter) || m.BodyText.Contains(filter));
+            query = query.Where(m => m.Subject.Contains(filter) || m.BodyText.Contains(filter) || m.SenderUser.Username.Contains(filter) || (m.SenderUser.FirstName + " " + m.SenderUser.LastName).Contains(filter) || m.Recivers.Any(r=> (r.Reciver.FirstName + " " + r.Reciver.LastName).Contains(filter) || r.Reciver.Username.Contains(filter)));
     }
 
     public void DeleteCheck(ref IQueryable<Messages> query){

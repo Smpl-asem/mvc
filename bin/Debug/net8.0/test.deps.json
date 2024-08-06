@@ -9,6 +9,7 @@
       "test/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "HtmlAgilityPack": "1.11.62",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.6",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.7",
           "Microsoft.AspNetCore.OpenApi": "8.0.6",
@@ -64,6 +65,14 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.62": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.62.0",
+            "fileVersion": "1.11.62.0"
           }
         }
       },
@@ -2008,6 +2017,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.62": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KS4h7ZjWsO6YixRfQgYdR+PZMbTaZod1LBPi+1Ph7dJCARzQm7DOKe5HPhP/o0EWX5l7QCgAZHa4VOa4pQa8JQ==",
+      "path": "htmlagilitypack/1.11.62",
+      "hashPath": "htmlagilitypack.1.11.62.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
