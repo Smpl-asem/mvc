@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Kavenegar;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -335,9 +336,8 @@ public class AuthController : Controller
     private void SmsCode(string Code, string Phone)
     {
         // real sms
-        // KavenegarApi SmsApi = new KavenegarApi(db.smsTokens.Find(1).Token);
-        // SmsApi.VerifyLookup(Phone, Code, "demo");
-        // return "Sms Sended";
+        KavenegarApi SmsApi = new KavenegarApi(db.smsTokens.Find(1).Token);
+        SmsApi.VerifyLookup(Phone, Code, "demo");
 
         // price less
         //watch from sql server

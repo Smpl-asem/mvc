@@ -682,7 +682,7 @@ else
                         @item.MessageSubject.Substring(0, Math.Min(10, item.MessageSubject.Length))
                       </strong>
                     </td>
-                    <td>@item.MessageBodyText.Substring(0, Math.Min(67, item.MessageBodyText.Length))</td>
+                    <td>@Log.texter(item.MessageBodyText).Substring(0, Math.Min(20, Log.texter(item.MessageBodyText).Length))@if(Math.Min(20, Log.texter(item.MessageBodyText).Length)==20){<span>...</span>}</td>
                     <td>
                       <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
@@ -1405,7 +1405,7 @@ else
                         @item.MessageSubject.Substring(0, Math.Min(10, item.MessageSubject.Length))
                       </strong>
                     </td>
-                    <td>@item.MessageBodyText.Substring(0, Math.Min(67, item.MessageBodyText.Length))</td>
+                    <td>@Log.texter(item.MessageBodyText).Substring(0, Math.Min(20, Log.texter(item.MessageBodyText).Length))@if(Math.Min(20, Log.texter(item.MessageBodyText).Length)==20){<span>...</span>}</td>
                     <td>
                       <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
@@ -2128,7 +2128,7 @@ else
                         @item.MessageSubject.Substring(0, Math.Min(10, item.MessageSubject.Length))
                       </strong>
                     </td>
-                    <td>@item.MessageBodyText.Substring(0, Math.Min(67, item.MessageBodyText.Length))</td>
+                    <td>@Log.texter(item.MessageBodyText).Substring(0, Math.Min(20, Log.texter(item.MessageBodyText).Length))@if(Math.Min(20, Log.texter(item.MessageBodyText).Length)==20){<span>...</span>}</td>
                     <td>
                       <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
